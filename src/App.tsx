@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/Navbar';
 import { About } from './Pages/About';
 import { Experience } from './Pages/Experience';
 import { Experiences } from './Pages/Experiences';
@@ -9,8 +10,11 @@ import { Formations } from './Pages/Formations';
 import { Home } from './Pages/Home';
 
 function App() {
+  const [, setGLang] = useState('FR');
+
   return (
     <BrowserRouter>
+      <Navbar onChangeLang={setGLang} />
       <Switch>
         <Route component={Home} path='/' exact />
         <Route component={About} path='/About' />
