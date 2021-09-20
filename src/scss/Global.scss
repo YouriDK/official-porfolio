@@ -1,0 +1,28 @@
+$dark-orange: #ff9f1c;
+$orange: #ffbf69;
+$white: #ffffff;
+$cyan: #cbf3f0;
+$clear-blue: #2ec4b6;
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: $dark-orange;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+pre {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}

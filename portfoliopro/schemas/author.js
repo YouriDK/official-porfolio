@@ -9,6 +9,21 @@ export default {
       type: 'string',
     },
     {
+      name: 'first_name',
+      title: 'First Name',
+      type: 'string',
+    },
+    {
+      name: 'last_name',
+      title: 'Last name',
+      type: 'string',
+    },
+    {
+      name: 'email',
+      title: 'Email',
+      type: 'string',
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -33,7 +48,7 @@ export default {
         {
           title: 'Block',
           type: 'block',
-          styles: [{title: 'Normal', value: 'normal'}],
+          styles: [{ title: 'Normal', value: 'normal' }],
           lists: [],
         },
       ],
@@ -45,4 +60,4 @@ export default {
       media: 'image',
     },
   },
-}
+};
