@@ -41,8 +41,21 @@ export default {
       },
     },
     {
-      name: 'bio',
-      title: 'Bio',
+      name: 'bio_fr',
+      title: 'Bio (FR)',
+      type: 'array',
+      of: [
+        {
+          title: 'Block',
+          type: 'block',
+          styles: [{ title: 'Normal', value: 'normal' }],
+          lists: [],
+        },
+      ],
+    },
+    {
+      name: 'bio_en',
+      title: 'Bio (EN)',
       type: 'array',
       of: [
         {
