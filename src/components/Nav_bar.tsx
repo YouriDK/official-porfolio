@@ -18,7 +18,8 @@ import {
 } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLang } from '../redux/structure/actions';
-
+import '../scss/Global.scss';
+import '../scss/Navbar.scss';
 const Nav_bar: FC<any> = (): JSX.Element => {
   const langage = useSelector((state: any) => state.lang);
   const { lang } = langage;
@@ -26,21 +27,30 @@ const Nav_bar: FC<any> = (): JSX.Element => {
   const linkedin_url = 'https://linkedin.com/in/youri-choucoutou-690522142';
 
   return (
-    <header>
+    <header className='navbar'>
       <Navbar>
-        <Nav navbar>
+        <Nav
+          style={{
+            listStyleType: 'none',
+            display: 'flex',
+          }}
+        >
           {lang === 'FR'
             ? Navbardata.map((nav: NavBarDataProps, index: number) => (
-                <NavItem key={index}>
-                  <NavLink to={nav.link}>{nav.title_FR}</NavLink>
+                <NavItem key={index} className='navitem'>
+                  <NavLink className='navlink hoverable' to={nav.link}>
+                    {nav.title_FR}
+                  </NavLink>
                 </NavItem>
               ))
             : Navbardata.map((nav: NavBarDataProps, index: number) => (
-                <NavItem key={index}>
-                  <NavLink to={nav.link}>{nav.title_EN}</NavLink>
+                <NavItem key={index} className='navitem'>
+                  <NavLink className='navlink hoverable' to={nav.link}>
+                    {nav.title_EN}
+                  </NavLink>
                 </NavItem>
               ))}
-          <NavItem>
+          <NavItem className='navitem hoverable'>
             <SocialIcon
               url={linkedin_url}
               className='icon'
@@ -49,7 +59,7 @@ const Nav_bar: FC<any> = (): JSX.Element => {
               style={{ height: 42, width: 42 }}
             />
           </NavItem>
-          <NavItem>
+          <NavItem className='navitem hoverable'>
             <Flag
               onClick={() => dispatch(setLang(lang === 'FR' ? 'GBR' : 'FR'))}
               code={lang === 'FR' ? 'GBR' : 'FR'}

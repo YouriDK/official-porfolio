@@ -4,9 +4,9 @@ import {
 
   // GET_LANG,
   SET_LANG,
-  GET_DATA_AUTHOR_REQUEST,
-  GET_DATA_AUTHOR_SUCCESS,
-  GET_DATA_AUTHOR_FAILED,
+  GET_AUTHOR_REQUEST,
+  GET_AUTHOR_SUCCESS,
+  GET_AUTHOR_FAILED,
 } from './type';
 import sanityClient from '../../client';
 
@@ -24,7 +24,7 @@ export const decreaseCounter = () => {
 
 export const getAuthor = async (dispatch: any) => {
   try {
-    dispatch({ type: GET_DATA_AUTHOR_REQUEST });
+    dispatch({ type: GET_AUTHOR_REQUEST });
     const data = await sanityClient.fetch(
       `*[_type == "author"]{
           name,
@@ -37,9 +37,9 @@ export const getAuthor = async (dispatch: any) => {
            }`
     );
 
-    dispatch({ type: GET_DATA_AUTHOR_SUCCESS, payload: data[0] });
+    dispatch({ type: GET_AUTHOR_SUCCESS, payload: data[0] });
   } catch (error: any) {
-    dispatch({ type: GET_DATA_AUTHOR_FAILED, payload: error.message });
+    dispatch({ type: GET_AUTHOR_FAILED, payload: error.message });
   }
 };
 

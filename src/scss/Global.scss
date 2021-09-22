@@ -4,7 +4,8 @@ $white: #ffffff;
 $cyan: #cbf3f0;
 $clear-blue: #2ec4b6;
 
-body {
+body,
+#root {
   margin: 0;
   padding: 0;
   display: flex;
@@ -25,4 +26,57 @@ pre {
   white-space: -pre-wrap;
   white-space: -o-pre-wrap;
   word-wrap: break-word;
+}
+
+// * Global
+.center-block {
+  margin: auto !important;
+}
+.left-text {
+  text-align: left !important;
+}
+
+.center-text {
+  text-align: center !important;
+}
+
+.justify-text {
+  text-align: justify !important;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.float-left {
+  float: left !important;
+}
+
+// * NavBar
+.navbar {
+  background-color: $clear-blue;
+}
+.navitem {
+  text-align: center;
+  min-height: 2rem;
+  min-width: 5rem;
+  margin: auto;
+  vertical-align: middle;
+}
+// * Deleted link style
+.navlink {
+  color: $white;
+  font-size: large;
+}
+.navlink:link {
+  text-decoration: none;
+}
+.navlink:visited {
+  text-decoration: none;
+}
+.navlink:hover {
+  text-decoration: none;
+}
+.navlink:active {
+  text-decoration: none;
 }

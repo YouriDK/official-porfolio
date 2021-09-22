@@ -2,9 +2,9 @@ import {
   INCREMENT,
   DECREMENT,
   SET_LANG,
-  GET_DATA_AUTHOR_REQUEST,
-  GET_DATA_AUTHOR_SUCCESS,
-  GET_DATA_AUTHOR_FAILED,
+  GET_AUTHOR_REQUEST,
+  GET_AUTHOR_SUCCESS,
+  GET_AUTHOR_FAILED,
 } from './type';
 
 const INITIAL_STATE = {
@@ -49,11 +49,11 @@ export const langReducer = (state: any = INITIAL_STATE, action: any) => {
 
 export const authorReducer = (state: any = INITIAL_STATE, action: any) => {
   switch (action.type) {
-    case GET_DATA_AUTHOR_REQUEST:
+    case GET_AUTHOR_REQUEST:
       return { ...state, loading: true };
-    case GET_DATA_AUTHOR_SUCCESS:
+    case GET_AUTHOR_SUCCESS:
       return { ...state, loading: false, author: action.payload };
-    case GET_DATA_AUTHOR_FAILED:
+    case GET_AUTHOR_FAILED:
       return { ...state, loading: false, error: action.payload };
     default:
       return state;
