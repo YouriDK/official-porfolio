@@ -11,13 +11,13 @@ body,
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: $dark-orange;
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
+  background-color: $dark-orange;
 }
 
 pre {
@@ -79,4 +79,10 @@ pre {
 }
 .navlink:active {
   text-decoration: none;
+}
+
+// * Home
+.cool-card {
+  min-width: 20%;
+  min-height: 20%;
 }

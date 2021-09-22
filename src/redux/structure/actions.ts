@@ -34,7 +34,8 @@ export const getAuthor = async (dispatch: any) => {
           slug,
           bio_fr,
           bio_en,
-           }`
+          "authorImage":image.asset->url
+      }`
     );
 
     dispatch({ type: GET_AUTHOR_SUCCESS, payload: data[0] });
@@ -43,11 +44,6 @@ export const getAuthor = async (dispatch: any) => {
   }
 };
 
-// export const getLang = () => {
-//   return {
-//     type: GET_LANG,
-//   };
-// };
 export const setLang = (lang: string) => {
   return {
     type: SET_LANG,

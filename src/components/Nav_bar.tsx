@@ -3,19 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { SocialIcon } from 'react-social-icons';
 import Flag from 'react-world-flags';
 import { Navbardata, NavBarDataProps } from '../data/Navbardata';
-import {
-  // Collapse,
-  Navbar,
-  // NavbarToggler,
-  // NavbarBrand,
-  Nav,
-  NavItem,
-  // UncontrolledDropdown,
-  // DropdownToggle,
-  // DropdownMenu,
-  // DropdownItem,
-  // NavbarText,
-} from 'reactstrap';
+import { Navbar, Nav, NavItem } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLang } from '../redux/structure/actions';
 import '../scss/Global.scss';
