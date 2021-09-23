@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux';
 
 import {
-  counterReducer,
   langReducer,
   authorReducer,
+  formationsReducer,
 } from './structure/reducer';
 
 const rootReducer = combineReducers({
-  counter: counterReducer,
   lang: langReducer,
   author: authorReducer,
+  formations: formationsReducer,
 });
 
 export default rootReducer;

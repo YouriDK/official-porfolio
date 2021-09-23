@@ -24,9 +24,7 @@ export const Home: FC<any> = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getAuthor);
-    console.log(' Author', author_store);
-    console.log(' Author Full', author);
-  }, [lang]);
+  }, []);
   return (
     <>
       {loading ? (

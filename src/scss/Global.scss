@@ -1,8 +1,16 @@
-$dark-orange: #ff9f1c;
-$orange: #ffbf69;
-$white: #ffffff;
-$cyan: #cbf3f0;
-$clear-blue: #2ec4b6;
+:root {
+  --dark-orange: #ff9f1c;
+  --orange: #ffbf69;
+  --white: #ffffff;
+  --cyan: #cbf3f0;
+  --clear-blue: #2ec4b6;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
 body,
 #root {
@@ -11,11 +19,8 @@ body,
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-
-  // overflow: hidden;
 }
 div {
-  // display: inline-block;
   min-width: '100%';
   min-height: '100%';
 }
@@ -24,7 +29,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: $dark-orange;
+  background-color: var(--dark-orange);
 }
 
 pre {
@@ -33,6 +38,30 @@ pre {
   white-space: -pre-wrap;
   white-space: -o-pre-wrap;
   word-wrap: break-word;
+}
+
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: 70em) {
+      @content;
+    }
+  } @else if $point == laptop {
+    @media (min-width: 64em) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media (min-width: 50em) {
+      @content;
+    }
+  } @else if $point == phablet {
+    @media (min-width: 37.5em) {
+      @content;
+    }
+  } @else if $point == mobileonly {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
 }
 
 // * Global
@@ -61,7 +90,7 @@ pre {
 
 // * NavBar
 .navbar {
-  background-color: $clear-blue;
+  background-color: var(--clear-blue);
 }
 .navitem {
   text-align: center;
@@ -72,7 +101,7 @@ pre {
 }
 // * Deleted link style
 .navlink {
-  color: $white;
+  color: var(--white);
   font-size: large;
 }
 .navlink:link {

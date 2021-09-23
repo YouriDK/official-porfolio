@@ -1,16 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import sanityClient from '../client';
+import { experience } from '../tools/model.js';
 
-export interface experience {
-  title: string;
-  from: Date;
-  to: Date;
-  entreprise: string;
-  sujet: string;
-  job: string;
-  taches: string;
-  tasks: string;
-}
 export const Experiences: FC<any> = (props: any): JSX.Element => {
   const [Experiences, setExperiences] = useState([]);
 
