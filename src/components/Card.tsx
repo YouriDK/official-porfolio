@@ -16,13 +16,11 @@ export const Card: FC<CardProps> = ({
   formation,
   lang,
 }: CardProps): JSX.Element => {
-  console.log('formation', formation);
-
   return formation ? (
     <div className='card'>
       <div className='icon'>
         <svg
-          enable-background='new 0 0 512 512'
+          enableBackground='new 0 0 512 512'
           height='512px'
           id='Layer_1'
           version='1.1'
@@ -80,7 +78,7 @@ export const Card: FC<CardProps> = ({
       </div>
 
       <Button className='btn'>
-        <NavLink to='#' className='navlink'>
+        <NavLink to={`/formations/${formation._id}`} className='navlink'>
           {lang === 'FR' ? texte.details_bouton.fr : texte.details_bouton.en}{' '}
         </NavLink>
       </Button>

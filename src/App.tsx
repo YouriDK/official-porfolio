@@ -20,8 +20,8 @@ function App() {
         <Route component={About} path='/About' />
         <Route component={Experiences} path='/experiences' />
         <Route component={Experience} path='/experience/:slug' />
-        <Route component={Formations} path='/formations' />
-        <Route component={Formation} path='/formation/:slug' />
+        <Route component={Formation} path='/formations/:id' />
+        <Route component={Formations} path='/formations/' />
       </Switch>
     </BrowserRouter>
   );

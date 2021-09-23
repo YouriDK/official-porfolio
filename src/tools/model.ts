@@ -8,9 +8,11 @@ export interface experience {
   job: string;
   taches: string;
   tasks: string;
+  _id: string;
 }
 
 export interface formations {
+  _id: string;
   order: number;
   title_fr: string;
   title_en: string;
