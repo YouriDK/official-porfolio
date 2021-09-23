@@ -4,8 +4,10 @@ import { getAuthor } from '../redux/structure/actions';
 import { CoolCard, CoolCardText, CoolCardLink } from 'react-cool-card';
 import { texte, urlFor } from '../tools/utils';
 import Display_text from '../components/Display_text';
+import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 
 export const Home: FC<any> = (): JSX.Element => {
+  const dispatch = useDispatch();
   const author_store = useSelector((state: any) => state.author);
   const lang_store = useSelector((state: any) => state.lang);
   const { author, loading, error } = author_store;
@@ -18,7 +20,7 @@ export const Home: FC<any> = (): JSX.Element => {
     minWidth: '100%',
     minHeight: '100%',
   };
-  const dispatch = useDispatch();
+  const CSS = `margin : auto`;
 
   useEffect(() => {
     dispatch(getAuthor);
@@ -28,7 +30,7 @@ export const Home: FC<any> = (): JSX.Element => {
   return (
     <>
       {loading ? (
-        <> Chargement </>
+        <ClimbingBoxLoader color='#2ec4b6' loading css={CSS} size={30} />
       ) : error ? (
         <>{error} </>
       ) : (
@@ -41,7 +43,6 @@ export const Home: FC<any> = (): JSX.Element => {
               height='30%'
             >
               <div>
-                {' '}
                 <img
                   style={styleImage}
                   src={urlFor(author.authorImage).url()}

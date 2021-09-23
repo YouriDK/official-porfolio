@@ -13,6 +13,8 @@ const Nav_bar: FC<any> = (): JSX.Element => {
   const { lang } = langage;
   const dispatch = useDispatch();
   const linkedin_url = 'https://linkedin.com/in/youri-choucoutou-690522142';
+  const mail_url =
+    'https://mail.google.com/mail/?view=cm&fs=1&to=youri.choucoutou@gmail.com';
 
   return (
     <header className='navbar'>
@@ -48,7 +50,17 @@ const Nav_bar: FC<any> = (): JSX.Element => {
             />
           </NavItem>
           <NavItem className='navitem hoverable'>
+            <SocialIcon
+              url={mail_url}
+              className='icon'
+              target='_blank'
+              fgColor='#fff'
+              style={{ height: 42, width: 42 }}
+            />
+          </NavItem>
+          <NavItem className='navitem hoverable'>
             <Flag
+              style={{ verticalAlign: 'middle' }}
               onClick={() => dispatch(setLang(lang === 'FR' ? 'GBR' : 'FR'))}
               code={lang === 'FR' ? 'GBR' : 'FR'}
               height='22'
