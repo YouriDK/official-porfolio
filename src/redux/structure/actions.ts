@@ -87,7 +87,7 @@ export const getFormationsWithId =
         knowledges_en,
       }`
       );
-      console.log('data', data);
+
       dispatch({ type: GET_FORMATION_SUCCESS, payload: data[0] });
     } catch (error: any) {
       dispatch({ type: GET_FORMATION_FAILED, payload: error.message });

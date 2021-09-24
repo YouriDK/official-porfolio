@@ -76,12 +76,11 @@ export const Card: FC<CardProps> = ({
           </li>
         </ul>
       </div>
-
-      <Button className='btn'>
-        <NavLink to={`/formations/${formation._id}`} className='navlink'>
+      <NavLink to={`/formations/${formation._id}`} className='navlink'>
+        <Button className='btn'>
           {lang === 'FR' ? texte.details_bouton.fr : texte.details_bouton.en}{' '}
-        </NavLink>
-      </Button>
+        </Button>
+      </NavLink>
     </div>
   ) : (
     <></>
