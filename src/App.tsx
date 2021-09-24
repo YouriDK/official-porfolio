@@ -7,6 +7,7 @@ import { Experiences } from './Pages/Experiences';
 import { Formation } from './Pages/Formation';
 import { Formations } from './Pages/Formations';
 import { Home } from './Pages/Home';
+import Skills from './Pages/Skills';
 import './scss/Global.scss';
 
 function App() {
@@ -18,8 +19,9 @@ function App() {
       <Switch>
         <Route component={Home} path='/' exact />
         <Route component={About} path='/About' />
+        <Route component={Skills} path='/skills' />
+        <Route component={Experience} path='/experiences/:id' />
         <Route component={Experiences} path='/experiences' />
-        <Route component={Experience} path='/experience/:slug' />
         <Route component={Formation} path='/formations/:id' />
         <Route component={Formations} path='/formations/' />
       </Switch>

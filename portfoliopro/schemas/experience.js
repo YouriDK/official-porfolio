@@ -34,15 +34,28 @@ export default {
       type: 'date',
     },
     {
-      title: 'Domaine',
-      name: 'domaine',
+      title: 'Domaine (FR)',
+      name: 'domaine_fr',
       type: 'string',
       options: {
         list: [
           { value: 'stage', title: 'Stage' },
-          { value: 'alternance', title: 'Alternance' },
-          { value: 'pro', title: 'Professionnel' },
+          { value: 'Alternance', title: 'Alternance' },
+          { value: 'Professionnel', title: 'Professionnel' },
           { value: 'auto', title: 'Autodidacte' },
+        ],
+      },
+    },
+    {
+      title: 'Domaine (EN)',
+      name: 'domaine_en',
+      type: 'string',
+      options: {
+        list: [
+          { value: 'Internship', title: 'Internship' },
+          { value: 'Work-study program', title: 'Work-study program' },
+          { value: 'Job/Work', title: 'Professionnel' },
+          { value: 'Self-taught', title: 'Self-taught' },
         ],
       },
     },

@@ -20,4 +20,18 @@ export const texte = {
     fr: `Plus d'infos ?`,
     en: 'More infos ?',
   },
+  formation_got: {
+    classes: {
+      fr: 'Classes',
+      en: 'Classes',
+    },
+    acquis: {
+      fr: 'Acquis',
+      en: 'Acquired',
+    },
+  },
+  skill: {
+    fr: 'Compétences',
+    en: 'Skills',
+  },
 };

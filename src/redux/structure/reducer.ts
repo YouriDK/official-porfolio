@@ -9,6 +9,12 @@ import {
   GET_FORMATION_REQUEST,
   GET_FORMATION_SUCCESS,
   GET_FORMATION_FAILED,
+  GET_SKILLS_REQUEST,
+  GET_SKILLS_SUCCESS,
+  GET_SKILLS_FAILED,
+  GET_XP_REQUEST,
+  GET_XP_SUCCESS,
+  GET_XP_FAILED,
 } from './type';
 
 const INITIAL_STATE = {
@@ -18,6 +24,8 @@ const INITIAL_STATE = {
   error: null,
   formations: [],
   formation: null,
+  skills: [],
+  xp: [],
 };
 
 export const langReducer = (state: any = INITIAL_STATE, action: any) => {
@@ -67,6 +75,31 @@ export const formationWithIdReducer = (
     case GET_FORMATION_SUCCESS:
       return { ...state, loading: false, formation: action.payload };
     case GET_FORMATION_FAILED:
+      return { ...state, loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+export const getSkillsReducer = (state: any = INITIAL_STATE, action: any) => {
+  switch (action.type) {
+    case GET_SKILLS_REQUEST:
+      return { ...state, loading: true };
+    case GET_SKILLS_SUCCESS:
+      return { ...state, loading: false, skills: action.payload };
+    case GET_SKILLS_FAILED:
+      return { ...state, loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const getXpReducer = (state: any = INITIAL_STATE, action: any) => {
+  switch (action.type) {
+    case GET_XP_REQUEST:
+      return { ...state, loading: true };
+    case GET_XP_SUCCESS:
+      return { ...state, loading: false, xp: action.payload };
+    case GET_XP_FAILED:
       return { ...state, loading: false, error: action.payload };
     default:
       return state;

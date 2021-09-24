@@ -1,14 +1,19 @@
 export interface experience {
-  order: number;
-  title: string;
-  from: Date;
-  to: Date;
-  entreprise: string;
-  sujet: string;
-  job: string;
-  taches: string;
-  tasks: string;
   _id: string;
+  order: number;
+  name_fr: string;
+  name_en: string;
+  entreprise: string;
+  to: Date;
+  from: Date;
+  domaine_fr: string;
+  domaine_en: string;
+  project_fr: string;
+  project_en: string;
+  description_fr: string;
+  description_en: string;
+  task_fr: string[];
+  task_en: string[];
 }
 
 export interface formations {
@@ -29,4 +34,10 @@ export interface formations {
   classes_en: string[];
   knowledges_fr: string[];
   knowledges_en: string[];
+}
+export interface skill {
+  _id: string;
+  name: string;
+  type: string;
+  level: string;
 }

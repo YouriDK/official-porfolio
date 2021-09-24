@@ -1,34 +1,43 @@
-import { FC, useEffect, useState } from 'react';
-import sanityClient from '../client';
-import { experience } from '../tools/model.js';
+import { FC, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { ClimbingBoxLoader } from 'react-spinners';
+import { Card } from '../components/Card';
+
+import { getXp } from '../redux/structure/actions';
+import { experience, skill } from '../tools/model';
+import { CSS } from '../tools/utils';
 
 export const Experiences: FC<any> = (props: any): JSX.Element => {
-  const [Experiences, setExperiences] = useState([]);
+  const dispatch = useDispatch();
+  const xp_store = useSelector((state: any) => state.xp);
+  const lang_store = useSelector((state: any) => state.lang);
+  const { loading, xp, error } = xp_store;
+  const { lang } = lang_store;
 
   useEffect(() => {
-    sanityClient
-      .fetch(
-        `*[_type == "experience"]{
-          title,
-          from,
-          to,
-          entreprise,
-          sujet,
-          job,
-          subject,
-          task,
-          taches }`
-      )
-      .then((data: any) => setExperiences(data))
-      .catch(console.error);
-  }, [props.value]);
+    dispatch(getXp);
+    console.log('xp_store ', xp_store);
+    console.log(xp);
+  }, []);
+
   return (
     <>
-      {' '}
-      {Experiences &&
-        Experiences.sort((a: any, b: any) => (a.index > b.index ? -1 : 1)).map(
-          (xp: experience) => <div>{xp.title}</div>
-        )}
+      {loading ? (
+        <ClimbingBoxLoader color='#2ec4b6' loading css={CSS} size={30} />
+      ) : error ? (
+        <>{error} </>
+      ) : (
+        <>
+          {xp
+            .sort((a: any, b: any) => (a.order > b.order ? -1 : 1))
+            .map((xp: experience, index: number) => (
+              <>
+                {console.log('DD', xp.name_fr)}
+                <Card xp={xp} key={index} lang={lang} />
+              </>
+            ))}
+        </>
+      )}
     </>
   );
 };

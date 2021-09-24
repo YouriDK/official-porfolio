@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { getFormationsWithId } from '../redux/structure/actions';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
-import { CSS, getYear } from '../tools/utils';
+import { CSS, getYear, texte } from '../tools/utils';
 import '../scss/Formation.scss';
+import { Container, Row, Col } from 'reactstrap';
 
 export const Formation: FC<any> = (): JSX.Element => {
   const { id }: any = useParams();
@@ -24,89 +25,101 @@ export const Formation: FC<any> = (): JSX.Element => {
       ) : error ? (
         <>{error} </>
       ) : (
-        <>
-          <span className='title'>
-            {lang === 'FR' ? formation.title_fr : formation.title_en}
-          </span>
-          <span className='title'>
-            {lang === 'FR' ? formation.specialite : formation.major}
-          </span>
-          <div
+        <Container>
+          <Row>
+            <Col className='title'>
+              {lang === 'FR' ? formation.title_fr : formation.title_en}
+            </Col>
+            <Col className='title'>
+              {lang === 'FR' ? formation.specialite : formation.major}
+            </Col>
+          </Row>
+          <Row
             style={{
               display: 'flex',
               justifyContent: 'space-around',
-              marginTop: '35px',
+              marginTop: '45px',
             }}
           >
-            <ul>
-              <li>
+            <Row>
+              <Col xs='6'>
                 {lang === 'FR' ? formation.school_fr : formation.school_en}
-              </li>
+              </Col>
               {lang === 'FR' ? (
-                <li>
+                <Col xs='6'>
                   De {getYear(formation.from)} à {getYear(formation.to)}
-                </li>
+                </Col>
               ) : (
-                <li>
+                <Col>
                   From {getYear(formation.from)} to {getYear(formation.to)}
-                </li>
+                </Col>
               )}
+              <Col xs='6'>{formation.place}</Col>
+            </Row>
+            <Row>
+              <Col xs='6'>
+                {lang === 'FR'
+                  ? formation.description_fr
+                  : formation.description_en}
+              </Col>
+            </Row>
+          </Row>
 
-              <li></li>
-            </ul>
-            <p>
-              {lang === 'FR'
-                ? formation.description_fr
-                : formation.description_en}
-            </p>
-          </div>
-          <div
+          <Row
             style={{
               display: 'flex',
               justifyContent: 'space-around',
               marginTop: '35px',
             }}
           >
-            <ul>
-              <span className='title'>Cours</span>
+            <Row>
+              <Col xs='6' className='title cyan'>
+                {lang === 'FR'
+                  ? texte.formation_got.classes.fr
+                  : texte.formation_got.classes.en}
+              </Col>
               <br />
               {lang === 'FR' ? (
                 <>
                   {formation.classes_fr &&
                     formation.classes_fr.map((classe: string) => (
-                      <span>{classe}</span>
+                      <Col>{classe}</Col>
                     ))}
                 </>
               ) : (
                 <>
                   {formation.classes_en &&
                     formation.classes_en.map((classe: string) => (
-                      <span>{classe}</span>
+                      <Col>{classe}</Col>
                     ))}
                 </>
               )}
-            </ul>
-            <ul>
-              <span className='title'>Acquis</span>
+            </Row>
+            <Row>
+              <Col xs='6' className='title cyan'>
+                {lang === 'FR'
+                  ? texte.formation_got.acquis.fr
+                  : texte.formation_got.acquis.en}
+              </Col>
               <br />
               {lang === 'FR' ? (
                 <>
-                  {formation.knowledges_fr &&
-                    formation.knowledges_fr.map((know: string) => (
-                      <span>{know}</span>
+                  {formation.classes_fr &&
+                    formation.classes_fr.map((classe: string) => (
+                      <Col>{classe}</Col>
                     ))}
                 </>
               ) : (
                 <>
-                  {formation.knowledges_en &&
-                    formation.knowledges_en.map((know: string) => (
-                      <span>{know}</span>
+                  {formation.classes_en &&
+                    formation.classes_en.map((classe: string) => (
+                      <Col>{classe}</Col>
                     ))}
                 </>
               )}
-            </ul>
-          </div>
-        </>
+            </Row>
+          </Row>
+        </Container>
       )}
     </>
   );

@@ -29,6 +29,7 @@ export default {
         list: [
           { value: 'software', title: 'Soft Ware' },
           { value: 'hardware', title: 'Hard Ware' },
+          { value: 'langage', title: 'Langage' },
           { value: 'others', title: 'Others' },
         ],
       },
@@ -39,7 +40,6 @@ export default {
       type: 'string',
       options: {
         list: [
-          { value: 'learning', title: 'Learning' },
           { value: 'basic', title: 'Basic' },
           { value: 'intermediate', title: 'Intermediate' },
           { value: 'advanced', title: 'Advanced' },

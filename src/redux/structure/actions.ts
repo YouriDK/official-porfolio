@@ -9,6 +9,12 @@ import {
   GET_FORMATION_REQUEST,
   GET_FORMATION_SUCCESS,
   GET_FORMATION_FAILED,
+  GET_SKILLS_FAILED,
+  GET_SKILLS_SUCCESS,
+  GET_SKILLS_REQUEST,
+  GET_XP_REQUEST,
+  GET_XP_SUCCESS,
+  GET_XP_FAILED,
 } from './type';
 import sanityClient from '../../client';
 
@@ -93,6 +99,54 @@ export const getFormationsWithId =
       dispatch({ type: GET_FORMATION_FAILED, payload: error.message });
     }
   };
+
+export const getSkills = async (dispatch: any) => {
+  try {
+    dispatch({ type: GET_SKILLS_REQUEST });
+    const data = await sanityClient.fetch(
+      `*[_type == "skills"]{
+          _id,
+          name,
+          type,
+          level,
+        }`
+    );
+
+    dispatch({ type: GET_SKILLS_SUCCESS, payload: data });
+  } catch (error: any) {
+    dispatch({ type: GET_SKILLS_FAILED, payload: error.message });
+  }
+};
+
+export const getXp = async (dispatch: any) => {
+  try {
+    dispatch({ type: GET_XP_REQUEST });
+    const data = await sanityClient.fetch(
+      `*[_type == "experience"]{
+        _id,
+        order,
+        name_fr,
+        name_en,
+        entreprise,
+        to,
+        from,
+        domaine_fr,
+        domaine_en,
+        project_fr,
+        project_en,
+        description_fr,
+        description_en,
+        task_fr,
+        task_en,
+   
+      }`
+    );
+    console.log('🎈', data);
+    dispatch({ type: GET_XP_SUCCESS, payload: data });
+  } catch (error: any) {
+    dispatch({ type: GET_XP_FAILED, payload: error.message });
+  }
+};
 
 export const setLang = (lang: string) => {
   return {
