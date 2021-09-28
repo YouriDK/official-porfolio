@@ -7,6 +7,7 @@ import {
   formationWithIdReducer,
   getSkillsReducer,
   getXpReducer,
+  getXpWithIdReducer,
 } from './structure/reducer';
 
 const rootReducer = combineReducers({
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   formation: formationWithIdReducer,
   skills: getSkillsReducer,
   xp: getXpReducer,
+  xp_id: getXpWithIdReducer,
 });
 
 export default rootReducer;

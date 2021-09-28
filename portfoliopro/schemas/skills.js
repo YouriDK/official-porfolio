@@ -28,8 +28,9 @@ export default {
       options: {
         list: [
           { value: 'software', title: 'Soft Ware' },
-          { value: 'hardware', title: 'Hard Ware' },
+          { value: 'langage_it', title: 'Langage IT' },
           { value: 'langage', title: 'Langage' },
+          { value: 'tech', title: 'Technologie' },
           { value: 'others', title: 'Others' },
         ],
       },

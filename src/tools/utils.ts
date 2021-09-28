@@ -1,5 +1,15 @@
 import imageUrlBuilder from '@sanity/image-url';
 import sanityClient from '../client';
+import { NavBarDataProps } from './model';
+
+export const Navbardata: NavBarDataProps[] = [
+  { title_FR: 'Acceuil', title_EN: 'Home', link: '/' },
+  { title_FR: ' Formations', title_EN: 'Formations', link: '/formations' },
+  { title_FR: ' Compétences', title_EN: 'Skills', link: '/skills' },
+  { title_FR: 'Experiences', title_EN: 'Experiences', link: '/experiences' },
+  { title_FR: 'Projets', title_EN: 'Projects', link: '/projects' },
+  // { title_FR: ' A propos !', title_EN: 'About', link: '/formation/:id' },
+];
 
 const builder = imageUrlBuilder(sanityClient);
 export const CSS = `margin : auto`;
@@ -9,6 +19,9 @@ export const urlFor = (source: any) => {
 
 export const getYear = (date: Date) => {
   return new Date(date).getFullYear();
+};
+export const getMonth = (date: Date) => {
+  return new Date(date).getMonth();
 };
 
 export const texte = {

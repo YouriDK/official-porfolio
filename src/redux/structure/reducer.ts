@@ -15,6 +15,9 @@ import {
   GET_XP_REQUEST,
   GET_XP_SUCCESS,
   GET_XP_FAILED,
+  GET_XP_ID_REQUEST,
+  GET_XP_ID_SUCCESS,
+  GET_XP_ID_FAILED,
 } from './type';
 
 const INITIAL_STATE = {
@@ -26,6 +29,7 @@ const INITIAL_STATE = {
   formation: null,
   skills: [],
   xp: [],
+  xp_id: null,
 };
 
 export const langReducer = (state: any = INITIAL_STATE, action: any) => {
@@ -100,6 +104,18 @@ export const getXpReducer = (state: any = INITIAL_STATE, action: any) => {
     case GET_XP_SUCCESS:
       return { ...state, loading: false, xp: action.payload };
     case GET_XP_FAILED:
+      return { ...state, loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+export const getXpWithIdReducer = (state: any = INITIAL_STATE, action: any) => {
+  switch (action.type) {
+    case GET_XP_ID_REQUEST:
+      return { ...state, loading: true };
+    case GET_XP_ID_SUCCESS:
+      return { ...state, loading: false, xp_id: action.payload };
+    case GET_XP_ID_FAILED:
       return { ...state, loading: false, error: action.payload };
     default:
       return state;

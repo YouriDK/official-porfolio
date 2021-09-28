@@ -15,6 +15,9 @@ import {
   GET_XP_REQUEST,
   GET_XP_SUCCESS,
   GET_XP_FAILED,
+  GET_XP_ID_REQUEST,
+  GET_XP_ID_SUCCESS,
+  GET_XP_ID_FAILED,
 } from './type';
 import sanityClient from '../../client';
 
@@ -141,10 +144,38 @@ export const getXp = async (dispatch: any) => {
    
       }`
     );
-    console.log('🎈', data);
     dispatch({ type: GET_XP_SUCCESS, payload: data });
   } catch (error: any) {
     dispatch({ type: GET_XP_FAILED, payload: error.message });
+  }
+};
+
+export const getXpWithId = (formation_id: string) => async (dispatch: any) => {
+  try {
+    dispatch({ type: GET_XP_ID_REQUEST });
+    const data = await sanityClient.fetch(
+      `*[_type == "experience" && _id == "${formation_id}"]{
+        _id,
+        order,
+        name_fr,
+        name_en,
+        entreprise,
+        to,
+        from,
+        domaine_fr,
+        domaine_en,
+        project_fr,
+        project_en,
+        description_fr,
+        description_en,
+        task_fr,
+        task_en,
+   
+      }`
+    );
+    dispatch({ type: GET_XP_ID_SUCCESS, payload: data[0] });
+  } catch (error: any) {
+    dispatch({ type: GET_XP_ID_FAILED, payload: error.message });
   }
 };
 

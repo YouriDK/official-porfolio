@@ -18,6 +18,10 @@ export const GET_XP_REQUEST = 'GET_XP_REQUEST';
 export const GET_XP_SUCCESS = 'GET_XP_SUCCESS';
 export const GET_XP_FAILED = 'GET_XP_FAILED';
 
+export const GET_XP_ID_REQUEST = 'GET_XP_ID_REQUEST';
+export const GET_XP_ID_SUCCESS = 'GET_XP_ID_SUCCESS';
+export const GET_XP_ID_FAILED = 'GET_XP_ID_FAILED';
+
 export const GET_DATA_FORMATION = 'GET_DATA_FORMATION';
 export const GET_DATA_XP = 'GET_DATA_XP';
 

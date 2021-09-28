@@ -4,10 +4,10 @@ import { ClimbingBoxLoader } from 'react-spinners';
 import { Card } from '../components/Card';
 
 import { getXp } from '../redux/structure/actions';
-import { experience, skill } from '../tools/model';
+import { experience } from '../tools/model';
 import { CSS } from '../tools/utils';
 
-export const Experiences: FC<any> = (props: any): JSX.Element => {
+const Projects: FC<any> = (): JSX.Element => {
   const dispatch = useDispatch();
   const xp_store = useSelector((state: any) => state.xp);
   const lang_store = useSelector((state: any) => state.lang);
@@ -17,7 +17,6 @@ export const Experiences: FC<any> = (props: any): JSX.Element => {
   useEffect(() => {
     dispatch(getXp);
   }, []);
-
   return (
     <>
       {loading ? (
@@ -27,10 +26,10 @@ export const Experiences: FC<any> = (props: any): JSX.Element => {
       ) : (
         <>
           {xp
-            .filter((xp: experience) => xp.domaine_fr !== 'Autodidacte')
-            .sort((a: any, b: any) => (a.order > b.order ? -1 : 1))
+            .filter((xp: experience) => xp.domaine_fr === 'Autodidacte')
             .map((xp: experience, index: number) => (
               <>
+                {console.log('xp', xp)}
                 <Card xp={xp} key={index} lang={lang} />
               </>
             ))}
@@ -39,3 +38,4 @@ export const Experiences: FC<any> = (props: any): JSX.Element => {
     </>
   );
 };
+export default Projects;

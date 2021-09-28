@@ -41,3 +41,11 @@ export interface skill {
   type: string;
   level: string;
 }
+
+export interface NavBarDataProps {
+  title_FR: string;
+  title_EN: string;
+  link: string;
+  className?: string;
+  activeClassName?: string;
+}

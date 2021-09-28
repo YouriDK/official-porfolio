@@ -39,10 +39,10 @@ export default {
       type: 'string',
       options: {
         list: [
-          { value: 'stage', title: 'Stage' },
+          { value: 'Stage', title: 'Stage' },
           { value: 'Alternance', title: 'Alternance' },
           { value: 'Professionnel', title: 'Professionnel' },
-          { value: 'auto', title: 'Autodidacte' },
+          { value: 'Autodidacte', title: 'Autodidacte' },
         ],
       },
     },
@@ -72,12 +72,12 @@ export default {
     {
       title: 'Description (FR)',
       name: 'description_fr',
-      type: 'text',
+      type: 'blockContent',
     },
     {
       title: 'Description(EN)',
       name: 'description_en',
-      type: 'text',
+      type: 'blockContent',
     },
     {
       title: 'Task (FR)',

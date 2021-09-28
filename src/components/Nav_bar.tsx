@@ -2,12 +2,14 @@ import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { SocialIcon } from 'react-social-icons';
 import Flag from 'react-world-flags';
-import { Navbardata, NavBarDataProps } from '../data/Navbardata';
 import { Navbar, Nav, NavItem } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLang } from '../redux/structure/actions';
+import { Navbardata } from '../tools/utils';
+import { NavBarDataProps } from '../tools/model';
 import '../scss/Global.scss';
 import '../scss/Navbar.scss';
+
 const Nav_bar: FC<any> = (): JSX.Element => {
   const langage = useSelector((state: any) => state.lang);
   const { lang } = langage;

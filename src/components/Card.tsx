@@ -1,11 +1,9 @@
 import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button } from 'reactstrap';
-
-import '../scss/Card.scss';
 import { experience, formations } from '../tools/model';
-import { getYear, texte } from '../tools/utils';
-
+import { getMonth, getYear, texte } from '../tools/utils';
+import '../scss/Card.scss';
 export interface CardProps {
   xp?: experience;
   formation?: formations;
@@ -17,7 +15,6 @@ export const Card: FC<CardProps> = ({
   lang,
   xp,
 }: CardProps): JSX.Element => {
-  console.log('XP ->', xp);
   return formation ? (
     <div className='card'>
       <div className='icon'>
@@ -52,7 +49,6 @@ export const Card: FC<CardProps> = ({
           </li>
         </ul>
       </div>
-      <div></div>
 
       <div className='features'>
         <ul>
@@ -119,17 +115,22 @@ export const Card: FC<CardProps> = ({
 
       <div className='features'>
         <ul>
-          <li>
-            {lang === 'FR' ? (
-              <span>
-                De {getYear(xp.from)} à {getYear(xp.to)}
-              </span>
-            ) : (
-              <span>
-                From {getYear(xp.from)} to {getYear(xp.to)}
-              </span>
-            )}
-          </li>
+          {xp.from && (
+            <li>
+              {lang === 'FR' ? (
+                <span>
+                  De {getMonth(xp.from)}/{getYear(xp.from)} à {getMonth(xp.to)}/
+                  {getYear(xp.to)}
+                </span>
+              ) : (
+                <span>
+                  From {getMonth(xp.from)}/{getYear(xp.from)} to{' '}
+                  {getMonth(xp.to)}/{getYear(xp.to)}
+                </span>
+              )}
+            </li>
+          )}
+
           <li>
             <span> {lang === 'FR' ? xp.domaine_fr : xp.domaine_en}</span>
           </li>
@@ -138,13 +139,20 @@ export const Card: FC<CardProps> = ({
           </li>
         </ul>
       </div>
-      <NavLink to={`/experiences/${xp._id}`} className='navlink'>
+      <NavLink
+        to={
+          xp.domaine_fr === 'Autodidacte'
+            ? `/projects/${xp._id}`
+            : `/experiences/${xp._id}`
+        }
+        className='navlink'
+      >
         <Button className='btn'>
-          {lang === 'FR' ? texte.details_bouton.fr : texte.details_bouton.en}{' '}
+          {lang === 'FR' ? texte.details_bouton.fr : texte.details_bouton.en}
         </Button>
       </NavLink>
     </div>
   ) : (
-    <span>Vide Nigga</span>
+    <span>Vide Ni**a</span>
   );
 };
