@@ -50,27 +50,7 @@ const Project: FC<any> = (): JSX.Element => {
               justifyContent: 'space-around',
               marginTop: '35px',
             }}
-          >
-            <Row>
-              <Col xs='6' className='title cyan'>
-                {lang === 'FR'
-                  ? texte.formation_got.classes.fr
-                  : texte.formation_got.classes.en}
-              </Col>
-              <br />
-              {lang === 'FR' ? (
-                <>
-                  {xp_id.task_fr &&
-                    xp_id.task_fr.map((classe: string) => <Col>{classe}</Col>)}
-                </>
-              ) : (
-                <>
-                  {xp_id.task_en &&
-                    xp_id.task_en.map((classe: string) => <Col>{classe}</Col>)}
-                </>
-              )}
-            </Row>
-          </Row>
+          ></Row>
         </Container>
       )}
     </>

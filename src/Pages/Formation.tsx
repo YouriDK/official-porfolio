@@ -37,27 +37,31 @@ export const Formation: FC<any> = (): JSX.Element => {
           <Row
             style={{
               display: 'flex',
-              justifyContent: 'space-around',
-              marginTop: '45px',
+              // justifyContent: 'space-around',
+              marginTop: '25px',
             }}
           >
-            <Row>
-              <Col xs='6'>
+            <Row style={{ maxWidth: '20%', padding: '2%' }}>
+              <Col xs='6' style={{ marginBottom: '15px' }}>
                 {lang === 'FR' ? formation.school_fr : formation.school_en}
               </Col>
               {lang === 'FR' ? (
-                <Col xs='6'>
+                <Col xs='6' style={{ marginBottom: '15px' }}>
                   De {getYear(formation.from)} à {getYear(formation.to)}
                 </Col>
               ) : (
-                <Col>
+                <Col style={{ marginBottom: '15px' }}>
                   From {getYear(formation.from)} to {getYear(formation.to)}
                 </Col>
               )}
-              <Col xs='6'>{formation.place}</Col>
+              <Col xs='6' style={{ marginBottom: '15px' }}>
+                {formation.place}
+              </Col>
             </Row>
-            <Row>
-              <Col xs='6'>
+            <Row
+              style={{ maxWidth: '80%', textAlign: 'justify', padding: '2%' }}
+            >
+              <Col>
                 {lang === 'FR'
                   ? formation.description_fr
                   : formation.description_en}
@@ -69,7 +73,7 @@ export const Formation: FC<any> = (): JSX.Element => {
             style={{
               display: 'flex',
               justifyContent: 'space-around',
-              marginTop: '35px',
+              marginTop: '20px',
             }}
           >
             <Row>
@@ -104,15 +108,15 @@ export const Formation: FC<any> = (): JSX.Element => {
               <br />
               {lang === 'FR' ? (
                 <>
-                  {formation.classes_fr &&
-                    formation.classes_fr.map((classe: string) => (
+                  {formation.knowledges_fr &&
+                    formation.knowledges_fr.map((classe: string) => (
                       <Col>{classe}</Col>
                     ))}
                 </>
               ) : (
                 <>
-                  {formation.classes_en &&
-                    formation.classes_en.map((classe: string) => (
+                  {formation.knowledges_en &&
+                    formation.knowledges_en.map((classe: string) => (
                       <Col>{classe}</Col>
                     ))}
                 </>

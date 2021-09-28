@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthor } from '../redux/structure/actions';
-import { CoolCard, CoolCardText, CoolCardLink } from 'react-cool-card';
+import { CoolCard, CoolCardText } from 'react-cool-card';
 import { texte, urlFor } from '../tools/utils';
 import Display_text from '../components/Display_text';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
@@ -25,6 +25,7 @@ export const Home: FC<any> = (): JSX.Element => {
   useEffect(() => {
     dispatch(getAuthor);
   }, []);
+
   return (
     <>
       {loading ? (
@@ -55,7 +56,6 @@ export const Home: FC<any> = (): JSX.Element => {
 
             <Display_text
               text={lang === 'FR' ? author.bio_fr : author.bio_en}
-              title
             />
           </>
         </>

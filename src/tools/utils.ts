@@ -35,8 +35,8 @@ export const texte = {
   },
   formation_got: {
     classes: {
-      fr: 'Classes',
-      en: 'Classes',
+      fr: 'Classes principales',
+      en: 'Main classes',
     },
     acquis: {
       fr: 'Acquis',

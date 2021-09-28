@@ -15,6 +15,10 @@ export const Display_text: FC<TextProps> = ({
     titre: {
       textAlign: 'center',
     },
+    footer: {
+      marginBottom: '50px',
+      textAlign: 'center',
+    },
   };
 
   return !text ? (
@@ -22,7 +26,7 @@ export const Display_text: FC<TextProps> = ({
   ) : title ? (
     <p style={style.titre}>{text}</p>
   ) : (
-    <p>{text}</p>
+    <p style={style.footer}>{text}</p>
   );
 };
 

@@ -28,10 +28,7 @@ const Projects: FC<any> = (): JSX.Element => {
           {xp
             .filter((xp: experience) => xp.domaine_fr === 'Autodidacte')
             .map((xp: experience, index: number) => (
-              <>
-                {console.log('xp', xp)}
-                <Card xp={xp} key={index} lang={lang} />
-              </>
+              <Card xp={xp} key={index} lang={lang} />
             ))}
         </>
       )}
