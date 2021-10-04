@@ -83,10 +83,24 @@ export const Experience: FC<any> = (): JSX.Element => {
           <Row
             style={{
               display: 'flex',
+              textAlign: 'center',
               justifyContent: 'space-around',
-              marginTop: '35px',
             }}
-          ></Row>
+          >
+            <Col style={{ display: 'flex', flexDirection: 'column' }}>
+              <span>Envrionnement</span>
+
+              {xp_id.environnement.map((en: string) => (
+                <span>{en}</span>
+              ))}
+            </Col>
+            <Col style={{ display: 'flex', flexDirection: 'column' }}>
+              <span> Taches principales</span>
+              {lang === 'FR'
+                ? xp_id.task_fr.map((task: string) => <span>{task}</span>)
+                : xp_id.task_en.map((task: string) => <span>{task}</span>)}
+            </Col>
+          </Row>
         </Container>
       )}
     </>
