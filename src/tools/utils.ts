@@ -48,3 +48,16 @@ export const texte = {
     en: 'Skills',
   },
 };
+
+export const blockContentToJsx = (blocks: any): string => {
+  let jsx = `<div class='blockContent'>`;
+  console.log('blocks', blocks);
+  if (blocks) {
+    for (const block of blocks) {
+      jsx += `<${block.children[0]._type}>${block.children[0].text}</${block.children[0]._type}><br/><br/>`;
+    }
+  }
+
+  jsx += `</div>`;
+  return jsx;
+};

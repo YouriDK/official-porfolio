@@ -76,52 +76,56 @@ export const Formation: FC<any> = (): JSX.Element => {
               marginTop: '20px',
             }}
           >
-            <Row>
-              <Col xs='6' className='title cyan'>
-                {lang === 'FR'
-                  ? texte.formation_got.classes.fr
-                  : texte.formation_got.classes.en}
-              </Col>
-              <br />
-              {lang === 'FR' ? (
-                <>
-                  {formation.classes_fr &&
-                    formation.classes_fr.map((classe: string) => (
-                      <Col>{classe}</Col>
-                    ))}
-                </>
-              ) : (
-                <>
-                  {formation.classes_en &&
-                    formation.classes_en.map((classe: string) => (
-                      <Col>{classe}</Col>
-                    ))}
-                </>
-              )}
-            </Row>
-            <Row>
-              <Col xs='6' className='title cyan'>
-                {lang === 'FR'
-                  ? texte.formation_got.acquis.fr
-                  : texte.formation_got.acquis.en}
-              </Col>
-              <br />
-              {lang === 'FR' ? (
-                <>
-                  {formation.knowledges_fr &&
-                    formation.knowledges_fr.map((classe: string) => (
-                      <Col>{classe}</Col>
-                    ))}
-                </>
-              ) : (
-                <>
-                  {formation.knowledges_en &&
-                    formation.knowledges_en.map((classe: string) => (
-                      <Col>{classe}</Col>
-                    ))}
-                </>
-              )}
-            </Row>
+            {formation.classes_fr && (
+              <Row>
+                <Col xs='6' className='title cyan'>
+                  {lang === 'FR'
+                    ? texte.formation_got.classes.fr
+                    : texte.formation_got.classes.en}
+                </Col>
+                <br />
+                {lang === 'FR' ? (
+                  <>
+                    {formation.classes_fr &&
+                      formation.classes_fr.map((classe: string) => (
+                        <Col>{classe}</Col>
+                      ))}
+                  </>
+                ) : (
+                  <>
+                    {formation.classes_en &&
+                      formation.classes_en.map((classe: string) => (
+                        <Col>{classe}</Col>
+                      ))}
+                  </>
+                )}
+              </Row>
+            )}
+            {formation.knowledges_fr && (
+              <Row>
+                <Col xs='6' className='title cyan'>
+                  {lang === 'FR'
+                    ? texte.formation_got.acquis.fr
+                    : texte.formation_got.acquis.en}
+                </Col>
+                <br />
+                {lang === 'FR' ? (
+                  <>
+                    {formation.knowledges_fr &&
+                      formation.knowledges_fr.map((classe: string) => (
+                        <Col>{classe}</Col>
+                      ))}
+                  </>
+                ) : (
+                  <>
+                    {formation.knowledges_en &&
+                      formation.knowledges_en.map((classe: string) => (
+                        <Col>{classe}</Col>
+                      ))}
+                  </>
+                )}
+              </Row>
+            )}
           </Row>
         </Container>
       )}

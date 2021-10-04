@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 import { ClimbingBoxLoader } from 'react-spinners';
 import { Col, Container, Row } from 'reactstrap';
 import { getXpWithId } from '../redux/structure/actions';
-import { CSS, getYear, texte } from '../tools/utils';
+import { CSS } from '../tools/utils';
 
 const Project: FC<any> = (): JSX.Element => {
   const { id }: any = useParams();

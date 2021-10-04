@@ -141,7 +141,7 @@ export const getXp = async (dispatch: any) => {
         description_en,
         task_fr,
         task_en,
-   
+        environnement,
       }`
     );
     dispatch({ type: GET_XP_SUCCESS, payload: data });
@@ -170,7 +170,7 @@ export const getXpWithId = (formation_id: string) => async (dispatch: any) => {
         description_en,
         task_fr,
         task_en,
-   
+        environnement,
       }`
     );
     dispatch({ type: GET_XP_ID_SUCCESS, payload: data[0] });

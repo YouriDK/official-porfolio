@@ -114,6 +114,7 @@ export const getXpWithIdReducer = (state: any = INITIAL_STATE, action: any) => {
     case GET_XP_ID_REQUEST:
       return { ...state, loading: true };
     case GET_XP_ID_SUCCESS:
+      console.log('payload', action.payload);
       return { ...state, loading: false, xp_id: action.payload };
     case GET_XP_ID_FAILED:
       return { ...state, loading: false, error: action.payload };

@@ -91,6 +91,9 @@ pre {
 .float-left {
   float: left !important;
 }
+.bottom-space {
+  margin-bottom: 10px;
+}
 
 // * NavBar
 .navbar {
@@ -125,4 +128,9 @@ pre {
 .cool-card {
   min-width: 20%;
   min-height: 20%;
+}
+
+.blockContent {
+  text-align: justify;
+  padding: 1%;
 }

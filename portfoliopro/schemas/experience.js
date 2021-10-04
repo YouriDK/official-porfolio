@@ -24,12 +24,12 @@ export default {
       type: 'string',
     },
     {
-      name: 'to',
+      name: 'from',
       title: 'De',
       type: 'date',
     },
     {
-      name: 'from',
+      name: 'to',
       title: 'à',
       type: 'date',
     },
@@ -88,6 +88,12 @@ export default {
     {
       title: 'Task (EN)',
       name: 'task_en',
+      type: 'array',
+      of: [{ type: 'string' }],
+    },
+    {
+      title: 'Environnement',
+      name: 'environnement',
       type: 'array',
       of: [{ type: 'string' }],
     },
