@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,700;1,300&family=PT+Serif:ital@1&display=swap');
+// * font des titres
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap');
+// * font du text
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@1,600&display=swap');
+
 :root {
   --dark-orange: #ff9f1c;
   --orange: #ffbf69;
@@ -34,6 +40,16 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--dark-orange);
+}
+h2,
+h1 {
+  text-align: center;
+  color: var(--expert);
+  font-family: Times, Times New Roman, serif;
+}
+span {
+  font-family: 'Spectral', serif;
+  font-size: 20px;
 }
 
 pre {
@@ -133,4 +149,21 @@ pre {
 .blockContent {
   text-align: justify;
   padding: 1%;
+}
+.text-footer {
+  text-align: center;
+  padding: 2%;
+  font-family: 'PT Serif', serif;
+  font-size: xx-large;
+}
+
+.text {
+  font-family: 'Arvo', serif;
+  font-size: large;
+}
+
+.big-title,
+.title {
+  font-family: 'Arvo', serif;
+  font-size: x-large;
 }

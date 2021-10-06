@@ -20,7 +20,40 @@ export const urlFor = (source: any) => {
 export const getYear = (date: Date) => {
   return new Date(date).getFullYear();
 };
-export const getMonth = (date: Date) => {
+export const getMonth = (date: Date, type?: boolean, lang?: string) => {
+  const Mois = [
+    'Janvier',
+    'Février',
+    'Mars',
+    'Avril',
+    'Mai',
+    'Juin',
+    'Juillet',
+    'Août',
+    'Septembre',
+    'Octobre',
+    'Novembre',
+    'Décembre',
+  ];
+  const Month = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  if (type) {
+    return lang === 'FR'
+      ? Mois[new Date(date).getMonth()]
+      : Month[new Date(date).getMonth()];
+  }
   return new Date(date).getMonth();
 };
 
@@ -47,6 +80,16 @@ export const texte = {
     fr: 'Compétences',
     en: 'Skills',
   },
+  xp: {
+    env: {
+      fr: 'Environnement',
+      en: 'Environment',
+    },
+    task: {
+      fr: 'Tâches principales',
+      en: 'Main tasks',
+    },
+  },
 };
 
 export const blockContentToJsx = (blocks: any): string => {
@@ -54,7 +97,7 @@ export const blockContentToJsx = (blocks: any): string => {
   console.log('blocks', blocks);
   if (blocks) {
     for (const block of blocks) {
-      jsx += `<${block.children[0]._type}>${block.children[0].text}</${block.children[0]._type}><br/><br/>`;
+      jsx += `<${block.children[0]._type}>${block.children[0].text}</${block.children[0]._type}>`;
     }
   }
 

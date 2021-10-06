@@ -24,7 +24,9 @@ export const Display_text: FC<TextProps> = ({
   return !text ? (
     <BarLoader color='#2ec4b6' loading css={CSS} />
   ) : title ? (
-    <p style={style.titre}>{text}</p>
+    <p style={style.titre} className='big-title'>
+      {text}
+    </p>
   ) : (
     <p style={style.footer}>{text}</p>
   );

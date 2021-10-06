@@ -76,7 +76,9 @@ export const Card: FC<CardProps> = ({
       </div>
       <NavLink to={`/formations/${formation._id}`} className='navlink'>
         <Button className='btn'>
-          {lang === 'FR' ? texte.details_bouton.fr : texte.details_bouton.en}{' '}
+          <span>
+            {lang === 'FR' ? texte.details_bouton.fr : texte.details_bouton.en}
+          </span>
         </Button>
       </NavLink>
     </div>
@@ -119,13 +121,13 @@ export const Card: FC<CardProps> = ({
             <li>
               {lang === 'FR' ? (
                 <span>
-                  De {getMonth(xp.from)}/{getYear(xp.from)} à {getMonth(xp.to)}/
-                  {getYear(xp.to)}
+                  De {getMonth(xp.from, true, lang)} {getYear(xp.from)} à{' '}
+                  {getMonth(xp.to, true, lang)} {getYear(xp.to)}
                 </span>
               ) : (
                 <span>
-                  From {getMonth(xp.from)}/{getYear(xp.from)} to{' '}
-                  {getMonth(xp.to)}/{getYear(xp.to)}
+                  From {getMonth(xp.from, true, lang)} {getYear(xp.from)} to{' '}
+                  {getMonth(xp.to, true, lang)} {getYear(xp.to)}
                 </span>
               )}
             </li>
@@ -148,7 +150,9 @@ export const Card: FC<CardProps> = ({
         className='navlink'
       >
         <Button className='btn'>
-          {lang === 'FR' ? texte.details_bouton.fr : texte.details_bouton.en}
+          <span>
+            {lang === 'FR' ? texte.details_bouton.fr : texte.details_bouton.en}
+          </span>
         </Button>
       </NavLink>
     </div>

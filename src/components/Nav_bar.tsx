@@ -30,14 +30,20 @@ const Nav_bar: FC<any> = (): JSX.Element => {
           {lang === 'FR'
             ? Navbardata.map((nav: NavBarDataProps, index: number) => (
                 <NavItem key={index} className='navitem'>
-                  <NavLink className='navlink hoverable' to={nav.link}>
+                  <NavLink
+                    className='navlink hoverable big-title'
+                    to={nav.link}
+                  >
                     {nav.title_FR}
                   </NavLink>
                 </NavItem>
               ))
             : Navbardata.map((nav: NavBarDataProps, index: number) => (
                 <NavItem key={index} className='navitem'>
-                  <NavLink className='navlink hoverable' to={nav.link}>
+                  <NavLink
+                    className='navlink hoverable big-title'
+                    to={nav.link}
+                  >
                     {nav.title_EN}
                   </NavLink>
                 </NavItem>
