@@ -27,10 +27,10 @@ export const Formation: FC<any> = (): JSX.Element => {
       ) : (
         <Container>
           <Row>
-            <Col className='title'>
+            <Col className='title blue'>
               {lang === 'FR' ? formation.title_fr : formation.title_en}
             </Col>
-            <Col className='title'>
+            <Col className='title blue'>
               {lang === 'FR' ? formation.specialite : formation.major}
             </Col>
           </Row>
@@ -41,11 +41,11 @@ export const Formation: FC<any> = (): JSX.Element => {
             }}
           >
             <Row
+              className='border center-text'
               style={{
                 maxWidth: '20%',
                 padding: '2%',
-                border: '5px double #2ec4b6',
-                borderRadius: '40px',
+
                 marginLeft: '30px',
                 marginRight: '10px',
                 paddingTop: '15px',
@@ -53,48 +53,56 @@ export const Formation: FC<any> = (): JSX.Element => {
               }}
             >
               <Col className='text' style={{ marginBottom: '15px' }}>
-                {lang === 'FR' ? formation.school_fr : formation.school_en}
+                <span>
+                  {lang === 'FR' ? formation.school_fr : formation.school_en}
+                </span>
               </Col>
               {lang === 'FR' ? (
                 <Col className='text' style={{ marginBottom: '15px' }}>
-                  De {getYear(formation.from)} à {getYear(formation.to)}
+                  <span>
+                    {' '}
+                    De {getYear(formation.from)} à {getYear(formation.to)}
+                  </span>
                 </Col>
               ) : (
                 <Col className='text' style={{ marginBottom: '15px' }}>
-                  From {getYear(formation.from)} to {getYear(formation.to)}
+                  <span>
+                    {' '}
+                    From {getYear(formation.from)} to {getYear(formation.to)}
+                  </span>
                 </Col>
               )}
               <Col className='text' style={{ marginBottom: '15px' }}>
-                {formation.place}
+                <span>{formation.place}</span>
               </Col>
             </Row>
             <Row
+              className='border'
               style={{
                 maxWidth: '80%',
                 textAlign: 'justify',
                 padding: '2%',
-                border: '5px double #2ec4b6',
-                borderRadius: '40px',
                 marginRight: '30px',
                 paddingTop: '15px',
                 paddingBottom: '15px',
               }}
             >
               <Col className='text'>
-                {lang === 'FR'
-                  ? formation.description_fr
-                  : formation.description_en}
+                <span>
+                  {lang === 'FR'
+                    ? formation.description_fr
+                    : formation.description_en}
+                </span>
               </Col>
             </Row>
           </Row>
 
           <Row
+            className='border'
             style={{
               display: 'flex',
               justifyContent: 'space-around',
               marginTop: '20px',
-              border: '5px double #2ec4b6',
-              borderRadius: '40px',
               marginLeft: '30px',
               marginRight: '30px',
               paddingTop: '15px',
@@ -102,33 +110,33 @@ export const Formation: FC<any> = (): JSX.Element => {
             }}
           >
             {formation.classes_fr && (
-              <Row>
-                <Col className='title cyan'>
+              <Row style={{ textAlign: 'center' }}>
+                <Col className='title blue'>
                   {lang === 'FR'
                     ? texte.formation_got.classes.fr
                     : texte.formation_got.classes.en}
                 </Col>
                 <br />
                 {lang === 'FR' ? (
-                  <>
+                  <Col className='column'>
                     {formation.classes_fr &&
                       formation.classes_fr.map((classe: string) => (
-                        <Col className='text center-text'>{classe}</Col>
+                        <span>{classe}</span>
                       ))}
-                  </>
+                  </Col>
                 ) : (
-                  <>
+                  <Col className='column'>
                     {formation.classes_en &&
                       formation.classes_en.map((classe: string) => (
-                        <Col className='text center-text'>{classe}</Col>
+                        <span>{classe}</span>
                       ))}
-                  </>
+                  </Col>
                 )}
               </Row>
             )}
             {formation.knowledges_fr && (
-              <Row>
-                <Col className='title cyan'>
+              <Row className='center-text column'>
+                <Col className='title blue'>
                   {lang === 'FR'
                     ? texte.formation_got.acquis.fr
                     : texte.formation_got.acquis.en}
@@ -138,14 +146,14 @@ export const Formation: FC<any> = (): JSX.Element => {
                   <>
                     {formation.knowledges_fr &&
                       formation.knowledges_fr.map((classe: string) => (
-                        <Col className='text center-text'>{classe}</Col>
+                        <span>{classe}</span>
                       ))}
                   </>
                 ) : (
                   <>
                     {formation.knowledges_en &&
                       formation.knowledges_en.map((classe: string) => (
-                        <Col className='text center-text'>{classe}</Col>
+                        <span>{classe}</span>
                       ))}
                   </>
                 )}

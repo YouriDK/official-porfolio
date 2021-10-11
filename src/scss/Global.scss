@@ -16,6 +16,10 @@
   --expert: #390099;
 }
 
+.purple {
+  color: var(--expert);
+}
+
 *,
 *:before,
 *:after {
@@ -166,4 +170,18 @@ pre {
 .title {
   font-family: 'Arvo', serif;
   font-size: x-large;
+}
+
+.blue {
+  color: #390099;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.border {
+  border: 5px double #2ec4b6;
+  border-radius: 40px;
 }

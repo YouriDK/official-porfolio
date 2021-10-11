@@ -36,21 +36,26 @@ export const Experience: FC<any> = (): JSX.Element => {
       ) : (
         <Container>
           <Row>
-            <Col className='title'>
-              <h1>{lang === 'FR' ? xp_id.name_fr : xp_id.name_en}</h1>
+            <Col className='title purple'>
+              {lang === 'FR' ? xp_id.name_fr : xp_id.name_en}
             </Col>
           </Row>
           <Row
             style={{
               display: 'flex',
-              justifyContent: 'space-around',
-              marginTop: '20px',
             }}
           >
             <Col xs='6' style={{ display: 'flex', margin: '2%' }}>
               {lang === 'FR' ? (
                 <>
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div
+                    className=' column border'
+                    style={{
+                      maxWidth: '20%',
+                      padding: '10px 2%',
+                      marginRight: '10px',
+                    }}
+                  >
                     <span className='center-text bottom-space'>
                       {xp_id.entreprise}
                     </span>
@@ -67,7 +72,16 @@ export const Experience: FC<any> = (): JSX.Element => {
                     </span>
                   </div>
                   <div
-                    style={{ flex: 1, marginLeft: '20px' }}
+                    className='border'
+                    style={{
+                      flex: 1,
+                      maxWidth: '80%',
+                      textAlign: 'justify',
+                      padding: '2%',
+                      marginRight: '30px',
+                      paddingTop: '15px',
+                      paddingBottom: '15px',
+                    }}
                     dangerouslySetInnerHTML={{
                       __html: blockContentToJsx(xp_id.description_fr),
                     }}
@@ -75,7 +89,14 @@ export const Experience: FC<any> = (): JSX.Element => {
                 </>
               ) : (
                 <>
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div
+                    className='column border'
+                    style={{
+                      maxWidth: '20%',
+                      padding: '10px 2%',
+                      marginRight: '10px',
+                    }}
+                  >
                     <span className='center-text bottom-space'>
                       {xp_id.entreprise}
                     </span>
@@ -92,7 +113,16 @@ export const Experience: FC<any> = (): JSX.Element => {
                     </span>
                   </div>
                   <div
-                    style={{ flex: 1, marginLeft: '20px' }}
+                    className='border'
+                    style={{
+                      flex: 1,
+                      maxWidth: '80%',
+                      textAlign: 'justify',
+                      padding: '2%',
+                      marginRight: '30px',
+                      paddingTop: '15px',
+                      paddingBottom: '15px',
+                    }}
                     dangerouslySetInnerHTML={{
                       __html: blockContentToJsx(xp_id.description_en),
                     }}
@@ -102,30 +132,29 @@ export const Experience: FC<any> = (): JSX.Element => {
             </Col>
           </Row>
           <Row
+            className='border center-text'
             style={{
               display: 'flex',
-              textAlign: 'center',
               justifyContent: 'space-around',
+              margin: '10px 30px',
+              paddingTop: '15px',
+              paddingBottom: '15px',
             }}
           >
-            <Col style={{ display: 'flex', flexDirection: 'column' }}>
+            <Col className='column'>
               <h2>{lang === 'FR' ? texte.xp.env.fr : texte.xp.env.en}</h2>
 
               {xp_id.environnement &&
                 xp_id.environnement.map((en: string) => (
-                  <span style={{ marginTop: '5px' }}>{en}</span>
+                  <span style={{ marginTop: '1px' }}>{en}</span>
                 ))}
             </Col>
-            <Col style={{ display: 'flex', flexDirection: 'column' }}>
+            <Col className='column'>
               <h2> {lang === 'FR' ? texte.xp.task.fr : texte.xp.task.en}</h2>
 
               {xp_id.task_fr && lang === 'FR'
-                ? xp_id.task_fr.map((task: string) => (
-                    <span style={{ marginTop: '5px' }}>{task}</span>
-                  ))
-                : xp_id.task_en.map((task: string) => (
-                    <span style={{ marginTop: '5px' }}>{task}</span>
-                  ))}
+                ? xp_id.task_fr.map((task: string) => <span>{task}</span>)
+                : xp_id.task_en.map((task: string) => <span>{task}</span>)}
             </Col>
           </Row>
         </Container>
