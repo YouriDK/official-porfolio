@@ -22,7 +22,7 @@ export const Experience: FC<any> = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getXpWithId(id));
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <>

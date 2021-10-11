@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Row, Col } from 'reactstrap';
+import { Row } from 'reactstrap';
 import '../scss/CircleProgress.scss';
 import { skill } from '../tools/model';
 
@@ -7,9 +7,7 @@ interface CircleProgressProps {
   skill: skill;
 }
 
-const CircleProgress: FC<CircleProgressProps> = ({
-  skill: skill,
-}): JSX.Element => {
+const CircleProgress: FC<CircleProgressProps> = ({ skill }): JSX.Element => {
   return (
     <>
       <Row>

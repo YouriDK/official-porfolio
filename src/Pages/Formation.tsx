@@ -17,7 +17,7 @@ export const Formation: FC<any> = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getFormationsWithId(id));
-  }, []);
+  }, [dispatch, id]);
   return (
     <>
       {loading ? (

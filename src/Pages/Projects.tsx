@@ -16,7 +16,7 @@ const Projects: FC<any> = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getXp);
-  }, []);
+  }, [dispatch]);
   return (
     <>
       {loading ? (

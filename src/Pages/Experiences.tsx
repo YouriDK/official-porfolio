@@ -4,7 +4,7 @@ import { ClimbingBoxLoader } from 'react-spinners';
 import { Card } from '../components/Card';
 
 import { getXp } from '../redux/structure/actions';
-import { experience, skill } from '../tools/model';
+import { experience } from '../tools/model';
 import { CSS } from '../tools/utils';
 
 export const Experiences: FC<any> = (props: any): JSX.Element => {
@@ -16,7 +16,7 @@ export const Experiences: FC<any> = (props: any): JSX.Element => {
 
   useEffect(() => {
     dispatch(getXp);
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Nav_bar from './components/Nav_bar';
+import NAVBAR from './components/Nav_bar';
 import { About } from './Pages/About';
 import { Experience } from './Pages/Experience';
 import { Experiences } from './Pages/Experiences';
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Nav_bar onChangeLang={setGLang} />
+      <NAVBAR onChangeLang={setGLang} />
       <Switch>
         <Route component={Home} path='/' exact />
         <Route component={About} path='/About' />

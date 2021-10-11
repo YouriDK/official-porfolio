@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAuthor } from '../redux/structure/actions';
 import { CoolCard, CoolCardText } from 'react-cool-card';
 import { texte, urlFor } from '../tools/utils';
-import Display_text from '../components/Display_text';
+import DISPLAYTEXT from '../components/Display_text';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 
 export const Home: FC<any> = (): JSX.Element => {
@@ -24,7 +24,7 @@ export const Home: FC<any> = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getAuthor);
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -43,13 +43,14 @@ export const Home: FC<any> = (): JSX.Element => {
             >
               <div>
                 <img
+                  alt=''
                   style={styleImage}
                   src={urlFor(author.authorImage).url()}
                 />
               </div>
 
               <CoolCardText
-                title={<Display_text text={author.name} title />}
+                title={<DISPLAYTEXT text={author.name} title />}
                 description={lang === 'FR' ? texte.modo.fr : texte.modo.en}
               />
             </CoolCard>
