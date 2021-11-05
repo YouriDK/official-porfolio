@@ -141,6 +141,7 @@ export const getXp = async (dispatch: any) => {
         description_en,
         task_fr,
         task_en,
+        link,
         environnement,
       }`
     );
@@ -170,6 +171,7 @@ export const getXpWithId = (formation_id: string) => async (dispatch: any) => {
         description_en,
         task_fr,
         task_en,
+        link,
         environnement,
       }`
     );

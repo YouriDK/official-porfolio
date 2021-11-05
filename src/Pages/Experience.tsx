@@ -1,16 +1,10 @@
 import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { ClimbingBoxLoader } from 'react-spinners';
 import { Col, Container, Row } from 'reactstrap';
+import LoadingBox from '../components/LoadingBox';
 import { getXpWithId } from '../redux/structure/actions';
-import {
-  blockContentToJsx,
-  CSS,
-  getMonth,
-  getYear,
-  texte,
-} from '../tools/utils';
+import { blockContentToJsx, getMonth, getYear, texte } from '../tools/utils';
 
 export const Experience: FC<any> = (): JSX.Element => {
   const { id }: any = useParams();
@@ -23,14 +17,14 @@ export const Experience: FC<any> = (): JSX.Element => {
   useEffect(() => {
     dispatch(getXpWithId(id));
   }, [dispatch, id]);
-
+  console.log(xp_id);
   return (
     <>
       {loading ? (
-        <ClimbingBoxLoader color='#2ec4b6' loading css={CSS} size={30} />
+        <LoadingBox Icon color='#4c956c' size={150} />
       ) : error ? (
         <>
-          <ClimbingBoxLoader color='#ff0054' loading css={CSS} size={30} />
+          <LoadingBox Icon color='#4c956c' size={150} />
           <span>{error}</span>{' '}
         </>
       ) : (
@@ -62,15 +56,18 @@ export const Experience: FC<any> = (): JSX.Element => {
                     <span className='center-text bottom-space'>
                       {xp_id.domaine_fr}
                     </span>
+
                     <span className='center-text bottom-space'>
                       {xp_id.project_fr}
                     </span>
+                    {xp_id.link && <a href={xp_id.link}>{xp_id.link}</a>}
                     <span className='center-text bottom-space'>
                       De {getMonth(xp_id.from, true, lang)}{' '}
                       {getYear(xp_id.from)} à {getMonth(xp_id.to, true, lang)}{' '}
                       {getYear(xp_id.to)}
                     </span>
                   </div>
+
                   <div
                     className='border'
                     style={{
@@ -106,12 +103,14 @@ export const Experience: FC<any> = (): JSX.Element => {
                     <span className='center-text bottom-space'>
                       {xp_id.project_en}
                     </span>
+                    {xp_id.link && <a href={xp_id.link}>{xp_id.link}</a>}
                     <span className='center-text bottom-space'>
                       From {getMonth(xp_id.from, true, lang)}{' '}
                       {getYear(xp_id.from)} to {getMonth(xp_id.to, true, lang)}{' '}
                       {getYear(xp_id.to)}
                     </span>
                   </div>
+
                   <div
                     className='border'
                     style={{

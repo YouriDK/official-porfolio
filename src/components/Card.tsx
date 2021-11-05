@@ -15,6 +15,7 @@ export const Card: FC<CardProps> = ({
   lang,
   xp,
 }: CardProps): JSX.Element => {
+  console.log('xp', xp);
   return formation ? (
     <div className='card'>
       <div className='icon'>
@@ -111,6 +112,11 @@ export const Card: FC<CardProps> = ({
           <li>
             <span>{xp.entreprise}</span>
           </li>
+          {xp?.link && (
+            <li>
+              <a href={xp.link}>{xp.link}</a>
+            </li>
+          )}
         </ul>
       </div>
       <div></div>

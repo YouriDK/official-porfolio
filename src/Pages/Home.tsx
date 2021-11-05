@@ -4,7 +4,7 @@ import { getAuthor } from '../redux/structure/actions';
 import { CoolCard, CoolCardText } from 'react-cool-card';
 import { texte, urlFor } from '../tools/utils';
 import DISPLAYTEXT from '../components/Display_text';
-import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
+import LoadingBox from '../components/LoadingBox';
 
 export const Home: FC<any> = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -20,7 +20,6 @@ export const Home: FC<any> = (): JSX.Element => {
     minWidth: '100%',
     minHeight: '100%',
   };
-  const CSS = `margin : auto`;
 
   useEffect(() => {
     dispatch(getAuthor);
@@ -29,7 +28,7 @@ export const Home: FC<any> = (): JSX.Element => {
   return (
     <>
       {loading ? (
-        <ClimbingBoxLoader color='#2ec4b6' loading css={CSS} size={30} />
+        <LoadingBox Icon color='#4c956c' size={150} />
       ) : error ? (
         <>{error} </>
       ) : (
@@ -45,7 +44,7 @@ export const Home: FC<any> = (): JSX.Element => {
                 <img
                   alt=''
                   style={styleImage}
-                  src={urlFor(author.authorImage).url()}
+                  src={urlFor(author.authorImage).width(400).url()}
                 />
               </div>
 

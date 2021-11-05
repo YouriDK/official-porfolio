@@ -2,10 +2,10 @@ import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { getFormationsWithId } from '../redux/structure/actions';
-import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
-import { CSS, getYear, texte } from '../tools/utils';
+import { getYear, texte } from '../tools/utils';
 import '../scss/Formation.scss';
 import { Container, Row, Col } from 'reactstrap';
+import LoadingBox from '../components/LoadingBox';
 
 export const Formation: FC<any> = (): JSX.Element => {
   const { id }: any = useParams();
@@ -21,7 +21,7 @@ export const Formation: FC<any> = (): JSX.Element => {
   return (
     <>
       {loading ? (
-        <ClimbingBoxLoader color='#2ec4b6' loading css={CSS} size={30} />
+        <LoadingBox Icon color='#4c956c' size={150} />
       ) : error ? (
         <>{error} </>
       ) : (

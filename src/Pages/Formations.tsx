@@ -1,9 +1,8 @@
 import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 import { Card } from '../components/Card';
+import LoadingBox from '../components/LoadingBox';
 import { getFormations } from '../redux/structure/actions';
-import { CSS } from '../tools/utils';
 
 export const Formations: FC<any> = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -18,7 +17,7 @@ export const Formations: FC<any> = (): JSX.Element => {
   return (
     <>
       {loading ? (
-        <ClimbingBoxLoader color='#2ec4b6' loading css={CSS} size={30} />
+        <LoadingBox Icon color='#4c956c' size={150} />
       ) : error ? (
         <>{error} </>
       ) : (

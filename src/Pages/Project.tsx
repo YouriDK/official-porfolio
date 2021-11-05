@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { ClimbingBoxLoader } from 'react-spinners';
 import { Col, Container, Row } from 'reactstrap';
+import LoadingBox from '../components/LoadingBox';
 import { getXpWithId } from '../redux/structure/actions';
 import { blockContentToJsx, CSS, texte } from '../tools/utils';
 
@@ -20,10 +21,10 @@ const Project: FC<any> = (): JSX.Element => {
   return (
     <>
       {loading ? (
-        <ClimbingBoxLoader color='#2ec4b6' loading css={CSS} size={30} />
+        <LoadingBox Icon color='#4c956c' size={150} />
       ) : error ? (
         <>
-          <ClimbingBoxLoader color='#ff0054' loading css={CSS} size={30} />
+          <LoadingBox Icon color='#4c956c' size={150} />
           <span>{error}</span>{' '}
         </>
       ) : (
@@ -50,10 +51,13 @@ const Project: FC<any> = (): JSX.Element => {
                     }}
                   >
                     <span className='center-text bottom-space'>
-                      <a href={xp_id.entreprise}>{xp_id.project_fr}</a>
+                      {xp_id.project_fr}
                     </span>
                     <span className='center-text bottom-space'>
                       {xp_id.domaine_fr}
+                    </span>
+                    <span className='center-text bottom-space'>
+                      {xp_id.link && <a href={xp_id.link}>{xp_id.link}</a>}
                     </span>
                   </div>
                   <div
@@ -87,6 +91,9 @@ const Project: FC<any> = (): JSX.Element => {
                     </span>
                     <span className='center-text bottom-space'>
                       {xp_id.domaine_en}
+                    </span>
+                    <span className='center-text bottom-space'>
+                      {xp_id.link && <a href={xp_id.link}>{xp_id.link}</a>}
                     </span>
                   </div>
                   <div

@@ -1,11 +1,10 @@
 import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ClimbingBoxLoader } from 'react-spinners';
 import { Container, Row } from 'reactstrap';
 import CircleProgress from '../components/CircleProgress';
+import LoadingBox from '../components/LoadingBox';
 import { getSkills } from '../redux/structure/actions';
 import { skill } from '../tools/model';
-import { CSS } from '../tools/utils';
 
 const Skills: FC<any> = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -26,7 +25,7 @@ const Skills: FC<any> = (): JSX.Element => {
   return (
     <>
       {loading ? (
-        <ClimbingBoxLoader color='#2ec4b6' loading css={CSS} size={30} />
+        <LoadingBox Icon color='#4c956c' size={50} />
       ) : error ? (
         <>{error} </>
       ) : (

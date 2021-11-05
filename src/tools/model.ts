@@ -14,6 +14,7 @@ export interface experience {
   description_en: string;
   task_fr: string[];
   task_en: string[];
+  link?: string;
   environnement: string[];
 }
 

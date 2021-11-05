@@ -1,11 +1,10 @@
 import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ClimbingBoxLoader } from 'react-spinners';
 import { Card } from '../components/Card';
+import LoadingBox from '../components/LoadingBox';
 
 import { getXp } from '../redux/structure/actions';
 import { experience } from '../tools/model';
-import { CSS } from '../tools/utils';
 
 const Projects: FC<any> = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -20,7 +19,7 @@ const Projects: FC<any> = (): JSX.Element => {
   return (
     <>
       {loading ? (
-        <ClimbingBoxLoader color='#2ec4b6' loading css={CSS} size={30} />
+        <LoadingBox Icon color='#4c956c' size={150} />
       ) : error ? (
         <>{error} </>
       ) : (

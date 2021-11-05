@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
   name: 'experience',
   title: 'Experience',
@@ -58,6 +59,11 @@ export default {
           { value: 'Self-taught', title: 'Self-taught' },
         ],
       },
+    },
+    {
+      title: 'Lien du Projet',
+      name: 'link',
+      type: 'url',
     },
     {
       title: 'Project (FR)',
