@@ -48,3 +48,20 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 # Deploy :
 
 In the studio folder : sanity deploy
+
+# TODO
+
+Change :
+The picture (Define max size for the square)
+The current intro text
+Better fonts ?
+New Jeux de couleurs ?
+Intégrer les liens d'une plus jolie manière
+USeCOntext for le language
+
+# Evolution :
+
+- Responsive
+- Unit Tests
+- Tri des compétences avec filtres ?
+- Faire un Icone d'onglet adéquates
