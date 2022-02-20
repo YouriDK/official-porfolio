@@ -13,7 +13,7 @@ body {
 .card {
   display: flex;
   justify-content: space-between;
-  background: var(--clear-blue);
+  background: var(--secondary);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   border-radius: 25px;
   margin: 2% 2% 2% 2%;
@@ -48,7 +48,7 @@ body {
       width: 70px;
       height: 70px;
       path {
-        fill: var(--orange);
+        fill: var(--primary);
       }
     }
   }
@@ -65,7 +65,7 @@ body {
   }
   .btn {
     display: block;
-    background: var(--dark-orange);
+    background: var(--primary);
     color: var(--white);
     padding: 25px 25px;
     font-size: 20px;
@@ -75,7 +75,7 @@ body {
     transition: all 200ms ease-in-out;
     text-decoration: none;
     &:hover {
-      background: var(--orange);
+      background: var(--secondary);
       color: black;
     }
   }

@@ -41,7 +41,7 @@ export const Formation: FC<any> = (): JSX.Element => {
             }}
           >
             <Row
-              className='border center-text'
+              className='border center-text secondary'
               style={{
                 maxWidth: '20%',
                 padding: '2%',
@@ -77,7 +77,7 @@ export const Formation: FC<any> = (): JSX.Element => {
               </Col>
             </Row>
             <Row
-              className='border'
+              className='border secondary'
               style={{
                 maxWidth: '80%',
                 textAlign: 'justify',
@@ -98,7 +98,7 @@ export const Formation: FC<any> = (): JSX.Element => {
           </Row>
 
           <Row
-            className='border'
+            className='border secondary'
             style={{
               display: 'flex',
               justifyContent: 'space-around',

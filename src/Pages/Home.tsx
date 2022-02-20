@@ -54,7 +54,10 @@ export const Home: FC<any> = (): JSX.Element => {
               />
             </CoolCard>
 
-            <p style={{ padding: '2%' }} className='text center-text'>
+            <p
+              style={{ padding: '2%', color: 'white' }}
+              className='text center-text'
+            >
               {lang === 'FR' ? author.bio_fr : author.bio_en}
             </p>
           </>

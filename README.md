@@ -52,12 +52,12 @@ In the studio folder : sanity deploy
 # TODO
 
 Change :
-The picture (Define max size for the square)
-The current intro text
+The picture (Define max size for the square)#Yet
+The current intro text #So far
 Better fonts ?
-New Jeux de couleurs ?
-Intégrer les liens d'une plus jolie manière
-USeCOntext for le language
+New Jeux de couleurs ? #NotSure
+Intégrer les liens d'une plus jolie manière #temp
+Déplacer Corus vers les projets et en tant qu'xp parler du fait d'être un Dev React & Node #DONE
 
 # Evolution :
 
