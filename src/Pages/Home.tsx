@@ -1,9 +1,8 @@
 import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthor } from '../redux/structure/actions';
-// import { CoolCard, CoolCardText } from 'react-cool-cards';
 import { texte, urlFor } from '../tools/utils';
-import DISPLAYTEXT from '../components/Display_text';
+
 import LoadingBox from '../components/LoadingBox';
 import HomeCard from '../components/HomeCard';
 
@@ -13,14 +12,6 @@ export const Home: FC<any> = (): JSX.Element => {
   const lang_store = useSelector((state: any) => state.lang);
   const { author, loading, error } = author_store;
   const { lang } = lang_store;
-  const styleImage: any = {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    textAlign: 'center',
-    verticalAlign: 'middle',
-    minWidth: '100%',
-    minHeight: '100%',
-  };
 
   useEffect(() => {
     dispatch(getAuthor);
