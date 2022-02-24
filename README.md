@@ -65,3 +65,7 @@ Déplacer Corus vers les projets et en tant qu'xp parler du fait d'être un Dev 
 - Unit Tests
 - Tri des compétences avec filtres ?
 - Faire un Icone d'onglet adéquates
+
+
+# URGENT 
+Enlever React cool Card

@@ -1,10 +1,11 @@
 import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthor } from '../redux/structure/actions';
-import { CoolCard, CoolCardText } from 'react-cool-card';
+// import { CoolCard, CoolCardText } from 'react-cool-cards';
 import { texte, urlFor } from '../tools/utils';
 import DISPLAYTEXT from '../components/Display_text';
 import LoadingBox from '../components/LoadingBox';
+import HomeCard from '../components/HomeCard';
 
 export const Home: FC<any> = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -34,26 +35,11 @@ export const Home: FC<any> = (): JSX.Element => {
       ) : (
         <>
           <>
-            <CoolCard
-              style={{ margin: 'auto' }}
-              className='cool-card'
-              width='30%'
-              height='30%'
-            >
-              <div>
-                <img
-                  alt=''
-                  style={styleImage}
-                  src={urlFor(author.authorImage).width(400).url()}
-                />
-              </div>
-
-              <CoolCardText
-                title={<DISPLAYTEXT text={author.name} title />}
-                description={lang === 'FR' ? texte.modo.fr : texte.modo.en}
-              />
-            </CoolCard>
-
+            <HomeCard
+              title={author.name}
+              description={lang === 'FR' ? texte.modo.fr : texte.modo.en}
+              pic={urlFor(author.authorImage).width(400).url()}
+            />
             <p
               style={{ padding: '2%', color: 'white' }}
               className='text center-text'

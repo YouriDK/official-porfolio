@@ -14,6 +14,7 @@ export const Display_text: FC<TextProps> = ({
   const style: any = {
     titre: {
       textAlign: 'center',
+      color: 'white',
     },
     footer: {
       marginBottom: '50px',
