@@ -143,7 +143,8 @@ export const Card: FC<CardProps> = ({
       </div>
       <NavLink
         to={
-          xp.domaine_fr === 'Autodidacte'
+          xp.domaine_fr === 'Autodidacte' ||
+          xp.domaine_fr === 'Projet-Professionnel'
             ? `/projects/${xp._id}`
             : `/experiences/${xp._id}`
         }

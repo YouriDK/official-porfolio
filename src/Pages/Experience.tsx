@@ -17,7 +17,6 @@ export const Experience: FC<any> = (): JSX.Element => {
   useEffect(() => {
     dispatch(getXpWithId(id));
   }, [dispatch, id]);
-  console.log(xp_id);
   return (
     <>
       {loading ? (

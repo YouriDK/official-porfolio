@@ -25,7 +25,12 @@ const Projects: FC<any> = (): JSX.Element => {
       ) : (
         <>
           {xp
-            .filter((xp: experience) => xp.domaine_fr === 'Autodidacte')
+            .sort((a: any, b: any) => (a.order > b.order ? -1 : 1))
+            .filter(
+              (xp: experience) =>
+                xp.domaine_fr === 'Autodidacte' ||
+                xp.domaine_fr === 'Projet-Professionnel'
+            )
             .map((xp: experience, index: number) => (
               <Card xp={xp} key={index} lang={lang} />
             ))}

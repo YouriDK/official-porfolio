@@ -42,7 +42,7 @@ const Project: FC<any> = (): JSX.Element => {
               {lang === 'FR' ? (
                 <>
                   <div
-                    className=' column border'
+                    className=' column border secondary'
                     style={{
                       maxWidth: '20%',
                       padding: '10px 2%',
@@ -60,7 +60,7 @@ const Project: FC<any> = (): JSX.Element => {
                     </span>
                   </div>
                   <div
-                    className='border'
+                    className='border secondary'
                     style={{
                       flex: 1,
                       maxWidth: '80%',
@@ -78,7 +78,7 @@ const Project: FC<any> = (): JSX.Element => {
               ) : (
                 <>
                   <div
-                    className='column border'
+                    className='column border secondary'
                     style={{
                       maxWidth: '20%',
                       padding: '10px 2%',
@@ -96,7 +96,7 @@ const Project: FC<any> = (): JSX.Element => {
                     </span>
                   </div>
                   <div
-                    className='border'
+                    className='border secondary'
                     style={{
                       flex: 1,
                       maxWidth: '80%',
@@ -115,7 +115,7 @@ const Project: FC<any> = (): JSX.Element => {
             </Col>
           </Row>
           <Row
-            className='border center-text'
+            className='border center-text secondary'
             style={{
               display: 'flex',
               justifyContent: 'space-around',
