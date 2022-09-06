@@ -11,6 +11,7 @@ import Project from './Pages/Project';
 import Projects from './Pages/Projects';
 
 import Skills from './Pages/Skills';
+import './scss/Link.scss';
 import './scss/Global.scss';
 
 function App() {

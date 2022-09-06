@@ -27,10 +27,13 @@ export const Formation: FC<any> = (): JSX.Element => {
       ) : (
         <Container>
           <Row>
-            <Col className='title blue'>
+            <Col className='title blue' style={{ fontSize: '3.5rem' }}>
               {lang === 'FR' ? formation.title_fr : formation.title_en}
             </Col>
-            <Col className='title blue'>
+            <Col
+              className='title blue'
+              style={{ fontSize: '1.5rem', marginTop: '45px' }}
+            >
               {lang === 'FR' ? formation.specialite : formation.major}
             </Col>
           </Row>

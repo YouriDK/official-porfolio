@@ -3,10 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap');
 // * font du text
 @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@1,600&display=swap');
-
+//  * font Link
+@import url("https://fonts.googleapis.com/css?family=Catamaran:900&display=swap");
 :root {
-  --primary: #450920;
-  --secondary: #1976d2;
+  --primary: #2b9348;
+  --secondary: #e6ccb2;
   --title: #cbf3f0;
   --orange: #ffbf69;
   --white: #ffffff;
@@ -19,6 +20,9 @@
 
 .purple {
   color: var(--expert);
+}
+.primary {
+  color :  var(--primary);
 }
 
 .secondary {
@@ -179,7 +183,7 @@ pre {
 }
 
 .blue {
-  color: #cbf3f0;
+  color: var(--intermediate);
 }
 
 .column {
@@ -190,4 +194,11 @@ pre {
 .border {
   border: 5px double #2ec4b6;
   border-radius: 40px;
+}
+
+header {
+  margin : 15px;
+  min-height: 55px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border-radius: 10px;
 }

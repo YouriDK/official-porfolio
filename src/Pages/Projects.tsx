@@ -1,7 +1,8 @@
 import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card } from '../components/Card';
+
 import LoadingBox from '../components/LoadingBox';
+import XpCard from '../components/XpCard';
 
 import { getXp } from '../redux/structure/actions';
 import { experience } from '../tools/model';
@@ -23,7 +24,13 @@ const Projects: FC<any> = (): JSX.Element => {
       ) : error ? (
         <>{error} </>
       ) : (
-        <>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-around',
+            flexWrap: 'wrap',
+          }}
+        >
           {xp
             .sort((a: any, b: any) => (a.order > b.order ? -1 : 1))
             .filter(
@@ -32,9 +39,9 @@ const Projects: FC<any> = (): JSX.Element => {
                 xp.domaine_fr === 'Projet-Professionnel'
             )
             .map((xp: experience, index: number) => (
-              <Card xp={xp} key={index} lang={lang} />
+              <XpCard xp={xp} key={index} lang={lang} />
             ))}
-        </>
+        </div>
       )}
     </>
   );

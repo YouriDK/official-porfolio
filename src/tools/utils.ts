@@ -63,8 +63,8 @@ export const texte = {
     en: "Coding is like humour. If you have to explain it, it's bad.",
   },
   details_bouton: {
-    fr: `Plus d'infos ?`,
-    en: 'More infos ?',
+    fr: `Plus d'infos`,
+    en: 'More infos',
   },
   formation_got: {
     classes: {

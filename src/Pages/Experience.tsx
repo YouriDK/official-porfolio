@@ -29,7 +29,7 @@ export const Experience: FC<any> = (): JSX.Element => {
       ) : (
         <Container>
           <Row>
-            <Col className='title purple'>
+            <Col className='title purple ' style={{ fontSize: '3.5rem' }}>
               {lang === 'FR' ? xp_id.name_fr : xp_id.name_en}
             </Col>
           </Row>
@@ -47,6 +47,7 @@ export const Experience: FC<any> = (): JSX.Element => {
                       maxWidth: '20%',
                       padding: '10px 2%',
                       marginRight: '10px',
+                      color: 'black',
                     }}
                   >
                     <span className='center-text bottom-space'>
@@ -77,6 +78,7 @@ export const Experience: FC<any> = (): JSX.Element => {
                       marginRight: '30px',
                       paddingTop: '15px',
                       paddingBottom: '15px',
+                      color: 'black',
                     }}
                     dangerouslySetInnerHTML={{
                       __html: blockContentToJsx(xp_id.description_fr),
@@ -91,6 +93,7 @@ export const Experience: FC<any> = (): JSX.Element => {
                       maxWidth: '20%',
                       padding: '10px 2%',
                       marginRight: '10px',
+                      color: 'black',
                     }}
                   >
                     <span className='center-text bottom-space'>
@@ -120,6 +123,7 @@ export const Experience: FC<any> = (): JSX.Element => {
                       marginRight: '30px',
                       paddingTop: '15px',
                       paddingBottom: '15px',
+                      color: 'black',
                     }}
                     dangerouslySetInnerHTML={{
                       __html: blockContentToJsx(xp_id.description_en),
@@ -137,6 +141,7 @@ export const Experience: FC<any> = (): JSX.Element => {
               margin: '10px 30px',
               paddingTop: '15px',
               paddingBottom: '15px',
+              color: 'black',
             }}
           >
             <Col className='column'>
