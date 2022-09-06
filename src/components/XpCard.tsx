@@ -1,12 +1,11 @@
-import React, { FC } from 'react';
-import { NavLink } from 'react-router-dom';
+import { FC } from 'react';
+import { BsQuestionCircle } from 'react-icons/bs';
 import { IoMdStarOutline } from 'react-icons/io';
+import { NavLink } from 'react-router-dom';
+import { Button } from 'reactstrap';
+import '../scss/Card.scss';
 import { experience } from '../tools/model';
 import { getMonth, getYear, texte } from '../tools/utils';
-import '../scss/Card.scss';
-import { Button } from 'reactstrap';
-import { AiOutlineArrowRight } from 'react-icons/ai';
-import { BsQuestionCircle } from 'react-icons/bs';
 
 export interface XpCardProps {
   xp: experience;
