@@ -25,6 +25,8 @@ Couleurs
 Ouverture site sur nouvel onglet
 Changer style formation Card
 Optimiser les liens au niveau visuel ( dans l'onglet "plus  d'info" aussi)
+Rajouter des infos Corus
+Update situation
 # TODO
 - Responsive Menu 
 - Responsive view ( tablette & phone )
@@ -51,8 +53,7 @@ https://github.com/redwoodjs/redwood/issues/5104
 # URGENT 
 
 # En cours / Bug : 
-- Rajouter des infos Corus
-- Update situation
+
 
 
 

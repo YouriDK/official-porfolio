@@ -25,6 +25,7 @@ const Nav_bar: FC<any> = (): JSX.Element => {
           style={{
             listStyleType: 'none',
             display: 'flex',
+            flexWrap: 'wrap',
           }}
         >
           {lang === 'FR'
