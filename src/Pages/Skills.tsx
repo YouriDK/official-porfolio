@@ -10,7 +10,7 @@ const Skills: FC<any> = (): JSX.Element => {
   const dispatch = useDispatch();
   const skills_store = useSelector((state: any) => state.skills);
   const { loading, skills, error } = skills_store;
-
+  const isMobile = useSelector((state: any) => state.isMobile.isMobile);
   useEffect(() => {
     dispatch(getSkills);
   }, [dispatch]);
@@ -44,7 +44,15 @@ const Skills: FC<any> = (): JSX.Element => {
                 flexDirection: 'column',
               }}
             >
-              <div style={{ display: 'flex', flexDirection: 'row' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: isMobile ? 'space-around' : '',
+                  flexWrap: isMobile ? 'wrap' : 'nowrap',
+                  // margin: isMobile ? 'auto' : '',
+                }}
+              >
                 {skills
                   .filter((element: skill) => element.type === type.value)
                   .map((skill: skill, index: number) => (

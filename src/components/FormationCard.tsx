@@ -5,6 +5,7 @@ import '../scss/Card.scss';
 import { formations } from '../tools/model';
 import { getYear, texte } from '../tools/utils';
 import { IoMdStarOutline } from 'react-icons/io';
+import { useSelector } from 'react-redux';
 export interface FormationCardProps {
   formation: formations;
   lang: string;
@@ -14,19 +15,22 @@ const FormationCard: FC<any> = ({
   formation,
   lang,
 }: FormationCardProps): JSX.Element => {
+  const isMobile = useSelector((state: any) => state.isMobile.isMobile);
   return (
     <div
       className='card'
       style={{
-        width: '500px',
+        width: isMobile ? '350px' : '500px',
         flexWrap: 'wrap',
       }}
     >
-      <IoMdStarOutline
-        size={40}
-        style={{ margin: 'auto' }}
-        className='primary'
-      />
+      {!isMobile && (
+        <IoMdStarOutline
+          size={40}
+          style={{ margin: 'auto' }}
+          className='primary'
+        />
+      )}
 
       <div className='features'>
         <ul>
@@ -35,6 +39,7 @@ const FormationCard: FC<any> = ({
               {lang === 'FR' ? formation.title_fr : formation.title_en}
             </span>
           </li>
+
           <li>
             <span>
               {' '}
@@ -57,17 +62,21 @@ const FormationCard: FC<any> = ({
               </span>
             )}
           </li>
-          <li>
-            <span>
-              {' '}
-              {lang === 'FR' ? formation.school_fr : formation.school_en}
-            </span>
-          </li>
-          <li>
-            <span>{formation.place}</span>
-          </li>
+          {!isMobile && (
+            <li>
+              <span>
+                {lang === 'FR' ? formation.school_fr : formation.school_en}
+              </span>
+            </li>
+          )}
+          {!isMobile && (
+            <li>
+              <span>{formation.place}</span>
+            </li>
+          )}
         </ul>
       </div>
+
       <NavLink to={`/formations/${formation._id}`} className='navlink'>
         <Button className='btn' style={{ margin: 'auto', cursor: 'pointer' }}>
           <span>

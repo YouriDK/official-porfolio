@@ -9,6 +9,7 @@ import { blockContentToJsx, getMonth, getYear, texte } from '../tools/utils';
 export const Experience: FC<any> = (): JSX.Element => {
   const { id }: any = useParams();
   const dispatch = useDispatch();
+  const isMobile = useSelector((state: any) => state.isMobile.isMobile);
   const xp_id_store = useSelector((state: any) => state.xp_id);
   const lang_store = useSelector((state: any) => state.lang);
   const { loading, xp_id, error } = xp_id_store;
@@ -29,7 +30,10 @@ export const Experience: FC<any> = (): JSX.Element => {
       ) : (
         <Container>
           <Row>
-            <Col className='title purple ' style={{ fontSize: '3.5rem' }}>
+            <Col
+              className='title purple '
+              style={{ fontSize: isMobile ? '1.5rem' : '3.5rem' }}
+            >
               {lang === 'FR' ? xp_id.name_fr : xp_id.name_en}
             </Col>
           </Row>
@@ -38,16 +42,26 @@ export const Experience: FC<any> = (): JSX.Element => {
               display: 'flex',
             }}
           >
-            <Col xs='6' style={{ display: 'flex', margin: '2%' }}>
+            <Col
+              xs='6'
+              style={{
+                display: 'flex',
+                margin: '2%',
+                flexDirection: isMobile ? 'column' : 'row',
+              }}
+            >
               {lang === 'FR' ? (
                 <>
                   <div
                     className=' column border secondary'
                     style={{
-                      maxWidth: '20%',
+                      maxWidth: isMobile ? '100%' : '20%',
                       padding: '10px 2%',
-                      marginRight: '10px',
+                      marginRight: isMobile ? '15px' : '10px',
+                      marginLeft: isMobile ? '15px' : '30px',
                       color: 'black',
+                      marginTop: isMobile ? '20px' : '',
+                      marginBottom: isMobile ? '15px' : '',
                     }}
                   >
                     <span className='center-text bottom-space'>
@@ -72,10 +86,11 @@ export const Experience: FC<any> = (): JSX.Element => {
                     className='border secondary secondary'
                     style={{
                       flex: 1,
-                      maxWidth: '80%',
-                      textAlign: 'justify',
+                      maxWidth: '100%',
+                      textAlign: isMobile ? 'center' : 'justify',
                       padding: '2%',
-                      marginRight: '30px',
+                      marginRight: isMobile ? '15px' : '30px',
+                      marginLeft: isMobile ? '15px' : '',
                       paddingTop: '15px',
                       paddingBottom: '15px',
                       color: 'black',
@@ -136,7 +151,7 @@ export const Experience: FC<any> = (): JSX.Element => {
           <Row
             className='border center-text secondary'
             style={{
-              display: 'flex',
+              display: isMobile ? '' : 'flex',
               justifyContent: 'space-around',
               margin: '10px 30px',
               paddingTop: '15px',

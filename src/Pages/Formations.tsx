@@ -6,6 +6,7 @@ import { getFormations } from '../redux/structure/actions';
 
 export const Formations: FC<any> = (): JSX.Element => {
   const dispatch = useDispatch();
+  const isMobile = useSelector((state: any) => state.isMobile.isMobile);
   const formations_store = useSelector((state: any) => state.formations);
   const lang_store = useSelector((state: any) => state.lang);
   const { loading, formations, error } = formations_store;
@@ -21,9 +22,15 @@ export const Formations: FC<any> = (): JSX.Element => {
       ) : error ? (
         <>{error} </>
       ) : (
-        <div style={{ display: 'flex' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: isMobile ? 'column' : 'row',
+            margin: isMobile ? 'auto' : '',
+          }}
+        >
           {formations
-            .sort((a: any, b: any) => (a.order > b.order ? 1 : -1))
+            .sort((a: any, b: any) => (a.order > b.order ? -1 : 1))
             .map((formation: any, index: number) => (
               <FormationCard formation={formation} key={index} lang={lang} />
             ))}

@@ -36,7 +36,7 @@ export const Experiences: FC<any> = (props: any): JSX.Element => {
                 xp.domaine_fr !== 'Autodidacte' &&
                 xp.domaine_fr !== 'Projet-Professionnel'
             )
-            .sort((a: any, b: any) => (a.order > b.order ? 1 : -1))
+            .sort((a: any, b: any) => (a.order > b.order ? -1 : 1))
             .map((xp: experience, index: number) => (
               <XpCard xp={xp} key={index} lang={lang} />
             ))}

@@ -18,6 +18,7 @@ import {
   GET_XP_ID_REQUEST,
   GET_XP_ID_SUCCESS,
   GET_XP_ID_FAILED,
+  IS_MOBILE,
 } from './type';
 import sanityClient from '../../client';
 
@@ -185,5 +186,11 @@ export const setLang = (lang: string) => {
   return {
     type: SET_LANG,
     payload: lang,
+  };
+};
+export const setMobileView = (mobile: boolean) => {
+  return {
+    type: IS_MOBILE,
+    payload: mobile,
   };
 };

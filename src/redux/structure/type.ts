@@ -27,3 +27,4 @@ export const GET_DATA_XP = 'GET_DATA_XP';
 
 // * Gestion langue du portfolio
 export const SET_LANG = 'SET_LANG';
+export const IS_MOBILE = 'IS_MOBILE';

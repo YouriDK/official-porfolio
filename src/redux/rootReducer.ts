@@ -8,10 +8,12 @@ import {
   getSkillsReducer,
   getXpReducer,
   getXpWithIdReducer,
+  isMobileReducer,
 } from './structure/reducer';
 
 const rootReducer = combineReducers({
   lang: langReducer,
+  isMobile: isMobileReducer,
   author: authorReducer,
   formations: formationsReducer,
   formation: formationWithIdReducer,

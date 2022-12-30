@@ -8,6 +8,7 @@ import { Container, Row, Col } from 'reactstrap';
 import LoadingBox from '../components/LoadingBox';
 
 export const Formation: FC<any> = (): JSX.Element => {
+  const isMobile = useSelector((state: any) => state.isMobile.isMobile);
   const { id }: any = useParams();
   const dispatch = useDispatch();
   const formation_store = useSelector((state: any) => state.formation);
@@ -27,12 +28,18 @@ export const Formation: FC<any> = (): JSX.Element => {
       ) : (
         <Container>
           <Row>
-            <Col className='title blue' style={{ fontSize: '3.5rem' }}>
+            <Col
+              className='title blue'
+              style={{ fontSize: isMobile ? '1.5rem' : '3.5rem' }}
+            >
               {lang === 'FR' ? formation.title_fr : formation.title_en}
             </Col>
             <Col
               className='title blue'
-              style={{ fontSize: '1.5rem', marginTop: '45px' }}
+              style={{
+                fontSize: isMobile ? '1rem' : '1.5rem',
+                marginTop: '45px',
+              }}
             >
               {lang === 'FR' ? formation.specialite : formation.major}
             </Col>
@@ -40,19 +47,20 @@ export const Formation: FC<any> = (): JSX.Element => {
           <Row
             style={{
               display: 'flex',
+              flexDirection: isMobile ? 'column' : 'row',
               marginTop: '25px',
             }}
           >
             <Row
               className='border center-text secondary'
               style={{
-                maxWidth: '20%',
+                maxWidth: isMobile ? '100%' : '20%',
                 padding: '2%',
-
-                marginLeft: '30px',
-                marginRight: '10px',
+                marginRight: isMobile ? '15px' : '10px',
+                marginLeft: isMobile ? '15px' : '30px',
                 paddingTop: '15px',
                 paddingBottom: '15px',
+                marginBottom: isMobile ? '15px' : '',
               }}
             >
               <Col className='text' style={{ marginBottom: '15px' }}>
@@ -82,10 +90,11 @@ export const Formation: FC<any> = (): JSX.Element => {
             <Row
               className='border secondary'
               style={{
-                maxWidth: '80%',
-                textAlign: 'justify',
+                maxWidth: '100%',
+                textAlign: isMobile ? 'center' : 'justify',
                 padding: '2%',
-                marginRight: '30px',
+                marginRight: isMobile ? '15px' : '30px',
+                marginLeft: isMobile ? '15px' : '',
                 paddingTop: '15px',
                 paddingBottom: '15px',
               }}
@@ -106,8 +115,8 @@ export const Formation: FC<any> = (): JSX.Element => {
               display: 'flex',
               justifyContent: 'space-around',
               marginTop: '20px',
-              marginLeft: '30px',
-              marginRight: '30px',
+              marginRight: isMobile ? '15px' : '30px',
+              marginLeft: isMobile ? '15px' : '30px',
               paddingTop: '15px',
               paddingBottom: '15px',
             }}

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { BsQuestionCircle } from 'react-icons/bs';
 import { IoMdStarOutline } from 'react-icons/io';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import '../scss/Card.scss';
@@ -13,23 +14,30 @@ export interface XpCardProps {
   lang: string;
 }
 const XpCard: FC<XpCardProps> = ({ lang, xp }: XpCardProps): JSX.Element => {
+  const isMobile = useSelector((state: any) => state.isMobile.isMobile);
+
   return (
     <div
       className='card'
       style={{
-        width: '500px',
+        width: isMobile ? '350px' : '500px',
         flexWrap: 'wrap',
       }}
     >
-      <IoMdStarOutline
-        size={40}
-        style={{ margin: 'auto' }}
-        className='primary'
-      />
+      {!isMobile && (
+        <IoMdStarOutline
+          size={40}
+          style={{ margin: 'auto' }}
+          className='primary'
+        />
+      )}
       <div className='features'>
         <ul>
           <li>
-            <span className='title'>
+            <span
+              className='title'
+              style={{ lineHeight: isMobile ? '1.25em' : '' }}
+            >
               {lang === 'FR' ? xp.name_fr : xp.name_en}
             </span>
           </li>
@@ -65,7 +73,13 @@ const XpCard: FC<XpCardProps> = ({ lang, xp }: XpCardProps): JSX.Element => {
           </li>
         </ul>
       </div>
-      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          flexDirection: isMobile ? 'column' : 'row',
+        }}
+      >
         <NavLink
           to={
             xp.domaine_fr === 'Autodidacte' ||
@@ -75,7 +89,13 @@ const XpCard: FC<XpCardProps> = ({ lang, xp }: XpCardProps): JSX.Element => {
           }
           className='navlink'
         >
-          <Button className='btn' style={{ cursor: 'pointer' }}>
+          <Button
+            className='btn'
+            style={{
+              cursor: 'pointer',
+              display: isMobile ? 'initial' : 'block',
+            }}
+          >
             {lang === 'FR' ? texte.details_bouton.fr : texte.details_bouton.en}
 
             <BsQuestionCircle
@@ -85,7 +105,17 @@ const XpCard: FC<XpCardProps> = ({ lang, xp }: XpCardProps): JSX.Element => {
         </NavLink>
         {xp?.link && (
           <Button outline color='link' style={{ float: 'right' }}>
-            <a href={xp.link} target='_blank' rel='noreferrer' className='link'>
+            <a
+              href={xp.link}
+              target='_blank'
+              rel='noreferrer'
+              className='link'
+              style={{
+                textAlign: isMobile ? 'center' : 'match-parent',
+                display: isMobile ? 'initial' : 'flex',
+                height: isMobile ? '' : '0px',
+              }}
+            >
               {' '}
               {lang === 'FR' ? `Visitez ici` : `Check Here`}{' '}
             </a>

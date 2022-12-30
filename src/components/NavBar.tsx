@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { SocialIcon } from 'react-social-icons';
 import Flag from 'react-world-flags';
@@ -10,13 +10,23 @@ import { NavBarDataProps } from '../tools/model';
 import '../scss/Global.scss';
 import '../scss/Navbar.scss';
 
-const Nav_bar: FC<any> = (): JSX.Element => {
+const NavBar: FC<any> = (): JSX.Element => {
   const langage = useSelector((state: any) => state.lang);
   const { lang } = langage;
+  const [switchLang, setswitchLang] = useState('title_FR');
   const dispatch = useDispatch();
   const linkedin_url = 'https://linkedin.com/in/youri-choucoutou-690522142';
   const mail_url =
     'https://mail.google.com/mail/?view=cm&fs=1&to=youri.choucoutou@gmail.com';
+
+  // const [width, setWidth] = useState<number>(window.innerWidth);
+
+  useEffect(() => {
+    setswitchLang(lang === 'FR' ? 'title_FR' : 'title_EN');
+  }, [lang]);
+  useEffect(() => {
+    console.log('Pas mobile', window.innerWidth);
+  }, []);
 
   return (
     <header className='navbar'>
@@ -28,27 +38,13 @@ const Nav_bar: FC<any> = (): JSX.Element => {
             flexWrap: 'wrap',
           }}
         >
-          {lang === 'FR'
-            ? Navbardata.map((nav: NavBarDataProps, index: number) => (
-                <NavItem key={index} className='navitem'>
-                  <NavLink
-                    className='navlink hoverable big-title'
-                    to={nav.link}
-                  >
-                    {nav.title_FR}
-                  </NavLink>
-                </NavItem>
-              ))
-            : Navbardata.map((nav: NavBarDataProps, index: number) => (
-                <NavItem key={index} className='navitem'>
-                  <NavLink
-                    className='navlink hoverable big-title'
-                    to={nav.link}
-                  >
-                    {nav.title_EN}
-                  </NavLink>
-                </NavItem>
-              ))}
+          {Navbardata.map((nav: NavBarDataProps, index: number) => (
+            <NavItem key={index} className='navitem'>
+              <NavLink className='navlink hoverable big-title' to={nav.link}>
+                {(nav as any)[switchLang]}
+              </NavLink>
+            </NavItem>
+          ))}
           <NavItem className='navitem hoverable'>
             <SocialIcon
               url={linkedin_url}
@@ -81,4 +77,4 @@ const Nav_bar: FC<any> = (): JSX.Element => {
   );
 };
 
-export default Nav_bar;
+export default NavBar;

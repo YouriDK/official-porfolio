@@ -8,6 +8,7 @@ import HomeCard from '../components/HomeCard';
 
 export const Home: FC<any> = (): JSX.Element => {
   const dispatch = useDispatch();
+  const isMobile = useSelector((state: any) => state.isMobile.isMobile);
   const author_store = useSelector((state: any) => state.author);
   const lang_store = useSelector((state: any) => state.lang);
   const { author, loading, error } = author_store;
@@ -15,7 +16,8 @@ export const Home: FC<any> = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getAuthor);
-  }, [dispatch]);
+    console.log('isMobile', isMobile);
+  }, [dispatch, isMobile]);
 
   return (
     <>
@@ -32,7 +34,7 @@ export const Home: FC<any> = (): JSX.Element => {
               pic={urlFor(author.authorImage).width(400).url()}
             />
             <p
-              style={{ padding: '2%', color: 'white' }}
+              style={{ padding: isMobile ? '1%' : '2%', color: 'white' }}
               className='text center-text'
             >
               {lang === 'FR' ? author.bio_fr : author.bio_en}
