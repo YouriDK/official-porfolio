@@ -5,9 +5,9 @@ import { SocialIcon } from 'react-social-icons';
 import Flag from 'react-world-flags';
 import { Nav, Navbar, NavItem } from 'reactstrap';
 import { setLang } from '../redux/structure/actions';
-import '../scss/Global.scss';
+// import '../scss/Global.scss';
 import '../scss/Navbar.scss';
-import { NavBarDataProps } from '../tools/model';
+import { INavBarDataProps } from '../tools/model';
 import { Navbardata } from '../tools/utils';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -37,7 +37,7 @@ const NavBarMobile: FC<any> = (): JSX.Element => {
     console.log('location split', history.location.pathname.split('/')[1]);
     setPageSelected(
       Navbardata.find(
-        (data: NavBarDataProps) =>
+        (data: INavBarDataProps) =>
           data.link === `/${history.location.pathname.split('/')[1]}`
       )
     );
@@ -84,7 +84,7 @@ const NavBarMobile: FC<any> = (): JSX.Element => {
               }}
             >
               {visible &&
-                Navbardata.map((nav: NavBarDataProps, index: number) => (
+                Navbardata.map((nav: INavBarDataProps, index: number) => (
                   <NavItem
                     key={index}
                     /* className='navitem'*/ style={{ minHeight: '2rem' }}

@@ -4,7 +4,7 @@ import { Container, Row } from 'reactstrap';
 import CircleProgress from '../components/CircleProgress';
 import LoadingBox from '../components/LoadingBox';
 import { getSkills } from '../redux/structure/actions';
-import { skill } from '../tools/model';
+import { ISkill } from '../tools/model';
 
 const Skills: FC<any> = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -54,8 +54,8 @@ const Skills: FC<any> = (): JSX.Element => {
                 }}
               >
                 {skills
-                  .filter((element: skill) => element.type === type.value)
-                  .map((skill: skill, index: number) => (
+                  .filter((element: ISkill) => element.type === type.value)
+                  .map((skill: ISkill, index: number) => (
                     <CircleProgress skill={skill} key={index} />
                   ))}
               </div>

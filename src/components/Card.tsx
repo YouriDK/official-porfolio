@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button } from 'reactstrap';
-import { experience, formations } from '../tools/model';
+import { IExperience, IFormations } from '../tools/model';
 import { getMonth, getYear, texte } from '../tools/utils';
 import '../scss/Card.scss';
 export interface CardProps {
-  xp?: experience;
-  formation?: formations;
+  xp?: IExperience;
+  formation?: IFormations;
   index?: number;
   lang: string;
 }

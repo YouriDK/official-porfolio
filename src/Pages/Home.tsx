@@ -1,10 +1,16 @@
-import React, { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthor } from '../redux/structure/actions';
-import { texte, urlFor } from '../tools/utils';
-
+import { urlFor } from '../tools/utils';
+import { BackgroundAnimation } from '../components/BgAnimation';
 import LoadingBox from '../components/LoadingBox';
-import HomeCard from '../components/HomeCard';
+import {
+  LeftSection,
+  Section,
+  SectionText,
+  SectionTitle,
+} from '../styles/GlobalComponents.style';
+import { Image } from './home.style';
 
 export const Home: FC<any> = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -19,6 +25,18 @@ export const Home: FC<any> = (): JSX.Element => {
     console.log('isMobile', isMobile);
   }, [dispatch, isMobile]);
 
+  const SectionSettings = {
+    grid: true,
+  };
+  const SectionSettings2 = {
+    row: true,
+    nopadding: true,
+  };
+  const SectionTitleSettings = {
+    main: true,
+    center: true,
+  };
+
   return (
     <>
       {loading ? (
@@ -26,21 +44,25 @@ export const Home: FC<any> = (): JSX.Element => {
       ) : error ? (
         <>{error} </>
       ) : (
-        <>
-          <>
-            <HomeCard
-              title={author.name}
-              description={lang === 'FR' ? texte.modo.fr : texte.modo.en}
-              pic={urlFor(author.authorImage).width(400).url()}
-            />
-            <p
-              style={{ padding: isMobile ? '1%' : '2%', color: 'white' }}
-              className='text center-text'
-            >
-              {lang === 'FR' ? author.bio_fr : author.bio_en}
-            </p>
-          </>
-        </>
+        <Section {...SectionSettings}>
+          <Section {...SectionSettings2}>
+            <LeftSection>
+              <SectionTitle {...SectionTitleSettings}>
+                {author.name}
+              </SectionTitle>
+              <Image
+                src={urlFor(author.authorImage).width(400).height(400).url()}
+                alt='owner'
+                className='card-home card-home-image'
+              />
+              <SectionText>
+                {' '}
+                {lang === 'FR' ? author.bio_fr : author.bio_en}
+              </SectionText>
+            </LeftSection>
+          </Section>
+          <BackgroundAnimation />
+        </Section>
       )}
     </>
   );

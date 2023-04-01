@@ -5,11 +5,11 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import '../scss/Card.scss';
-import { experience } from '../tools/model';
+import { IExperience } from '../tools/model';
 import { getMonth, getYear, texte } from '../tools/utils';
 
 export interface XpCardProps {
-  xp: experience;
+  xp: IExperience;
   index?: number;
   lang: string;
 }

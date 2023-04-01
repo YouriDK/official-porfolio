@@ -1,9 +1,8 @@
 import imageUrlBuilder from '@sanity/image-url';
 import sanityClient from '../client';
-import { NavBarDataProps } from './model';
+import { INavBarDataProps } from './model';
 
-export const Navbardata: NavBarDataProps[] = [
-  { title_FR: 'Acceuil', title_EN: 'Home', link: '/' },
+export const Navbardata: INavBarDataProps[] = [
   { title_FR: ' Formations', title_EN: 'Formations', link: '/formations' },
   { title_FR: ' Compétences', title_EN: 'Skills', link: '/skills' },
   { title_FR: 'Experiences', title_EN: 'Experiences', link: '/experiences' },
@@ -103,4 +102,22 @@ export const blockContentToJsx = (blocks: any): string => {
 
   jsx += `</div>`;
   return jsx;
+};
+
+export const textVariant = (delay: any) => {
+  return {
+    hidden: {
+      y: -50,
+      opacity: 0,
+    },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        duration: 1.25,
+        delay: delay,
+      },
+    },
+  };
 };

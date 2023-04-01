@@ -2,12 +2,12 @@ import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import '../scss/Card.scss';
-import { formations } from '../tools/model';
+import { IFormations } from '../tools/model';
 import { getYear, texte } from '../tools/utils';
 import { IoMdStarOutline } from 'react-icons/io';
 import { useSelector } from 'react-redux';
 export interface FormationCardProps {
-  formation: formations;
+  formation: IFormations;
   lang: string;
   index: number;
 }

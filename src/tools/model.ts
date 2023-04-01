@@ -1,4 +1,4 @@
-export interface experience {
+export interface IExperience {
   _id: string;
   order: number;
   name_fr: string;
@@ -18,7 +18,7 @@ export interface experience {
   environnement: string[];
 }
 
-export interface formations {
+export interface IFormations {
   _id: string;
   order: number;
   title_fr: string;
@@ -37,14 +37,14 @@ export interface formations {
   knowledges_fr: string[];
   knowledges_en: string[];
 }
-export interface skill {
+export interface ISkill {
   _id: string;
   name: string;
   type: string;
   level: string;
 }
 
-export interface NavBarDataProps {
+export interface INavBarDataProps {
   title_FR: string;
   title_EN: string;
   link: string;

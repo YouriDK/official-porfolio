@@ -5,7 +5,7 @@ import LoadingBox from '../components/LoadingBox';
 import XpCard from '../components/XpCard';
 
 import { getXp } from '../redux/structure/actions';
-import { experience } from '../tools/model';
+import { IExperience } from '../tools/model';
 
 const Projects: FC<any> = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -34,11 +34,11 @@ const Projects: FC<any> = (): JSX.Element => {
           {xp
             .sort((a: any, b: any) => (a.order > b.order ? -1 : 1))
             .filter(
-              (xp: experience) =>
+              (xp: IExperience) =>
                 xp.domaine_fr === 'Autodidacte' ||
                 xp.domaine_fr === 'Projet-Professionnel'
             )
-            .map((xp: experience, index: number) => (
+            .map((xp: IExperience, index: number) => (
               <XpCard xp={xp} key={index} lang={lang} />
             ))}
         </div>

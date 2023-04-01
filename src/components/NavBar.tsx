@@ -6,9 +6,9 @@ import { Navbar, Nav, NavItem } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLang } from '../redux/structure/actions';
 import { Navbardata } from '../tools/utils';
-import { NavBarDataProps } from '../tools/model';
-import '../scss/Global.scss';
-import '../scss/Navbar.scss';
+import { INavBarDataProps } from '../tools/model';
+// import '../scss/Global.scss';
+// import '../scss/Navbar.scss';
 
 const NavBar: FC<any> = (): JSX.Element => {
   const langage = useSelector((state: any) => state.lang);
@@ -38,7 +38,7 @@ const NavBar: FC<any> = (): JSX.Element => {
             flexWrap: 'wrap',
           }}
         >
-          {Navbardata.map((nav: NavBarDataProps, index: number) => (
+          {Navbardata.map((nav: INavBarDataProps, index: number) => (
             <NavItem key={index} className='navitem'>
               <NavLink className='navlink hoverable big-title' to={nav.link}>
                 {(nav as any)[switchLang]}
