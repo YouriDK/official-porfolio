@@ -4,19 +4,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import LoadingBox from '../components/LoadingBox';
 import XpCard from '../components/XpCard';
 
-import { getXp } from '../redux/structure/actions';
+import { getProjects, getXp } from '../redux/structure/actions';
 import { IExperience } from '../tools/model';
+import { styles, texte } from '../tools/utils';
+import { SkillTitleH2 } from '../components/Ball/SkillDisplay.style';
+import ProjectCard from '../components/Projects/ProjectCard';
+import { GridContainer } from '../components/Projects/ProjectCard.style';
 
 const Projects: FC<any> = (): JSX.Element => {
   const dispatch = useDispatch();
-  const xp_store = useSelector((state: any) => state.xp);
+  const project_store = useSelector((state: any) => state.projects);
   const lang_store = useSelector((state: any) => state.lang);
-  const { loading, xp, error } = xp_store;
+  const { loading, projects, error } = project_store;
   const { lang } = lang_store;
 
   useEffect(() => {
-    dispatch(getXp);
+    dispatch(getProjects);
   }, [dispatch]);
+  useEffect(() => {
+    console.log('projects', projects);
+  }, [projects]);
+
   return (
     <>
       {loading ? (
@@ -24,24 +32,16 @@ const Projects: FC<any> = (): JSX.Element => {
       ) : error ? (
         <>{error} </>
       ) : (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-around',
-            flexWrap: 'wrap',
-          }}
-        >
-          {xp
-            .sort((a: any, b: any) => (a.order > b.order ? -1 : 1))
-            .filter(
-              (xp: IExperience) =>
-                xp.domaine_fr === 'Autodidacte' ||
-                xp.domaine_fr === 'Projet-Professionnel'
-            )
-            .map((xp: IExperience, index: number) => (
-              <XpCard xp={xp} key={index} lang={lang} />
+        <>
+          <SkillTitleH2 className={`${styles.sectionSubText} text-center`}>
+            {lang === 'FR' ? texte.projects.title.fr : texte.projects.title.en}
+          </SkillTitleH2>
+          <GridContainer>
+            {projects.map((project: any, index: number) => (
+              <ProjectCard project={project} key={index} />
             ))}
-        </div>
+          </GridContainer>
+        </>
       )}
     </>
   );

@@ -1,23 +1,39 @@
 import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { Col, Container, Row } from 'reactstrap';
+import { SkillTitleH2 } from '../components/Ball/SkillDisplay.style';
 import LoadingBox from '../components/LoadingBox';
-import { getXpWithId } from '../redux/structure/actions';
-import { blockContentToJsx, texte } from '../tools/utils';
+import { Hr } from '../components/Projects/ProjectCard.style';
+import { getProjectswithId } from '../redux/structure/actions';
+import { blockContentToJsx, styles, texte } from '../tools/utils';
+import {
+  EnvironnementCard,
+  EnvironnementCardHeader,
+  EnvironnementCardTitleContent,
+  EnvironnementPoints,
+  EnvironnementPointsArray,
+  ProjectContainer,
+  ProjectDescriptionDiv,
+  ProjectSectionTitle,
+  TaskCard,
+} from './Project.style';
 
 const Project: FC<any> = (): JSX.Element => {
   const { id }: any = useParams();
   const isMobile = useSelector((state: any) => state.isMobile.isMobile);
   const dispatch = useDispatch();
-  const xp_id_store = useSelector((state: any) => state.xp_id);
+  const projectIdStore = useSelector((state: any) => state.projectId);
   const lang_store = useSelector((state: any) => state.lang);
-  const { loading, xp_id, error } = xp_id_store;
+  const { loading, projectId, error } = projectIdStore;
   const { lang } = lang_store;
 
   useEffect(() => {
-    dispatch(getXpWithId(id));
+    dispatch(getProjectswithId(id));
   }, [dispatch, id]);
+
+  useEffect(() => {
+    console.log('projectId', projectId, id);
+  }, [projectId, id]);
   return (
     <>
       {loading ? (
@@ -28,140 +44,70 @@ const Project: FC<any> = (): JSX.Element => {
           <span>{error}</span>{' '}
         </>
       ) : (
-        <Container>
-          <Row>
-            <Col
-              className='title purple'
-              style={{ fontSize: isMobile ? '1.5rem' : '3.5rem' }}
-            >
-              {lang === 'FR' ? xp_id.name_fr : xp_id.name_en}
-            </Col>
-          </Row>
-          <Row
-            style={{
-              display: 'flex',
-              flexDirection: isMobile ? 'column' : 'row',
-              marginTop: '25px',
-            }}
-          >
-            <Col
-              xs='6'
-              style={{
-                display: 'flex',
-                margin: '2%',
-                flexDirection: isMobile ? 'column' : 'row',
-                marginTop: '25px',
+        <>
+          <ProjectSectionTitle>
+            {lang === 'FR' ? projectId.name_fr : projectId.name_en}
+          </ProjectSectionTitle>
+          <SkillTitleH2 className={`${styles.sectionSubText} text-center`}>
+            {lang === 'FR' ? projectId.domaine_fr : projectId.domaine_en}
+          </SkillTitleH2>
+
+          <ProjectContainer>
+            <EnvironnementCard>
+              <EnvironnementCardTitleContent>
+                <EnvironnementCardHeader title>
+                  {lang === 'FR' ? texte.xp.env.fr : texte.xp.env.en}
+                </EnvironnementCardHeader>
+                <Hr />
+                <EnvironnementPointsArray>
+                  {projectId.environnement &&
+                    projectId.environnement.map((point: any, index: any) => (
+                      <EnvironnementPoints key={`experience-point-${index}`}>
+                        {point}
+                      </EnvironnementPoints>
+                    ))}
+                </EnvironnementPointsArray>
+              </EnvironnementCardTitleContent>
+            </EnvironnementCard>
+            <TaskCard>
+              <EnvironnementCardTitleContent>
+                <EnvironnementCardHeader title>
+                  {lang === 'FR' ? texte.xp.task.fr : texte.xp.task.en}
+                </EnvironnementCardHeader>
+                <Hr />
+                <EnvironnementPointsArray>
+                  {lang === 'FR' &&
+                    projectId.task_fr &&
+                    projectId.task_fr.map((point: any, index: any) => (
+                      <EnvironnementPoints key={`experience-point-${index}`}>
+                        {point}
+                      </EnvironnementPoints>
+                    ))}
+                  {lang !== 'FR' &&
+                    projectId.task_en &&
+                    projectId.task_en.map((point: any, index: any) => (
+                      <EnvironnementPoints key={`experience-point-${index}`}>
+                        {point}
+                      </EnvironnementPoints>
+                    ))}
+                </EnvironnementPointsArray>
+              </EnvironnementCardTitleContent>
+            </TaskCard>
+          </ProjectContainer>
+          {lang === 'FR' ? (
+            <ProjectDescriptionDiv
+              dangerouslySetInnerHTML={{
+                __html: blockContentToJsx(projectId.description_fr),
               }}
-            >
-              {lang === 'FR' ? (
-                <>
-                  <div
-                    className=' column border secondary'
-                    style={{
-                      maxWidth: isMobile ? '100%' : '20%',
-                      padding: '2%',
-                      marginRight: isMobile ? '15px' : '10px',
-                      marginLeft: isMobile ? '15px' : '30px',
-                      paddingTop: '15px',
-                      paddingBottom: '15px',
-                      marginBottom: isMobile ? '15px' : '',
-                    }}
-                  >
-                    <span className='center-text bottom-space'>
-                      {xp_id.project_fr}
-                    </span>
-                    <span className='center-text bottom-space'>
-                      {xp_id.domaine_fr}
-                    </span>
-                    <span className='center-text bottom-space'>
-                      {xp_id.link && <a href={xp_id.link}>{xp_id.link}</a>}
-                    </span>
-                  </div>
-                  <div
-                    className='border secondary'
-                    style={{
-                      flex: 1,
-                      maxWidth: '100%',
-                      textAlign: isMobile ? 'center' : 'justify',
-                      padding: '2%',
-                      marginRight: isMobile ? '15px' : '30px',
-                      marginLeft: isMobile ? '15px' : '',
-                      paddingTop: '15px',
-                      paddingBottom: '15px',
-                    }}
-                    dangerouslySetInnerHTML={{
-                      __html: blockContentToJsx(xp_id.description_fr),
-                    }}
-                  />
-                </>
-              ) : (
-                <>
-                  <div
-                    className='column border secondary'
-                    style={{
-                      maxWidth: '20%',
-                      padding: '10px 2%',
-                      marginRight: '10px',
-                    }}
-                  >
-                    <span className='center-text bottom-space'>
-                      <a href={xp_id.entreprise}>{xp_id.project_en}</a>
-                    </span>
-                    <span className='center-text bottom-space'>
-                      {xp_id.domaine_en}
-                    </span>
-                    <span className='center-text bottom-space'>
-                      {xp_id.link && <a href={xp_id.link}>{xp_id.link}</a>}
-                    </span>
-                  </div>
-                  <div
-                    className='border secondary'
-                    style={{
-                      flex: 1,
-                      maxWidth: '80%',
-                      textAlign: 'justify',
-                      padding: '2%',
-                      marginRight: '30px',
-                      paddingTop: '15px',
-                      paddingBottom: '15px',
-                    }}
-                    dangerouslySetInnerHTML={{
-                      __html: blockContentToJsx(xp_id.description_en),
-                    }}
-                  />
-                </>
-              )}
-            </Col>
-          </Row>
-          <Row
-            className='border center-text secondary'
-            style={{
-              display: isMobile ? '' : 'flex',
-              justifyContent: 'space-around',
-              margin: '10px 30px',
-              paddingTop: '15px',
-              paddingBottom: '15px',
-            }}
-          >
-            <Col className='column'>
-              <h2>{lang === 'FR' ? texte.xp.env.fr : texte.xp.env.en}</h2>
-
-              {xp_id.environnement &&
-                xp_id.environnement.map((en: string) => (
-                  <span style={{ marginTop: '1px' }}>{en}</span>
-                ))}
-            </Col>
-            {xp_id.task_fr && (
-              <Col className='column'>
-                <h2> {lang === 'FR' ? texte.xp.task.fr : texte.xp.task.en}</h2>
-
-                {lang === 'FR'
-                  ? xp_id.task_fr.map((task: string) => <span>{task}</span>)
-                  : xp_id.task_en.map((task: string) => <span>{task}</span>)}
-              </Col>
-            )}
-          </Row>
-        </Container>
+            />
+          ) : (
+            <ProjectDescriptionDiv
+              dangerouslySetInnerHTML={{
+                __html: blockContentToJsx(projectId.description_en),
+              }}
+            />
+          )}
+        </>
       )}
     </>
   );

@@ -19,6 +19,12 @@ import {
   GET_XP_ID_SUCCESS,
   GET_XP_ID_FAILED,
   IS_MOBILE,
+  GET_PROJECTS_FAILED,
+  GET_PROJECTS_REQUEST,
+  GET_PROJECTS_SUCCESS,
+  GET_PROJECT_REQUEST,
+  GET_PROJECT_FAILED,
+  GET_PROJECT_SUCCESS,
 } from './type';
 
 const INITIAL_STATE = {
@@ -30,6 +36,7 @@ const INITIAL_STATE = {
   formations: [],
   formation: null,
   skills: [],
+  projects: [],
   xp: [],
   xp_id: null,
 };
@@ -105,6 +112,30 @@ export const getSkillsReducer = (state: any = INITIAL_STATE, action: any) => {
     case GET_SKILLS_SUCCESS:
       return { ...state, loading: false, skills: action.payload };
     case GET_SKILLS_FAILED:
+      return { ...state, loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+export const getProjectsReducer = (state: any = INITIAL_STATE, action: any) => {
+  switch (action.type) {
+    case GET_PROJECTS_REQUEST:
+      return { ...state, loading: true };
+    case GET_PROJECTS_SUCCESS:
+      return { ...state, loading: false, projects: action.payload };
+    case GET_PROJECTS_FAILED:
+      return { ...state, loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+export const getProjectReducer = (state: any = INITIAL_STATE, action: any) => {
+  switch (action.type) {
+    case GET_PROJECT_REQUEST:
+      return { ...state, loading: true };
+    case GET_PROJECT_SUCCESS:
+      return { ...state, loading: false, projectId: action.payload };
+    case GET_PROJECT_FAILED:
       return { ...state, loading: false, error: action.payload };
     default:
       return state;

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default {
-  name: 'experience',
-  title: 'Experience',
+  name: 'projects',
+  title: 'Projects',
   type: 'document',
   fields: [
     {
@@ -20,20 +20,21 @@ export default {
       type: 'string',
     },
     {
-      title: 'Entreprise',
-      name: 'entreprise',
+      title: 'Intro (EN)',
+      name: 'intro_en',
       type: 'string',
     },
     {
-      name: 'from',
-      title: 'De',
-      type: 'date',
+      title: 'Intro (FR)',
+      name: 'intro_fr',
+      type: 'string',
     },
     {
-      name: 'to',
-      title: 'à',
+      name: 'date',
+      title: 'Date',
       type: 'date',
     },
+
     {
       title: 'Domaine (FR)',
       name: 'domaine_fr',
@@ -43,7 +44,6 @@ export default {
           { value: 'Stage', title: 'Stage' },
           { value: 'Alternance', title: 'Alternance' },
           { value: 'Professionnel', title: 'Professionnel' },
-          { value: 'Projet-Professionnel', title: 'Projet-Professionnel' },
           { value: 'Autodidacte', title: 'Autodidacte' },
         ],
       },
@@ -56,8 +56,7 @@ export default {
         list: [
           { value: 'Internship', title: 'Internship' },
           { value: 'Work-study program', title: 'Work-study program' },
-          { value: 'Job/Work', title: 'Professionnel' },
-          { value: 'Professional project', title: 'Professional project' },
+          { value: 'Job/Work', title: 'Professionnal' },
           { value: 'Self-taught', title: 'Self-taught' },
         ],
       },
@@ -66,16 +65,6 @@ export default {
       title: 'Lien du Projet',
       name: 'link',
       type: 'url',
-    },
-    {
-      title: 'Project (FR)',
-      name: 'project_fr',
-      type: 'string',
-    },
-    {
-      title: 'Project(EN)',
-      name: 'project_en',
-      type: 'string',
     },
     {
       title: 'Description (FR)',
@@ -104,14 +93,6 @@ export default {
       name: 'environnement',
       type: 'array',
       of: [{ type: 'string' }],
-    },
-    {
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
     },
   ],
 };

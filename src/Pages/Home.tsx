@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthor } from '../redux/structure/actions';
-import { urlFor } from '../tools/utils';
+import { texte, urlFor } from '../tools/utils';
 import { BackgroundAnimation } from '../components/BgAnimation';
 import LoadingBox from '../components/LoadingBox';
 import {
@@ -22,7 +22,6 @@ export const Home: FC<any> = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getAuthor);
-    console.log('isMobile', isMobile);
   }, [dispatch, isMobile]);
 
   const SectionSettings = {
@@ -56,8 +55,8 @@ export const Home: FC<any> = (): JSX.Element => {
                 className='card-home card-home-image'
               />
               <SectionText>
-                {' '}
-                {lang === 'FR' ? author.bio_fr : author.bio_en}
+                {lang === 'FR' ? author.bio_fr : author.bio_en}{' '}
+                {lang === 'FR' ? texte.modo.fr : texte.modo.en}
               </SectionText>
             </LeftSection>
           </Section>

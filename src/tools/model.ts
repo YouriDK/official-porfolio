@@ -42,6 +42,8 @@ export interface ISkill {
   name: string;
   type: string;
   level: string;
+  logo?: string;
+  domaine?: string;
 }
 
 export interface INavBarDataProps {

@@ -19,6 +19,12 @@ import {
   GET_XP_ID_SUCCESS,
   GET_XP_ID_FAILED,
   IS_MOBILE,
+  GET_PROJECTS_FAILED,
+  GET_PROJECTS_REQUEST,
+  GET_PROJECTS_SUCCESS,
+  GET_PROJECT_FAILED,
+  GET_PROJECT_REQUEST,
+  GET_PROJECT_SUCCESS,
 } from './type';
 import sanityClient from '../../client';
 
@@ -104,6 +110,65 @@ export const getFormationsWithId =
     }
   };
 
+export const getProjectswithId =
+  (projectId: string) => async (dispatch: any) => {
+    try {
+      dispatch({ type: GET_PROJECT_REQUEST });
+      const data = await sanityClient.fetch(
+        `*[_type == "projects" && _id == "${projectId}"]{
+          _id,
+          order,
+          name_fr,
+          name_en,
+          intro_en,
+          intro_fr,
+          date,
+          domaine_fr,
+          domaine_en,
+          link,
+          description_fr,
+          description_en,
+          task_fr,
+          task_en,
+          environnement,
+          "image":image.asset->url
+        }`
+      );
+
+      dispatch({ type: GET_PROJECT_SUCCESS, payload: data[0] });
+    } catch (error: any) {
+      dispatch({ type: GET_PROJECT_FAILED, payload: error.message });
+    }
+  };
+export const getProjects = async (dispatch: any) => {
+  try {
+    dispatch({ type: GET_PROJECTS_REQUEST });
+    const data = await sanityClient.fetch(
+      `*[_type == "projects"]{
+          _id,
+          order,
+          name_fr,
+          name_en,
+          intro_en,
+          intro_fr,
+          date,
+          domaine_fr,
+          domaine_en,
+          link,
+          description_fr,
+          description_en,
+          task_fr,
+          task_en,
+          environnement,
+          "image":image.asset->url
+        }`
+    );
+
+    dispatch({ type: GET_PROJECTS_SUCCESS, payload: data });
+  } catch (error: any) {
+    dispatch({ type: GET_PROJECTS_FAILED, payload: error.message });
+  }
+};
 export const getSkills = async (dispatch: any) => {
   try {
     dispatch({ type: GET_SKILLS_REQUEST });
@@ -112,7 +177,9 @@ export const getSkills = async (dispatch: any) => {
           _id,
           name,
           type,
+          domaine,
           level,
+          "logo":logo.asset->url,
         }`
     );
 
@@ -144,6 +211,7 @@ export const getXp = async (dispatch: any) => {
         task_en,
         link,
         environnement,
+        "image":image.asset->url ,
       }`
     );
     dispatch({ type: GET_XP_SUCCESS, payload: data });
@@ -174,6 +242,7 @@ export const getXpWithId = (formation_id: string) => async (dispatch: any) => {
         task_en,
         link,
         environnement,
+       
       }`
     );
     dispatch({ type: GET_XP_ID_SUCCESS, payload: data[0] });

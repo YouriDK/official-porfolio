@@ -58,3 +58,10 @@ Quand on est dans une  formation mode mobile et qu'on clique sur le menu il sort
 Améliorer menu design : icone toujours en bas ou toujours à côté
 Revoir couleurs : clair sur clair ...
 ```
+
+# TODO  Refonte
+
+ *     Page Home : Chnger l'icone à côté de Profil
+ *     Page Experience : Nettoyer et les données inutiles( dans xp)
+ *     Nettoyage de code
+ *     Revue sur la syntaxe dans le code

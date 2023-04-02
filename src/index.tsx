@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
+import './index.css';
+import './fonts/SpaceGrotesk/SpaceGrotesk-Medium.ttf';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';

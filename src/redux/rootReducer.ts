@@ -9,6 +9,8 @@ import {
   getXpReducer,
   getXpWithIdReducer,
   isMobileReducer,
+  getProjectsReducer,
+  getProjectReducer,
 } from './structure/reducer';
 
 const rootReducer = combineReducers({
@@ -20,6 +22,8 @@ const rootReducer = combineReducers({
   skills: getSkillsReducer,
   xp: getXpReducer,
   xp_id: getXpWithIdReducer,
+  projects: getProjectsReducer,
+  projectId: getProjectReducer,
 });
 
 export default rootReducer;

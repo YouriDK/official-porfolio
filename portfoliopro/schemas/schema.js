@@ -11,6 +11,7 @@ import author from './author';
 import formation from './formation';
 import skill from './skills';
 import experience from './experience';
+import projects from './projects';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -21,9 +22,8 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
-
     author,
-
+    projects,
     formation,
     experience,
     skill,

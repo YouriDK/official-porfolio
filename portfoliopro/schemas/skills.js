@@ -15,9 +15,9 @@ export default {
       type: 'string',
       options: {
         list: [
-          { value: 'hard', title: 'Hard Skills' },
-          { value: 'soft', title: 'Soft Skills' },
-          { value: 'others', title: 'Others' },
+          { value: 'main', title: 'Main' },
+          { value: 'solid', title: 'Solide' },
+          { value: 'base', title: 'Base' },
         ],
       },
     },
@@ -46,6 +46,14 @@ export default {
           { value: 'advanced', title: 'Advanced' },
           { value: 'expert', title: 'Expert' },
         ],
+      },
+    },
+    {
+      name: 'logo',
+      title: 'Logo',
+      type: 'image',
+      options: {
+        hotspot: true,
       },
     },
   ],
