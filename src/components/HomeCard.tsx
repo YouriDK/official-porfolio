@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import DISPLAYTEXT from './Display_text';
 import '../scss/HomeCard.scss';
 import { useSelector } from 'react-redux';
-
+// ! File to delete
 interface HomeCardProps {
   title: string;
   pic: any;

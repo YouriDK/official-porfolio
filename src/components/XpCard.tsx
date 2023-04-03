@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import '../scss/Card.scss';
-import { IExperience } from '../tools/model';
+import { IExperience } from '../Types/Interfaces';
 import { getMonth, getYear, texte } from '../tools/utils';
-
+// ! File to delete
 export interface XpCardProps {
   xp: IExperience;
   index?: number;
@@ -103,24 +103,6 @@ const XpCard: FC<XpCardProps> = ({ lang, xp }: XpCardProps): JSX.Element => {
             />
           </Button>
         </NavLink>
-        {xp?.link && (
-          <Button outline color='link' style={{ float: 'right' }}>
-            <a
-              href={xp.link}
-              target='_blank'
-              rel='noreferrer'
-              className='link'
-              style={{
-                textAlign: isMobile ? 'center' : 'match-parent',
-                display: isMobile ? 'initial' : 'flex',
-                height: isMobile ? '' : '0px',
-              }}
-            >
-              {' '}
-              {lang === 'FR' ? `Visitez ici` : `Check Here`}{' '}
-            </a>
-          </Button>
-        )}
       </div>
     </div>
   );

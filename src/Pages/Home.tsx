@@ -10,7 +10,12 @@ import {
   SectionText,
   SectionTitle,
 } from '../styles/GlobalComponents.style';
-import { Image } from './home.style';
+import {
+  Image,
+  SectionSettings,
+  SectionSettings2,
+  SectionTitleSettings,
+} from '../styles/Home.style';
 
 export const Home: FC<any> = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -23,18 +28,6 @@ export const Home: FC<any> = (): JSX.Element => {
   useEffect(() => {
     dispatch(getAuthor);
   }, [dispatch, isMobile]);
-
-  const SectionSettings = {
-    grid: true,
-  };
-  const SectionSettings2 = {
-    row: true,
-    nopadding: true,
-  };
-  const SectionTitleSettings = {
-    main: true,
-    center: true,
-  };
 
   return (
     <>

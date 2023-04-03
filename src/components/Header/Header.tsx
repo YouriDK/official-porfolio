@@ -1,4 +1,7 @@
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { DiCssdeck } from 'react-icons/di';
+import { useDispatch, useSelector } from 'react-redux';
+import Flag from 'react-world-flags';
 import {
   Container,
   LeftSide,
@@ -7,21 +10,18 @@ import {
   RightSide,
   SocialIcons,
 } from './Header.style';
-import { DiCssdeck } from 'react-icons/di';
-import { NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import Flag from 'react-world-flags';
 
-import { INavBarDataProps } from '../../tools/model';
-import { AiFillMail, AiFillLinkedin } from 'react-icons/ai';
-import { Navbardata } from '../../tools/utils';
+import { AiFillLinkedin, AiFillMail } from 'react-icons/ai';
 import { setLang } from '../../redux/structure/actions';
-
+import { INavBarDataProps } from '../../Types/Interfaces';
+import { Navbardata } from '../../tools/utils';
+// TODO  Change title_FR to FR ( same for title_EN)
 const Header: FC<any> = (): JSX.Element => {
+  const dispatch = useDispatch();
   const langage = useSelector((state: any) => state.lang);
   const { lang } = langage;
   const [switchLang, setswitchLang] = useState('title_FR');
-  const dispatch = useDispatch();
+
   useEffect(() => {
     setswitchLang(lang === 'FR' ? 'title_FR' : 'title_EN');
   }, [lang]);
@@ -39,11 +39,9 @@ const Header: FC<any> = (): JSX.Element => {
       <MiddleSide>
         {Navbardata.map((nav: INavBarDataProps, index: number) => (
           <li key={index}>
-            {/* <NavLink className='navlink hoverable big-title' to={nav.link}> */}
             <NavLinkCustom className='link hoverable  ' href={nav.link}>
               {(nav as any)[switchLang]}
             </NavLinkCustom>
-            {/* </NavLink> */}
           </li>
         ))}
       </MiddleSide>

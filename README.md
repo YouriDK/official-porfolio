@@ -62,6 +62,14 @@ Revoir couleurs : clair sur clair ...
 # TODO  Refonte
 
  *     Page Home : Chnger l'icone à côté de Profil
- *     Page Experience : Nettoyer et les données inutiles( dans xp)
+ *     Page Experience : Nettoyer et enlever les données inutiles( dans xp)
  *     Nettoyage de code
  *     Revue sur la syntaxe dans le code
+ *     Enlever la page de chargement
+ *     Prévoir une page plus d'info pour les études
+ *     Dans Experience  : Enlever le champ du lien de projet
+ *     Dans Skills : Levels  & Type
+ *     Prévoir un affichage pour toute les infos des études
+ *     Supprimer tous les fichiers SCCS sauf ptet index.css  ET ENCORE
+ *     Remanier le loading page
+ *     Enelever tous les élémént react-strap pour enlever reactstrap

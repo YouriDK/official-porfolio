@@ -78,7 +78,7 @@ export const getFormations = async (dispatch: any) => {
     dispatch({ type: GET_FORMATIONS_FAILED, payload: error.message });
   }
 };
-export const getFormationsWithId =
+export const getFormationWithId =
   (formation_id: string) => async (dispatch: any) => {
     try {
       dispatch({ type: GET_FORMATION_REQUEST });
@@ -110,7 +110,7 @@ export const getFormationsWithId =
     }
   };
 
-export const getProjectswithId =
+export const getProjectwithId =
   (projectId: string) => async (dispatch: any) => {
     try {
       dispatch({ type: GET_PROJECT_REQUEST });
@@ -189,7 +189,7 @@ export const getSkills = async (dispatch: any) => {
   }
 };
 
-export const getXp = async (dispatch: any) => {
+export const getExperiences = async (dispatch: any) => {
   try {
     dispatch({ type: GET_XP_REQUEST });
     const data = await sanityClient.fetch(
@@ -220,11 +220,12 @@ export const getXp = async (dispatch: any) => {
   }
 };
 
-export const getXpWithId = (formation_id: string) => async (dispatch: any) => {
-  try {
-    dispatch({ type: GET_XP_ID_REQUEST });
-    const data = await sanityClient.fetch(
-      `*[_type == "experience" && _id == "${formation_id}"]{
+export const getExperienceWithId =
+  (formation_id: string) => async (dispatch: any) => {
+    try {
+      dispatch({ type: GET_XP_ID_REQUEST });
+      const data = await sanityClient.fetch(
+        `*[_type == "experience" && _id == "${formation_id}"]{
         _id,
         order,
         name_fr,
@@ -244,12 +245,12 @@ export const getXpWithId = (formation_id: string) => async (dispatch: any) => {
         environnement,
        
       }`
-    );
-    dispatch({ type: GET_XP_ID_SUCCESS, payload: data[0] });
-  } catch (error: any) {
-    dispatch({ type: GET_XP_ID_FAILED, payload: error.message });
-  }
-};
+      );
+      dispatch({ type: GET_XP_ID_SUCCESS, payload: data[0] });
+    } catch (error: any) {
+      dispatch({ type: GET_XP_ID_FAILED, payload: error.message });
+    }
+  };
 
 export const setLang = (lang: string) => {
   return {

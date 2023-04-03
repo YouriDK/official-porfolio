@@ -1,11 +1,10 @@
 import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { SkillTitleH2 } from '../components/Ball/SkillDisplay.style';
 import LoadingBox from '../components/LoadingBox';
 import { Hr } from '../components/Projects/ProjectCard.style';
-import { getProjectswithId } from '../redux/structure/actions';
-import { blockContentToJsx, styles, texte } from '../tools/utils';
+import { SkillTitleH2 } from '../components/SkillComponents/SkillComponents.style';
+import { getProjectwithId } from '../redux/structure/actions';
 import {
   EnvironnementCard,
   EnvironnementCardHeader,
@@ -16,11 +15,11 @@ import {
   ProjectDescriptionDiv,
   ProjectSectionTitle,
   TaskCard,
-} from './Project.style';
+} from '../styles/Project.style';
+import { blockContentToJsx, styles, texte } from '../tools/utils';
 
 const Project: FC<any> = (): JSX.Element => {
   const { id }: any = useParams();
-  const isMobile = useSelector((state: any) => state.isMobile.isMobile);
   const dispatch = useDispatch();
   const projectIdStore = useSelector((state: any) => state.projectId);
   const lang_store = useSelector((state: any) => state.lang);
@@ -28,12 +27,9 @@ const Project: FC<any> = (): JSX.Element => {
   const { lang } = lang_store;
 
   useEffect(() => {
-    dispatch(getProjectswithId(id));
+    dispatch(getProjectwithId(id));
   }, [dispatch, id]);
 
-  useEffect(() => {
-    console.log('projectId', projectId, id);
-  }, [projectId, id]);
   return (
     <>
       {loading ? (

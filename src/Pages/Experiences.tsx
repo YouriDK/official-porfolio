@@ -4,9 +4,8 @@ import { VerticalTimeline } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import ExperienceCard from '../components/ExperienceCard/ExperienceCard';
 import LoadingBox from '../components/LoadingBox';
-import XpCard from '../components/XpCard';
-import { getXp } from '../redux/structure/actions';
-import { IExperience } from '../tools/model';
+import { getExperiences } from '../redux/structure/actions';
+import { IExperience } from '../Types/Interfaces';
 import { texte, styles } from '../tools/utils';
 
 export const Experiences: FC<any> = (props: any): JSX.Element => {
@@ -17,7 +16,7 @@ export const Experiences: FC<any> = (props: any): JSX.Element => {
   const { lang } = lang_store;
 
   useEffect(() => {
-    dispatch(getXp);
+    dispatch(getExperiences);
   }, [dispatch]);
 
   return (

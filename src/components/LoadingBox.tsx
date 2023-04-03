@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { ClimbingBoxLoader, HashLoader } from 'react-spinners';
 import { CSS } from '../Types/Spinners';
-
+// ! File to delete
 interface LoadingBoxProps {
   Icon?: boolean;
   color?: string;

@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button } from 'reactstrap';
-import { IExperience, IFormations } from '../tools/model';
+import { IExperience, IFormation } from '../Types/Interfaces';
 import { getMonth, getYear, texte } from '../tools/utils';
 import '../scss/Card.scss';
+// ! File to delete
 export interface CardProps {
   xp?: IExperience;
-  formation?: IFormations;
+  formation?: IFormation;
   index?: number;
   lang: string;
 }

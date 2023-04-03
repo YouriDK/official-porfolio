@@ -1,12 +1,12 @@
 import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { getFormationsWithId } from '../redux/structure/actions';
+import { getFormationWithId } from '../redux/structure/actions';
 import { getYear, texte } from '../tools/utils';
 import '../scss/Formation.scss';
 import { Container, Row, Col } from 'reactstrap';
 import LoadingBox from '../components/LoadingBox';
-
+// TODO File to update
 export const Formation: FC<any> = (): JSX.Element => {
   const isMobile = useSelector((state: any) => state.isMobile.isMobile);
   const { id }: any = useParams();
@@ -17,7 +17,7 @@ export const Formation: FC<any> = (): JSX.Element => {
   const { lang } = lang_store;
 
   useEffect(() => {
-    dispatch(getFormationsWithId(id));
+    dispatch(getFormationWithId(id));
   }, [dispatch, id]);
   return (
     <>

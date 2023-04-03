@@ -22,3 +22,15 @@ export const ImageWork = styled.img`
     max-height: 40px;
   }
 `;
+
+export const SectionSettings = {
+  grid: true,
+};
+export const SectionSettings2 = {
+  row: true,
+  nopadding: true,
+};
+export const SectionTitleSettings = {
+  main: true,
+  center: true,
+};

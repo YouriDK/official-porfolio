@@ -1,29 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
-
-import {
-  Section,
-  SectionText,
-  SectionTitle,
-} from '../../styles/GlobalComponents.style';
+import { useSelector } from 'react-redux';
+import { Section } from '../../styles/GlobalComponents.style';
 import {
   CarouselButton,
   CarouselButtonDot,
   CarouselButtons,
-  CarouselItem,
   CarouselContainer,
+  CarouselItem,
   CarouselItemImg,
   CarouselItemText,
   CarouselItemTitle,
   CarouselMobileScrollNode,
 } from './Timeline.style';
-import { useSelector } from 'react-redux';
-// const TimeLineData = [
-//   { year: 2017, text: 'Started my journey' },
-//   { year: 2018, text: 'Worked as a freelance developer' },
-//   { year: 2019, text: 'Founded JavaScript Mastery' },
-//   { year: 2020, text: 'Shared my projects with the world' },
-//   { year: 2021, text: 'Started my own platform' },
-// ];
 
 const Timeline = ({ TimeLineData }: any) => {
   const TOTAL_CAROUSEL_COUNT = TimeLineData.length;

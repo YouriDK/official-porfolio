@@ -2,15 +2,16 @@ import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import '../scss/Card.scss';
-import { IFormations } from '../tools/model';
+import { IFormation } from '../Types/Interfaces';
 import { getYear, texte } from '../tools/utils';
 import { IoMdStarOutline } from 'react-icons/io';
 import { useSelector } from 'react-redux';
 export interface FormationCardProps {
-  formation: IFormations;
+  formation: IFormation;
   lang: string;
   index: number;
 }
+// ! File to delete
 const FormationCard: FC<any> = ({
   formation,
   lang,

@@ -14,11 +14,36 @@ export interface IExperience {
   description_en: string;
   task_fr: string[];
   task_en: string[];
-  link?: string;
+  environnement: string[];
+  image: string;
+}
+
+export interface IAuthor {
+  name: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  AuthorImage: string;
+  bio_fr: string;
+  bio_en: string;
+}
+export interface IProject {
+  _id: string;
+  order: number;
+  name_fr: string;
+  name_en: string;
+  date: Date;
+  domaine_fr: string;
+  domaine_en: string;
+  link: string;
+  description_fr: string;
+  description_en: string;
+  task_fr: string[];
+  task_en: string[];
   environnement: string[];
 }
 
-export interface IFormations {
+export interface IFormation {
   _id: string;
   order: number;
   title_fr: string;
@@ -43,7 +68,7 @@ export interface ISkill {
   type: string;
   level: string;
   logo?: string;
-  domaine?: string;
+  domaine: string;
 }
 
 export interface INavBarDataProps {

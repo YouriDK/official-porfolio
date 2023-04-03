@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Col, Container, Row } from 'reactstrap';
 import LoadingBox from '../components/LoadingBox';
-import { getXpWithId } from '../redux/structure/actions';
+import { getExperienceWithId } from '../redux/structure/actions';
 import { blockContentToJsx, getMonth, getYear, texte } from '../tools/utils';
-
+// ! File to update ( like projects )
 export const Experience: FC<any> = (): JSX.Element => {
   const { id }: any = useParams();
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ export const Experience: FC<any> = (): JSX.Element => {
   const { lang } = lang_store;
 
   useEffect(() => {
-    dispatch(getXpWithId(id));
+    dispatch(getExperienceWithId(id));
   }, [dispatch, id]);
   return (
     <>

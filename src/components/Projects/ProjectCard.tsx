@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import {
   BlogCard,
   CardInfo,
@@ -19,7 +18,6 @@ const ProjectCard: FC<any> = ({ project }: any): JSX.Element => {
   const { lang } = lang_store;
   return (
     <BlogCard>
-      {/* {<Img src={urlFor(project.image).width(100).height(100).url()} />} */}
       <TitleContent>
         <HeaderThree title>
           {lang === 'FR' ? project.name_fr : project.name_en}

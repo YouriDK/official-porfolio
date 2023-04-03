@@ -1,39 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-// import NAVBAR from './components/NavBar';
 import { About } from './Pages/About';
 import { Experience } from './Pages/Experience';
 import { Experiences } from './Pages/Experiences';
-import { Formation } from './Pages/Formation';
 import { Formations } from './Pages/Formations';
 import { Home } from './Pages/Home';
 import Project from './Pages/Project';
 import Projects from './Pages/Projects';
 // import './scss/Global.scss';
 // import './scss/Link.scss';
-import { useDispatch } from 'react-redux';
-import NavBarMobile from './components/NavBarMobile';
+import { Layout } from './Layout/Layout';
+import { Formation } from './Pages/Formation';
 import Skills from './Pages/Skills';
-import { setMobileView } from './redux/structure/actions';
 import Header from './components/Header/Header';
 import Theme from './themes/Theme';
-import { Layout } from './Layout/Layout';
 
 function App() {
   const [, setGLang] = useState('FR');
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 769);
-    dispatch(setMobileView(window.innerWidth < 769));
-  }, [dispatch]);
 
   return (
     <Theme>
       <Layout>
         <BrowserRouter>
           <Header onChangeLang={setGLang} />
-
           <Switch>
             <Route component={Home} path='/' exact />
             <Route component={About} path='/About' />
@@ -42,7 +31,7 @@ function App() {
             <Route component={Experiences} path='/experiences' />
             <Route component={Project} path='/projects/:id' />
             <Route component={Projects} path='/projects' />
-            {/* <Route component={Formation} path='/formations/:id' /> */}
+            <Route component={Formation} path='/formations/:id' />
             <Route component={Formations} path='/formations/' />
           </Switch>
         </BrowserRouter>

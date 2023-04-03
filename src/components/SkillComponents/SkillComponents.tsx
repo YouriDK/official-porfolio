@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { urlFor } from '../../tools/utils';
-import { SkillCard, SkillLogo, SkillText } from './SkillDisplay.style';
+import { SkillCard, SkillLogo, SkillText } from './SkillComponents.style';
 
 const SkillDisplay: FC<any> = ({ skill }: any): JSX.Element => {
   return (

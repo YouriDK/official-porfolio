@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import LoadingBox from '../components/LoadingBox';
 import XpCard from '../components/XpCard';
 
-import { getProjects, getXp } from '../redux/structure/actions';
-import { IExperience } from '../tools/model';
+import { getProjects, getExperiences } from '../redux/structure/actions';
+import { IExperience } from '../Types/Interfaces';
 import { styles, texte } from '../tools/utils';
-import { SkillTitleH2 } from '../components/Ball/SkillDisplay.style';
+import { SkillTitleH2 } from '../components/SkillComponents/SkillComponents.style';
 import ProjectCard from '../components/Projects/ProjectCard';
 import { GridContainer } from '../components/Projects/ProjectCard.style';
 
@@ -21,9 +21,6 @@ const Projects: FC<any> = (): JSX.Element => {
   useEffect(() => {
     dispatch(getProjects);
   }, [dispatch]);
-  useEffect(() => {
-    console.log('projects', projects);
-  }, [projects]);
 
   return (
     <>

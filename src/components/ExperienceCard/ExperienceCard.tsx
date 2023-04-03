@@ -1,7 +1,7 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { VerticalTimelineElement } from 'react-vertical-timeline-component';
-import { ImageWork } from '../../Pages/home.style';
+import { ImageWork } from '../../styles/Home.style';
 import { urlFor } from '../../tools/utils';
 import {
   EntrepriseImageContainer,
@@ -16,14 +16,9 @@ const ExperienceCard: FC<any> = ({ experience }: any): JSX.Element => {
   const { lang } = lang_store;
 
   const formatDate = (date: string) => {
-    console.log('formatDate');
     const splitDate = date.split('-');
     return `${splitDate[1]}/${splitDate[0]}`;
   };
-
-  useEffect(() => {
-    console.log('first', lang);
-  }, [lang]);
 
   return (
     <VerticalTimelineElement

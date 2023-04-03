@@ -5,7 +5,7 @@ interface TextProps {
   text: string;
   title?: boolean;
 }
-
+// ! File to delete
 export const Display_text: FC<TextProps> = ({
   text,
   title,

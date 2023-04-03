@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Row } from 'reactstrap';
 import '../scss/CircleProgress.scss';
-import { ISkill } from '../tools/model';
+import { ISkill } from '../Types/Interfaces';
 
 interface CircleProgressProps {
   skill: ISkill;
