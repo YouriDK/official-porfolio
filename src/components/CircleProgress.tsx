@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Row } from 'reactstrap';
 import '../scss/CircleProgress.scss';
 import { ISkill } from '../Types/Interfaces';
-
+// !  File to delete
 interface CircleProgressProps {
   skill: ISkill;
 }

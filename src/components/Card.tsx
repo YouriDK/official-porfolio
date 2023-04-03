@@ -107,11 +107,6 @@ export const Card: FC<CardProps> = ({
           <li>
             <span>{xp.entreprise}</span>
           </li>
-          {xp?.link && (
-            <a href={xp.link}>
-              {lang === 'FR' ? 'Visitez ici !' : 'Visit web site here !'}
-            </a>
-          )}
         </ul>
       </div>
       <div></div>
