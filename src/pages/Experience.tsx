@@ -1,15 +1,25 @@
 import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { Col, Container, Row } from 'reactstrap';
-import LoadingBox from '../components/LoadingBox';
+import { Hr } from '../components/projects/ProjectCard.style';
+import { SkillTitleH2 } from '../components/skillComponents/SkillComponents.style';
 import { getExperienceWithId } from '../redux/structure/actions';
-import { blockContentToJsx, getMonth, getYear, texte } from '../tools/utils';
+import {
+  EnvironnementCard,
+  EnvironnementCardHeader,
+  EnvironnementCardTitleContent,
+  EnvironnementPoints,
+  EnvironnementPointsArray,
+  ProjectContainer,
+  ProjectDescriptionDiv,
+  ProjectSectionTitle,
+  TaskCard,
+} from '../styles/Project.style';
+import { blockContentToJsx, formatDate, styles, texte } from '../tools/utils';
 // ! File to update ( like projects )
 export const Experience: FC<any> = (): JSX.Element => {
   const { id }: any = useParams();
   const dispatch = useDispatch();
-  const isMobile = useSelector((state: any) => state.isMobile.isMobile);
   const xp_id_store = useSelector((state: any) => state.xp_id);
   const lang_store = useSelector((state: any) => state.lang);
   const { loading, xp_id, error } = xp_id_store;
@@ -18,164 +28,85 @@ export const Experience: FC<any> = (): JSX.Element => {
   useEffect(() => {
     dispatch(getExperienceWithId(id));
   }, [dispatch, id]);
+  useEffect(() => {
+    console.log('xp_id', xp_id);
+  }, [xp_id]);
   return (
     <>
-      {loading ? (
-        <LoadingBox Icon color='#4c956c' size={150} />
-      ) : error ? (
+      {!loading && (
         <>
-          <LoadingBox Icon color='#4c956c' size={150} />
-          <span>{error}</span>{' '}
-        </>
-      ) : (
-        <Container>
-          <Row>
-            <Col
-              className='title purple '
-              style={{ fontSize: isMobile ? '1.5rem' : '3.5rem' }}
-            >
-              {lang === 'FR' ? xp_id.name_fr : xp_id.name_en}
-            </Col>
-          </Row>
-          <Row
-            style={{
-              display: 'flex',
-            }}
-          >
-            <Col
-              xs='6'
-              style={{
-                display: 'flex',
-                margin: '2%',
-                flexDirection: isMobile ? 'column' : 'row',
+          <ProjectSectionTitle>
+            {lang === 'FR' ? xp_id.name_fr : xp_id.name_en}
+          </ProjectSectionTitle>
+          <SkillTitleH2 className={`${styles.sectionSubText} text-center`}>
+            {xp_id.entreprise}
+          </SkillTitleH2>
+          <ProjectDescriptionDiv>
+            De {formatDate(xp_id.from, lang)} à {formatDate(xp_id.to, lang)}
+          </ProjectDescriptionDiv>
+          <ProjectContainer>
+            <EnvironnementCard>
+              <EnvironnementCardTitleContent>
+                <EnvironnementCardHeader title>
+                  {lang === 'FR' ? texte.xp.env.fr : texte.xp.env.en}
+                </EnvironnementCardHeader>
+                <Hr />
+                <EnvironnementPointsArray>
+                  {xp_id.environnement &&
+                    xp_id.environnement.map((point: any, index: any) => (
+                      <EnvironnementPoints key={`experience-point-${index}`}>
+                        {point}
+                      </EnvironnementPoints>
+                    ))}
+                </EnvironnementPointsArray>
+              </EnvironnementCardTitleContent>
+            </EnvironnementCard>
+            <TaskCard>
+              <EnvironnementCardTitleContent>
+                <EnvironnementCardHeader title>
+                  {lang === 'FR' ? texte.xp.task.fr : texte.xp.task.en}
+                </EnvironnementCardHeader>
+                <Hr />
+                <EnvironnementPointsArray>
+                  {lang === 'FR' &&
+                    xp_id.task_fr &&
+                    xp_id.task_fr.map((point: any, index: any) => (
+                      <EnvironnementPoints key={`experience-point-${index}`}>
+                        {point}
+                      </EnvironnementPoints>
+                    ))}
+                  {lang !== 'FR' &&
+                    xp_id.task_en &&
+                    xp_id.task_en.map((point: any, index: any) => (
+                      <EnvironnementPoints key={`experience-point-${index}`}>
+                        {point}
+                      </EnvironnementPoints>
+                    ))}
+                </EnvironnementPointsArray>
+              </EnvironnementCardTitleContent>
+            </TaskCard>
+          </ProjectContainer>
+          {lang === 'FR' ? (
+            <>
+              <ProjectDescriptionDiv
+                dangerouslySetInnerHTML={{
+                  __html: blockContentToJsx(xp_id.description_fr),
+                }}
+              />
+              <ProjectDescriptionDiv>
+                {lang === 'FR'
+                  ? `Projets : ${xp_id.project_fr}`
+                  : `Projects : ${xp_id.project_fr}`}
+              </ProjectDescriptionDiv>
+            </>
+          ) : (
+            <ProjectDescriptionDiv
+              dangerouslySetInnerHTML={{
+                __html: blockContentToJsx(xp_id.description_en),
               }}
-            >
-              {lang === 'FR' ? (
-                <>
-                  <div
-                    className=' column border secondary'
-                    style={{
-                      maxWidth: isMobile ? '100%' : '20%',
-                      padding: '10px 2%',
-                      marginRight: isMobile ? '15px' : '10px',
-                      marginLeft: isMobile ? '15px' : '30px',
-                      color: 'black',
-                      marginTop: isMobile ? '20px' : '',
-                      marginBottom: isMobile ? '15px' : '',
-                    }}
-                  >
-                    <span className='center-text bottom-space'>
-                      {xp_id.entreprise}
-                    </span>
-                    <span className='center-text bottom-space'>
-                      {xp_id.domaine_fr}
-                    </span>
-
-                    <span className='center-text bottom-space'>
-                      {xp_id.project_fr}
-                    </span>
-                    {xp_id.link && <a href={xp_id.link}>{xp_id.link}</a>}
-                    <span className='center-text bottom-space'>
-                      De {getMonth(xp_id.from, true, lang)}{' '}
-                      {getYear(xp_id.from)} à {getMonth(xp_id.to, true, lang)}{' '}
-                      {getYear(xp_id.to)}
-                    </span>
-                  </div>
-
-                  <div
-                    className='border secondary secondary'
-                    style={{
-                      flex: 1,
-                      maxWidth: '100%',
-                      textAlign: isMobile ? 'center' : 'justify',
-                      padding: '2%',
-                      marginRight: isMobile ? '15px' : '30px',
-                      marginLeft: isMobile ? '15px' : '',
-                      paddingTop: '15px',
-                      paddingBottom: '15px',
-                      color: 'black',
-                    }}
-                    dangerouslySetInnerHTML={{
-                      __html: blockContentToJsx(xp_id.description_fr),
-                    }}
-                  />
-                </>
-              ) : (
-                <>
-                  <div
-                    className='column border secondary'
-                    style={{
-                      maxWidth: '20%',
-                      padding: '10px 2%',
-                      marginRight: '10px',
-                      color: 'black',
-                    }}
-                  >
-                    <span className='center-text bottom-space'>
-                      {xp_id.entreprise}
-                    </span>
-                    <span className='center-text bottom-space'>
-                      {xp_id.domaine_en}
-                    </span>
-                    <span className='center-text bottom-space'>
-                      {xp_id.project_en}
-                    </span>
-                    {xp_id.link && <a href={xp_id.link}>{xp_id.link}</a>}
-                    <span className='center-text bottom-space'>
-                      From {getMonth(xp_id.from, true, lang)}{' '}
-                      {getYear(xp_id.from)} to {getMonth(xp_id.to, true, lang)}{' '}
-                      {getYear(xp_id.to)}
-                    </span>
-                  </div>
-
-                  <div
-                    className='border secondary'
-                    style={{
-                      flex: 1,
-                      maxWidth: '80%',
-                      textAlign: 'justify',
-                      padding: '2%',
-                      marginRight: '30px',
-                      paddingTop: '15px',
-                      paddingBottom: '15px',
-                      color: 'black',
-                    }}
-                    dangerouslySetInnerHTML={{
-                      __html: blockContentToJsx(xp_id.description_en),
-                    }}
-                  />
-                </>
-              )}
-            </Col>
-          </Row>
-          <Row
-            className='border center-text secondary'
-            style={{
-              display: isMobile ? '' : 'flex',
-              justifyContent: 'space-around',
-              margin: '10px 30px',
-              paddingTop: '15px',
-              paddingBottom: '15px',
-              color: 'black',
-            }}
-          >
-            <Col className='column'>
-              <h2>{lang === 'FR' ? texte.xp.env.fr : texte.xp.env.en}</h2>
-
-              {xp_id.environnement &&
-                xp_id.environnement.map((en: string) => (
-                  <span style={{ marginTop: '1px' }}>{en}</span>
-                ))}
-            </Col>
-            <Col className='column'>
-              <h2> {lang === 'FR' ? texte.xp.task.fr : texte.xp.task.en}</h2>
-
-              {xp_id.task_fr && lang === 'FR'
-                ? xp_id.task_fr.map((task: string) => <span>{task}</span>)
-                : xp_id.task_en.map((task: string) => <span>{task}</span>)}
-            </Col>
-          </Row>
-        </Container>
+            />
+          )}
+        </>
       )}
     </>
   );

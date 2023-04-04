@@ -65,7 +65,7 @@ Revoir couleurs : clair sur clair ...
  *     Remanier la page de chargement
  *     Prévoir une page plus d'info pour les études
  *     Dans Experience  : Enlever le champ du lien de projet
- *     Dans Skills : Levels  & Type
+ *     Dans Skills : Levels  & Type ( pas sur que ce soit utile)
  *     Prévoir un affichage pour toute les infos des études
  *     Supprimer tous les fichiers SCCS sauf ptet index.css  ET ENCORE
  *     Enlever tous les éléménts react-strap pour enlever reactstrap

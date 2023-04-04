@@ -14,6 +14,12 @@ export const CSS = `margin : auto`;
 export const urlFor = (source: any) => {
   return builder.image(source);
 };
+export const formatDate = (date: string, lang: string) => {
+  const splitDate = new Date(date);
+  if (splitDate.getFullYear() > 2022)
+    return lang === 'FR' ? `aujourd'hui` : `today`;
+  return `${splitDate.getMonth() + 1}/${splitDate.getFullYear()}`;
+};
 
 export const getYear = (date: Date) => {
   return new Date(date).getFullYear();

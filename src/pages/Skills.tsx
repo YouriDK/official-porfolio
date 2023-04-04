@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ISkill } from '../Types/Interfaces';
 import SkillDisplay from '../components/skillComponents/SkillComponents';
 import {
+  SkillContainer,
   SkillContrainer,
   SkillTitleH2,
   SkillTitleP,
@@ -22,12 +23,7 @@ const Skills: FC<any> = (): JSX.Element => {
   }, [dispatch]);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-    >
+    <SkillContainer>
       <>
         <SkillTitleP className={`${styles.sectionSubText} text-center`}>
           {lang === 'FR' ? texte.skills.title.fr : texte.skills.title.en}
@@ -75,7 +71,7 @@ const Skills: FC<any> = (): JSX.Element => {
             <SkillDisplay skill={skill} key={index} />
           ))}
       </SkillContrainer>
-    </div>
+    </SkillContainer>
   );
 };
 

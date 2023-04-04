@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { VerticalTimelineElement } from 'react-vertical-timeline-component';
 import { ImageWork } from '../../styles/Home.style';
 import { urlFor } from '../../tools/utils';
@@ -14,7 +15,7 @@ import {
 const ExperienceCard: FC<any> = ({ experience }: any): JSX.Element => {
   const lang_store = useSelector((state: any) => state.lang);
   const { lang } = lang_store;
-
+  const history = useHistory();
   const formatDate = (date: string) => {
     const splitDate = date.split('-');
     return `${splitDate[1]}/${splitDate[0]}`;
@@ -25,7 +26,11 @@ const ExperienceCard: FC<any> = ({ experience }: any): JSX.Element => {
       contentStyle={{
         background: '#1d1836',
         color: '#fff',
+        cursor: 'pointer',
       }}
+      onTimelineElementClick={() =>
+        history.push(`/experiences/${experience._id}`)
+      }
       contentArrowStyle={{ borderRight: '7px solid  #232631' }}
       date={`${formatDate(experience.from)} - ${formatDate(experience.to)}`}
       iconStyle={{ background: '#000000' }}

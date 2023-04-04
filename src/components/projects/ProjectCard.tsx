@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import {
   BlogCard,
   CardInfo,
@@ -16,6 +16,7 @@ import { useSelector } from 'react-redux';
 const ProjectCard: FC<any> = ({ project }: any): JSX.Element => {
   const lang_store = useSelector((state: any) => state.lang);
   const { lang } = lang_store;
+
   return (
     <BlogCard>
       <TitleContent>
@@ -24,7 +25,11 @@ const ProjectCard: FC<any> = ({ project }: any): JSX.Element => {
         </HeaderThree>
         <Hr />
         <TitleContent>
-          {lang === 'FR' ? project.domaine_fr : project.domaine_en}
+          {project.entreprise
+            ? project.entreprise
+            : lang === 'FR'
+            ? project.domaine_fr
+            : project.domaine_en}
         </TitleContent>
         <Hr />
       </TitleContent>

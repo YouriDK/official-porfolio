@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { Section } from '../../styles/GlobalComponents.style';
 import {
   CarouselButton,
@@ -17,6 +18,7 @@ const Timeline = ({ TimeLineData }: any) => {
   const TOTAL_CAROUSEL_COUNT = TimeLineData.length;
   const [activeItem, setActiveItem] = useState(0);
   const carouselRef = useRef();
+  const history = useHistory();
   const lang_store = useSelector((state: any) => state.lang);
   const { lang } = lang_store;
   const scroll = (node: any, left: any) => {
@@ -60,12 +62,14 @@ const Timeline = ({ TimeLineData }: any) => {
   }, []);
 
   return (
-    <Section id='about'>
+    <Section id='about' formationHover>
       <CarouselContainer ref={carouselRef} onScroll={handleScroll}>
         <>
           {TimeLineData.map((item: any, index: number) => (
             <CarouselMobileScrollNode
               key={index}
+              style={{ cursor: 'pointer' }}
+              onClick={() => history.push(`/formations/${item._id}`)}
               final={index === TOTAL_CAROUSEL_COUNT - 1}
             >
               <CarouselItem

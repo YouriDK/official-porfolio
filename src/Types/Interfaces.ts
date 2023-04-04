@@ -41,6 +41,7 @@ export interface IProject {
   task_fr: string[];
   task_en: string[];
   environnement: string[];
+  entreprise: string;
 }
 
 export interface IFormation {

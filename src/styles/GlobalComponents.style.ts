@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Section = styled.section<{ grid?: any }>`
+export const Section = styled.section<{ grid?: any; formationHover?: any }>`
   display: ${(props: any) => (props.grid ? 'grid' : 'flex')};
   flex-direction: ${(props: any) => (props.row ? 'row' : 'column')};
   padding: ${(props: any) => (props.nopadding ? '0' : '32px 48px 0')};

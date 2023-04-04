@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { About } from './pages/About';
 import { Experience } from './pages/Experience';
 import { Experiences } from './pages/Experiences';
 import { Formations } from './pages/Formations';
@@ -25,7 +24,6 @@ function App() {
           <Header onChangeLang={setGLang} />
           <Switch>
             <Route component={Home} path='/' exact />
-            <Route component={About} path='/About' />
             <Route component={Skills} path='/skills' />
             <Route component={Experience} path='/experiences/:id' />
             <Route component={Experiences} path='/experiences' />

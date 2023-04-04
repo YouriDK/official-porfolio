@@ -8,6 +8,7 @@ export const SkillLogo = styled.img`
 
 export const SkillCard = styled.div`
   margin-left: 20px;
+  margin-top: 10px;
   width: 130px;
   height: 130px;
   border-radius: 50%;
@@ -44,4 +45,8 @@ export const SkillTitleP = styled.p`
     justify-content: center;
     margin-top: 25px;
   }
+`;
+export const SkillContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

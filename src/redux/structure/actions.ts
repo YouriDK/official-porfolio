@@ -124,6 +124,7 @@ export const getProjectwithId =
           intro_fr,
           date,
           domaine_fr,
+          entreprise,
           domaine_en,
           link,
           description_fr,
@@ -159,6 +160,7 @@ export const getProjects = async (dispatch: any) => {
           description_en,
           task_fr,
           task_en,
+          entreprise,
           environnement,
           "image":image.asset->url
         }`

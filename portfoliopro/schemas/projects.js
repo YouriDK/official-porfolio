@@ -67,6 +67,11 @@ export default {
       type: 'url',
     },
     {
+      title: 'Entreprise',
+      name: 'entreprise',
+      type: 'string',
+    },
+    {
       title: 'Description (FR)',
       name: 'description_fr',
       type: 'blockContent',
