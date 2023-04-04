@@ -6,8 +6,7 @@ import { Formations } from './pages/Formations';
 import { Home } from './pages/Home';
 import Project from './pages/Project';
 import Projects from './pages/Projects';
-// import './scss/Global.scss';
-// import './scss/Link.scss';
+
 import { Layout } from './layout/Layout';
 import { Formation } from './pages/Formation';
 import Skills from './pages/Skills';

@@ -18,7 +18,6 @@ import {
   GET_XP_ID_REQUEST,
   GET_XP_ID_SUCCESS,
   GET_XP_ID_FAILED,
-  IS_MOBILE,
   GET_PROJECTS_FAILED,
   GET_PROJECTS_REQUEST,
   GET_PROJECTS_SUCCESS,
@@ -29,7 +28,6 @@ import {
 
 const INITIAL_STATE = {
   lang: 'FR',
-  isMobile: false,
   author: {},
   loading: true,
   error: null,
@@ -47,18 +45,6 @@ export const langReducer = (state: any = INITIAL_STATE, action: any) => {
       return {
         ...state,
         lang: action.payload,
-      };
-
-    default:
-      return state;
-  }
-};
-export const isMobileReducer = (state: any = INITIAL_STATE, action: any) => {
-  switch (action.type) {
-    case IS_MOBILE:
-      return {
-        ...state,
-        isMobile: action.payload,
       };
 
     default:

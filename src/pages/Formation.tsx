@@ -4,7 +4,6 @@ import { useParams } from 'react-router';
 import { Hr } from '../components/projects/ProjectCard.style';
 import { SkillTitleH2 } from '../components/skillComponents/SkillComponents.style';
 import { getFormationWithId } from '../redux/structure/actions';
-import '../scss/Formation.scss';
 import {
   EnvironnementCard,
   EnvironnementCardHeader,

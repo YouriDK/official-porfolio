@@ -16,7 +16,7 @@ import {
   TaskCard,
 } from '../styles/Project.style';
 import { blockContentToJsx, formatDate, styles, texte } from '../tools/utils';
-// ! File to update ( like projects )
+
 export const Experience: FC<any> = (): JSX.Element => {
   const { id }: any = useParams();
   const dispatch = useDispatch();

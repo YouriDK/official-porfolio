@@ -1,4 +1,6 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
+import { useSelector } from 'react-redux';
+import { texte } from '../../tools/utils';
 import {
   BlogCard,
   CardInfo,
@@ -10,8 +12,6 @@ import {
   TitleContent,
   UtilityList,
 } from './ProjectCard.style';
-import { texte } from '../../tools/utils';
-import { useSelector } from 'react-redux';
 
 const ProjectCard: FC<any> = ({ project }: any): JSX.Element => {
   const lang_store = useSelector((state: any) => state.lang);
