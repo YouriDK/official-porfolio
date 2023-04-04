@@ -22,7 +22,7 @@ export const Experience: FC<any> = (): JSX.Element => {
   const dispatch = useDispatch();
   const xp_id_store = useSelector((state: any) => state.xp_id);
   const lang_store = useSelector((state: any) => state.lang);
-  const { loading, xp_id, error } = xp_id_store;
+  const { loading, xp_id } = xp_id_store;
   const { lang } = lang_store;
 
   useEffect(() => {

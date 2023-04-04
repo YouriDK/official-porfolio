@@ -11,7 +11,7 @@ export const Experiences: FC<any> = (props: any): JSX.Element => {
   const dispatch = useDispatch();
   const xp_store = useSelector((state: any) => state.xp);
   const lang_store = useSelector((state: any) => state.lang);
-  const { loading, xp, error } = xp_store;
+  const { loading, xp } = xp_store;
   const { lang } = lang_store;
 
   useEffect(() => {
