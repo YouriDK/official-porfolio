@@ -1,6 +1,7 @@
 import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BackgroundAnimation } from '../components/BgAnimation';
+import { AppDispatch } from '../redux/store';
 import { getAuthor } from '../redux/structure/actions';
 import {
   LeftSection,
@@ -15,8 +16,6 @@ import {
   SectionTitleSettings,
 } from '../styles/Home.style';
 import { texte, urlFor } from '../tools/utils';
-import { AppDispatch } from '../redux/store';
-import { useClient } from 'sanity';
 
 export const Home: FC<any> = (): JSX.Element => {
   const dispatch: AppDispatch = useDispatch();
@@ -28,25 +27,7 @@ export const Home: FC<any> = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getAuthor);
-    console.log('author_store', author_store);
   }, [dispatch]);
-
-  // useEffect(() => {
-  //   console.log('LOL');
-  //   const data = client.fetch(
-  //     `*[_type == "author"]{
-  //     name,
-  //     first_name,
-  //     last_name,
-  //     email,
-  //     slug,
-  //     bio_fr,
-  //     bio_en,
-  //     "authorImage":image.asset->url
-  // }`
-  //   );
-  //   console.log('DATA', data);
-  // }, []);
 
   return (
     <>
