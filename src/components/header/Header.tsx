@@ -15,6 +15,7 @@ import { AiFillLinkedin, AiFillMail } from 'react-icons/ai';
 import { setLang } from '../../redux/structure/actions';
 import { INavBarDataProps } from '../../Types/Interfaces';
 import { Navbardata } from '../../tools/utils';
+import { AppDispatch } from '../../redux/store';
 // TODO  Change title_FR to FR ( same for title_EN)
 const Header: FC<any> = (): JSX.Element => {
   const dispatch: AppDispatch = useDispatch();

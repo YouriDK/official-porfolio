@@ -15,9 +15,11 @@ import {
   SectionTitleSettings,
 } from '../styles/Home.style';
 import { texte, urlFor } from '../tools/utils';
+import { AppDispatch } from '../redux/store';
+import { useClient } from 'sanity';
 
 export const Home: FC<any> = (): JSX.Element => {
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
 
   const author_store = useSelector((state: any) => state.author);
   const lang_store = useSelector((state: any) => state.lang);
@@ -26,7 +28,25 @@ export const Home: FC<any> = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getAuthor);
+    console.log('author_store', author_store);
   }, [dispatch]);
+
+  // useEffect(() => {
+  //   console.log('LOL');
+  //   const data = client.fetch(
+  //     `*[_type == "author"]{
+  //     name,
+  //     first_name,
+  //     last_name,
+  //     email,
+  //     slug,
+  //     bio_fr,
+  //     bio_en,
+  //     "authorImage":image.asset->url
+  // }`
+  //   );
+  //   console.log('DATA', data);
+  // }, []);
 
   return (
     <>

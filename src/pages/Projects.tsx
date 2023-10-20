@@ -5,9 +5,10 @@ import { GridContainer } from '../components/projects/ProjectCard.style';
 import { SkillTitleH2 } from '../components/skillComponents/SkillComponents.style';
 import { getProjects } from '../redux/structure/actions';
 import { styles, texte } from '../tools/utils';
+import { AppDispatch } from '../redux/store';
 
 const Projects: FC<any> = (): JSX.Element => {
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const project_store = useSelector((state: any) => state.projects);
   const lang_store = useSelector((state: any) => state.lang);
   const { projects } = project_store;

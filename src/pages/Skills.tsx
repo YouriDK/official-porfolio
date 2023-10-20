@@ -10,9 +10,10 @@ import {
 } from '../components/skillComponents/SkillComponents.style';
 import { getSkills } from '../redux/structure/actions';
 import { styles, texte } from '../tools/utils';
+import { AppDispatch } from '../redux/store';
 
 const Skills: FC<any> = (): JSX.Element => {
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const lang_store = useSelector((state: any) => state.lang);
   const skills_store = useSelector((state: any) => state.skills);
   const { skills } = skills_store;

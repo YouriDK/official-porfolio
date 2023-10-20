@@ -16,10 +16,11 @@ import {
   TaskCard,
 } from '../styles/Project.style';
 import { blockContentToJsx, styles, texte } from '../tools/utils';
+import { AppDispatch } from '../redux/store';
 
 const Project: FC<any> = (): JSX.Element => {
   const { id }: any = useParams();
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const projectIdStore = useSelector((state: any) => state.projectId);
   const lang_store = useSelector((state: any) => state.lang);
   const { loading, projectId } = projectIdStore;

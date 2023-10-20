@@ -14,7 +14,6 @@ import {
 
 const rootReducer = combineReducers({
   lang: langReducer,
-
   author: authorReducer,
   formations: formationsReducer,
   formation: formationWithIdReducer,

@@ -16,10 +16,11 @@ import {
   TaskCard,
 } from '../styles/Project.style';
 import { formatDate, styles, texte } from '../tools/utils';
+import { AppDispatch } from '../redux/store';
 
 export const Formation: FC<any> = (): JSX.Element => {
   const { id }: any = useParams();
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const formation_store = useSelector((state: any) => state.formation);
   const lang_store = useSelector((state: any) => state.lang);
   const { loading, formation } = formation_store;

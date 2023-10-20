@@ -1,33 +1,34 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+import sanityClient from '../../client';
 import {
-  SET_LANG,
+  GET_AUTHOR_FAILED,
   GET_AUTHOR_REQUEST,
   GET_AUTHOR_SUCCESS,
-  GET_AUTHOR_FAILED,
+  GET_FORMATIONS_FAILED,
   GET_FORMATIONS_REQUEST,
   GET_FORMATIONS_SUCCESS,
-  GET_FORMATIONS_FAILED,
+  GET_FORMATION_FAILED,
   GET_FORMATION_REQUEST,
   GET_FORMATION_SUCCESS,
-  GET_FORMATION_FAILED,
-  GET_SKILLS_FAILED,
-  GET_SKILLS_SUCCESS,
-  GET_SKILLS_REQUEST,
-  GET_XP_REQUEST,
-  GET_XP_SUCCESS,
-  GET_XP_FAILED,
-  GET_XP_ID_REQUEST,
-  GET_XP_ID_SUCCESS,
-  GET_XP_ID_FAILED,
   GET_PROJECTS_FAILED,
   GET_PROJECTS_REQUEST,
   GET_PROJECTS_SUCCESS,
   GET_PROJECT_FAILED,
   GET_PROJECT_REQUEST,
   GET_PROJECT_SUCCESS,
+  GET_SKILLS_FAILED,
+  GET_SKILLS_REQUEST,
+  GET_SKILLS_SUCCESS,
+  GET_XP_FAILED,
+  GET_XP_ID_FAILED,
+  GET_XP_ID_REQUEST,
+  GET_XP_ID_SUCCESS,
+  GET_XP_REQUEST,
+  GET_XP_SUCCESS,
+  SET_LANG,
 } from './type';
-import sanityClient from '../../client';
-
 export const getAuthor = async (dispatch: any) => {
+  console.log('TRYYY');
   try {
     dispatch({ type: GET_AUTHOR_REQUEST });
     const data = await sanityClient.fetch(
@@ -42,9 +43,11 @@ export const getAuthor = async (dispatch: any) => {
           "authorImage":image.asset->url
       }`
     );
-
+    console.log(sanityClient);
+    console.log(data);
     dispatch({ type: GET_AUTHOR_SUCCESS, payload: data[0] });
   } catch (error: any) {
+    console.log('FAILED', error);
     dispatch({ type: GET_AUTHOR_FAILED, payload: error.message });
   }
 };

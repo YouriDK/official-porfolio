@@ -6,9 +6,10 @@ import { IExperience } from '../Types/Interfaces';
 import ExperienceCard from '../components/experienceCard/ExperienceCard';
 import { getExperiences } from '../redux/structure/actions';
 import { styles, texte } from '../tools/utils';
+import { AppDispatch } from '../redux/store';
 
 export const Experiences: FC<any> = (props: any): JSX.Element => {
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const xp_store = useSelector((state: any) => state.xp);
   const lang_store = useSelector((state: any) => state.lang);
   const { loading, xp } = xp_store;
