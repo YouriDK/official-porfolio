@@ -7,18 +7,23 @@ Protfolio with React & Sanity
 In the project directory, you can run:
 
 ### `npm start`
-###  In the studio folder `sanity start`
+
+### In the studio folder `sanity start`
 
 # Deploy : In the studio folder -> `sanity deploy`
+
 Deployment of the website is on Netlify
+
 # TODO
+
 ```
-- Responsive Menu 
+- Responsive Menu
 - Responsive view ( tablette & phone )
 
 ```
 
 # Evo planned💨
+
 ```
 - Responsive
 - Unit Tests
@@ -26,12 +31,15 @@ Deployment of the website is on Netlify
 - Faire un Icone d'onglet adéquates
 - Classer compétences
 ```
+
 # Issues
-```
+
 ```
 
+```
 
 # ISSUES/EVO resolved ✅
+
 ```
 Regler le soucis de reactstrap qui dit que ses élement ne sont pas JSX:Element
 Réglé grâce à ->   "resolutions": {
@@ -41,20 +49,24 @@ https://github.com/redwoodjs/redwood/issues/5104
 
 ```
 
-# URGENT 
-```
-```
-# En cours / Bug : 
-```
-- Responsive
+# URGENT
+
 ```
 
-# Anomalies 
+```
+
+# En cours / Bug :
+
+```
+- Upgrade Lib
+```
+
+# Anomalies
+
 ```
 Quand on est dans une  formation mode mobile et qu'on clique sur le menu il sort des détails.
 Améliorer menu design : icone toujours en bas ou toujours à côté
 Revoir couleurs : clair sur clair ...
 ```
 
-# TODO  Refonte
-
+# TODO Refonte

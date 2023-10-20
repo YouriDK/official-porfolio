@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Experience } from './pages/Experience';
 import { Experiences } from './pages/Experiences';
 import { Formations } from './pages/Formations';
@@ -21,16 +21,16 @@ function App() {
       <Layout>
         <BrowserRouter>
           <Header onChangeLang={setGLang} />
-          <Switch>
-            <Route component={Home} path='/' exact />
-            <Route component={Skills} path='/skills' />
-            <Route component={Experience} path='/experiences/:id' />
-            <Route component={Experiences} path='/experiences' />
-            <Route component={Project} path='/projects/:id' />
-            <Route component={Projects} path='/projects' />
-            <Route component={Formation} path='/formations/:id' />
-            <Route component={Formations} path='/formations/' />
-          </Switch>
+          <Routes>
+            <Route Component={Home} path='/' />
+            <Route Component={Skills} path='/skills' />
+            <Route Component={Experience} path='/experiences/:id' />
+            <Route Component={Experiences} path='/experiences' />
+            <Route Component={Project} path='/projects/:id' />
+            <Route Component={Projects} path='/projects' />
+            <Route Component={Formation} path='/formations/:id' />
+            <Route Component={Formations} path='/formations/' />
+          </Routes>
         </BrowserRouter>
       </Layout>
     </Theme>

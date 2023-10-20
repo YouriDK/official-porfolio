@@ -17,7 +17,7 @@ import { INavBarDataProps } from '../../Types/Interfaces';
 import { Navbardata } from '../../tools/utils';
 // TODO  Change title_FR to FR ( same for title_EN)
 const Header: FC<any> = (): JSX.Element => {
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const langage = useSelector((state: any) => state.lang);
   const { lang } = langage;
   const [switchLang, setswitchLang] = useState('title_FR');

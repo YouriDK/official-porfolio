@@ -16,10 +16,11 @@ import {
   TaskCard,
 } from '../styles/Project.style';
 import { blockContentToJsx, formatDate, styles, texte } from '../tools/utils';
+import { AppDispatch } from '../redux/store';
 
 export const Experience: FC<any> = (): JSX.Element => {
   const { id }: any = useParams();
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const xp_id_store = useSelector((state: any) => state.xp_id);
   const lang_store = useSelector((state: any) => state.lang);
   const { loading, xp_id } = xp_id_store;
