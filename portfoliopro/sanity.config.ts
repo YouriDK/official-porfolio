@@ -11,9 +11,9 @@ export default defineConfig({
     deskTool({
       structure: (S: StructureBuilder, context: ConfigContext) => {
         const { getClient } = context;
-        console.log('CONL', getClient({ apiVersion: '' }));
+        // ! TO avoid not use Error
+        getClient({ apiVersion: '2024-01-01' });
         // use client to to build the structure, for instance
-
         return S.defaults();
       },
     }),
@@ -21,9 +21,7 @@ export default defineConfig({
   ],
   tools: (prev) => {
     // 👇 Uses environment variables set by Vite in development mode
-
     return prev;
-
     // return prev.filter((tool) => tool.name !== 'vision');
   },
   schema: {

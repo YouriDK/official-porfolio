@@ -6,6 +6,8 @@ Protfolio with React & Sanity
 
 In the project directory, you can run:
 
+### `nvm use 16 ( or 18 or 20 )`
+
 ### `npm start`
 
 ### In the studio folder `sanity start`
@@ -17,19 +19,13 @@ Deployment of the website is on Netlify
 # TODO
 
 ```
-- Responsive Menu
-- Responsive view ( tablette & phone )
-
+-
 ```
 
 # Evo planned💨
 
 ```
-- Responsive
-- Unit Tests
-- Tri des compétences avec filtres ( dans le menu )
-- Faire un Icone d'onglet adéquates
-- Classer compétences
+- Tri des compétences avec filtres ( dans le menu , facultatif )
 ```
 
 # Issues

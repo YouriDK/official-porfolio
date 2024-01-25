@@ -47,11 +47,17 @@ const Header: FC<any> = (): JSX.Element => {
         ))}
       </MiddleSide>
       <RightSide>
-        <SocialIcons href='https://linkedin.com/in/youri-choucoutou-690522142'>
+        <SocialIcons
+          href='https://linkedin.com/in/youri-choucoutou-690522142'
+          target='_blank'
+        >
           {' '}
           <AiFillLinkedin size='3rem' />{' '}
         </SocialIcons>
-        <SocialIcons href='https://mail.google.com/mail/?view=cm&fs=1&to=youri.choucoutou@gmail.com'>
+        <SocialIcons
+          href='https://mail.google.com/mail/?view=cm&fs=1&to=youri.choucoutou@gmail.com'
+          target='_blank'
+        >
           {' '}
           <AiFillMail size='3rem' />{' '}
         </SocialIcons>

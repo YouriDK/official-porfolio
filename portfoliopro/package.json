@@ -1,8 +1,8 @@
 {
   "name": "portfoliopro",
   "private": true,
-  "version": "1.0.0",
-  "description": "This project is portfolio project",
+  "version": "1.2.0",
+  "description": "This project is a portfolio project",
   "main": "package.json",
   "author": "Youri_FOC <youri.choucoutou@gmail.com>",
   "license": "UNLICENSED",
