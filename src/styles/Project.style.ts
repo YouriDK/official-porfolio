@@ -21,6 +21,8 @@ export const ProjectSectionTitle = styled.h2`
     line-height: ${(props: any) => (props.main ? '56px' : '48px')};
     margin-bottom: 12px;
     padding: ${(props: any) => (props.main ? '40px 0 12px' : '0')};
+    width: ${(props: any) => (props.main ? 'max-content' : '100%')};
+    text-align: ${(props: any) => (props.main ? 'unset' : 'center')};
   }
 
   @media ${(props: any) => props.theme.breakpoints.sm} {
@@ -28,6 +30,8 @@ export const ProjectSectionTitle = styled.h2`
     line-height: 40px;
     font-size: ${(props: any) => (props.main ? '28px' : '32px')};
     line-height: ${(props: any) => (props.main ? '32px' : '40px')};
+    width: ${(props: any) => (props.main ? 'max-content' : '100%')};
+    text-align: ${(props: any) => (props.main ? 'unset' : 'center')};
     margin-bottom: 8px;
     padding: ${(props: any) => (props.main ? '16px 0 8px' : '0')};
     max-width: 100%;
@@ -41,8 +45,10 @@ export const EnvironnementCard = styled.div`
   text-align: center;
 
   width: 400px;
-  @media ${(props) => props.theme.breakpoints.sm} {
-    width: 100%;
+  @media ${(props) => props.theme.breakpoints.md} {
+    width: 90%;
+    margin: 3rem;
+    margin-bottom: 2rem;
   }
 `;
 export const TaskCard = styled.div`
@@ -51,8 +57,10 @@ export const TaskCard = styled.div`
   box-shadow: 3px 3px 20px rgba(80, 78, 78, 0.5);
   text-align: center;
   width: 800px;
-  @media ${(props) => props.theme.breakpoints.sm} {
-    width: 100%;
+  @media ${(props) => props.theme.breakpoints.md} {
+    width: 90%;
+    margin: 3rem;
+    margin-bottom: 2rem;
   }
 `;
 export const EnvironnementCardTitleContent = styled.div`
@@ -77,12 +85,13 @@ export const EnvironnementPoints = styled.li`
   font-size: 14px;
   padding-left: 10px;
   letter-spacing: 0.05em;
-  list-style-type: disc;
+  @media ${(props) => props.theme.breakpoints.md} {
+    flex-wrap: wrap;
+  }
 `;
 export const EnvironnementPointsArray = styled.ul`
   margin-top: 3rem;
   margin-left: 3rem;
-  list-style-type: disc;
   margin-top: 0.5rem;
 `;
 export const ProjectContainer = styled.div`
@@ -104,7 +113,7 @@ export const ProjectDescriptionDiv = styled.div`
   font-style: 2rem;
   line-height: 24px;
   text-align: justify;
-  @media ${(props) => props.theme.breakpoints.sm} {
-    padding: 0.3rem;
+  @media ${(props) => props.theme.breakpoints.md} {
+    padding: 3rem;
   }
 `;

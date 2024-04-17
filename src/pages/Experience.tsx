@@ -43,7 +43,7 @@ export const Experience: FC<any> = (): JSX.Element => {
             {xp_id.entreprise}
           </SkillTitleH2>
           <ProjectDescriptionDiv>
-            De {formatDate(xp_id.from, lang)} à {formatDate(xp_id.to, lang)}
+            Du {formatDate(xp_id.from, lang)} à {formatDate(xp_id.to, lang)}
           </ProjectDescriptionDiv>
           <ProjectContainer>
             <EnvironnementCard>

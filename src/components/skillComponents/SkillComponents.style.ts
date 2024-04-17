@@ -37,6 +37,8 @@ export const SkillTitleH2 = styled.h2`
     display: flex;
     justify-content: center;
     margin-top: 25px;
+    width: ${(props: any) => (props.main ? 'max-content' : '100%')};
+    text-align: ${(props: any) => (props.main ? 'unset' : 'center')};
   }
 `;
 export const SkillTitleP = styled.p`

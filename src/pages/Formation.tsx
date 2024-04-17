@@ -43,14 +43,13 @@ export const Formation: FC<any> = (): JSX.Element => {
           <SkillTitleH2 className={`${styles.sectionSubText} text-center`}>
             {lang === 'FR' ? formation.specialite : formation.major}
           </SkillTitleH2>
+          <SkillTitleH2>{formation.place}</SkillTitleH2>
           <SkillTitleH2>
-            {`${formation.place} - ${
-              lang === 'FR' ? formation.school_fr : formation.school_en
-            }`}
+            {lang === 'FR' ? formation.school_fr : formation.school_en}
           </SkillTitleH2>
           <ProjectDescriptionDiv>
             {lang === 'FR'
-              ? ` De ${formatDate(formation.from, lang)} à ${formatDate(
+              ? ` Du ${formatDate(formation.from, lang)} à ${formatDate(
                   formation.to,
                   lang
                 )}`

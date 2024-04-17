@@ -22,7 +22,9 @@ const Timeline = ({ TimeLineData }: any) => {
   const lang_store = useSelector((state: any) => state.lang);
   const { lang } = lang_store;
   const scroll = (node: any, left: any) => {
-    return node.scrollTo({ left, behavior: 'smooth' });
+    if (node) {
+      return node.scrollTo({ left, behavior: 'smooth' });
+    }
   };
 
   const handleClick = (e: any, i: any) => {

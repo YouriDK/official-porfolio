@@ -13,26 +13,81 @@ export const Container = styled.div`
   @media ${(props) => props.theme.breakpoints.sm} {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 60px);
+    grid-template-rows: repeat(1, 60px);
     grid-column-gap: 0.5rem;
     grid-row-gap: 0.5rem;
   }
 `;
 export const LeftSide = styled.div`
-  grid-area: 1 / 1 / 2 / 2;
+  grid-area: 1 / 1 / 1 / 1;
   display: flex;
   flex-direction: row;
   align-content: center;
   @media ${(props) => props.theme.breakpoints.sm} {
-    grid-area: 1 / 1 / 2 / 3;
+    grid-area: 1 / 1 / 1 / 1;
   }
+`;
+export const DropDown = styled.div`
+  position: relative;
+  &:hover .DropDownContentName {
+    display: block;
+  }
+`;
+export const DropDownTrigger = styled.div`
+  cursor: pointer;
+`;
+export const DropDownContent = styled.div`
+  /* Copy this code after the above code */
+  @keyframes menu {
+    0% {
+      animation-timing-function: ease-out;
+      transform: scale(1);
+      transform-origin: center center;
+    }
+
+    10% {
+      animation-timing-function: ease-in;
+      transform: scale(0.91);
+    }
+
+    17% {
+      animation-timing-function: ease-out;
+      transform: scale(0.98);
+    }
+
+    33% {
+      animation-timing-function: ease-in;
+      transform: scale(0.87);
+    }
+
+    45% {
+      animation-timing-function: ease-out;
+      transform: scale(1);
+    }
+  }
+
+  display: none;
+  /* Position it right below the trigger element */
+  left: -100%;
+  padding-top: 0.25rem;
+  position: absolute;
+  padding: 20px;
+  top: 100%;
+
+  animation: menu 1s ease 0s 1 normal both;
+  border-radius: 58px;
+  background: #e0e0e0;
+  box-shadow: -31px 31px 77px #c1c1c1, 31px -31px 77px #ffffff;
+  background: ${(props) => props.theme.colors.background1};
+  z-index: 9999;
 `;
 export const MiddleSide = styled.div`
   grid-area: 1 / 2 / 2 / 4;
   display: flex;
   justify-content: space-around;
   @media ${(props) => props.theme.breakpoints.sm} {
-    grid-area: 2 / 2 / 3 / 5;
+    grid-area: 1 / 1 / 2 / 5;
+    margin: auto;
   }
 `;
 export const RightSide = styled.div`
