@@ -1,28 +1,25 @@
 {
   "name": "portfoliopro",
   "private": true,
-  "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)",
+  "version": "1.2.0",
+  "description": "This project is a portfolio project",
   "main": "package.json",
-  "author": "YouriDK <youri.choucoutou@gmail.com>",
+  "author": "Youri_FOC <youri.choucoutou@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
-    "build": "sanity build"
+    "build": "sanity build",
+    "dev": "sanity dev"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^2.19.4",
-    "@sanity/core": "^2.19.2",
-    "@sanity/default-layout": "^2.19.4",
-    "@sanity/default-login": "^2.19.0",
-    "@sanity/desk-tool": "^2.19.4",
-    "@sanity/vision": "^2.19.0",
-    "prop-types": "^15.7",
-    "react": "^17.0",
-    "react-dom": "^17.0",
+    "@sanity/vision": "^3.18.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sanity": "^3.18.1",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {}

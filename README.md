@@ -1,6 +1,6 @@
 # Portfolio Project
 
-### Stack
+Protfolio with React & Sanity
 
 ```
 > ReactJS
@@ -9,19 +9,12 @@
 
 ```
 
-### Main evolutions througth time
+### `nvm use 16 ( or 18 or 20 )`
 
-```
- > Javascript to Typescript
- > Redisign of the graphic
- > Immplement new data structure
- > Display french & english
- > Implement responsive
- > Update libraries package.json (ex : React 18)
-```
+### `npm start`
 
-### Currently
+### In the studio folder `sanity start`
 
-```
+# Deploy : In the studio folder -> `sanity deploy`
 
-```
+Deployment of the website is on Netlify

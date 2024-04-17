@@ -9,6 +9,21 @@ export default {
       type: 'string',
     },
     {
+      name: 'first_name',
+      title: 'First Name',
+      type: 'string',
+    },
+    {
+      name: 'last_name',
+      title: 'Last name',
+      type: 'string',
+    },
+    {
+      name: 'email',
+      title: 'Email',
+      type: 'string',
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -26,17 +41,14 @@ export default {
       },
     },
     {
-      name: 'bio',
-      title: 'Bio',
-      type: 'array',
-      of: [
-        {
-          title: 'Block',
-          type: 'block',
-          styles: [{title: 'Normal', value: 'normal'}],
-          lists: [],
-        },
-      ],
+      name: 'bio_fr',
+      title: 'Bio (FR)',
+      type: 'text',
+    },
+    {
+      name: 'bio_en',
+      title: 'Bio (EN)',
+      type: 'text',
     },
   ],
   preview: {
@@ -45,4 +57,4 @@ export default {
       media: 'image',
     },
   },
-}
+};
